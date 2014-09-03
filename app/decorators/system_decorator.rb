@@ -9,11 +9,11 @@ class SystemDecorator
   end
 
   def incident_list
-    @system.incidents
+    @system.incidents.order(date: :desc)
   end
 
   def incident_history_list
-    @system.incident_histories
+    @system.incident_histories.order(date: :desc)
   end
 
   def no_recent_incidents?
