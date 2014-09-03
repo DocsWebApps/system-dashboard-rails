@@ -16,4 +16,5 @@
 /tmp
 
 # Ignore password file
-/scripts/set_environment.bash
+setup_local_environment.bash
+setup_heroku_environment.bash
