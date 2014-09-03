@@ -1,0 +1,52 @@
+%div{class: 'row-fluid'}
+  %div{class: 'span12'}
+    %div{class: 'title-section'}
+      %h1 
+        Welcome
+        =get_dashboard_name
+        Dashboard Administrator!
+      %p
+        Please update, close or downgrade any of the incidents below
+- if notice
+  %div{class: 'row-fluid'}
+    %div{class: 'span12 flash-notice'} 
+      =notice
+- elsif alert
+  %div{class: 'row-fluid'}
+    %div{class: 'span12 flash-alert'} 
+      =alert
+%div{class: 'row-fluid'}
+  %div{class: 'span12'}
+    %div{class: 'main-section'}
+      - if @no_open_incidents
+        %p
+          There are no open incidents for any system in the last 24 hours
+      - else     
+        -@systems.each do |system|
+          - if system.incidents.where(status: 'Open').count!=0
+            %h4{class: 'title'}
+              Open incidents for 
+              =system.name
+            %table{class: 'table table-bordered table-condensed td-bg'}
+              %div{class: 'row-fluid'}
+                %tr
+                  %th{class: 'span2'} HP Reference
+                  %th{class: 'span7'} Description
+                  %th{class: 'span2'} Date
+                  %th{class: 'span1'} Time
+                -system.incidents.where(status: 'Open').each do |incident|
+                  %tr
+                    %td
+                      =incident.hp_ref
+                    %td
+                      =incident.description
+                    %td
+                      =incident.date.to_formatted_s(:long)
+                    %td
+                      =incident.time.to_s(:time)
+                    %td
+                      =link_to "Update", edit_admin_incident_path(incident)
+                    %td
+                      =link_to "Close", admin_incident_path(incident)+'?query=close', method: :delete
+                    %td
+                      =link_to "Downgrade", admin_incident_path(incident)+'?query=downgrade', method: :delete

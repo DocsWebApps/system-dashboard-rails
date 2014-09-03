@@ -1,0 +1,7 @@
+%p{id: "form-tellus"}
+  %br
+  Please enter your feedback below and press the submit button.
+=simple_form_for @comment, method: :post  do |f|
+  =f.error_notification 
+  =f.input :comment, label: false
+  =f.button :submit, value: 'Submit Feedback' 

@@ -1,0 +1,41 @@
+#Version 1 API
+# Get the token and session, store the session in a file called cookie. The token is returned so copy this and paste it in the lines below.
+curl -H 'Accept: application/json' -H 'Authorization: Token token=11f673d8a2f47b6f2fb71d309956273e' localhost:3000/api/v1/incidents/new --cookie-jar cookie
+curl -H 'Accept: application/json' -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' gonzo/api/v1/incidents/new --cookie-jar cookie
+
+# Create incident - JSON http post request
+curl -X POST -H 'Authorization: Token token=11f673d8a2f47b6f2fb71d309956273e' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "Billing System", "incident": {"description": "Test", "severity": "P2", "hp_ref": "HP123", "time": "10:00", "date": "01/01/2014", "status": "Open"}, "authenticity_token": "lwyk8BzqvStGDugX377Uh76WJZ/YGRbK61BFHpeKlf8="}' localhost:3000/api/v1/incidents --cookie cookie
+curl -X POST -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "BM", "incident": {"description": "Test", "severity": "P2", "hp_ref": "HP123", "time": "10:00", "date": "01/01/2014", "status": "Open"}, "authenticity_token": "PZaMBI7pAX7C6mUikNKXq+gyKOSmaoJ6UAq8mbQilnE="}' gonzo/api/v1/incidents --cookie cookie
+
+# Update incident - JSON http patch request
+curl -X PATCH -H 'Authorization: Token token=11f673d8a2f47b6f2fb71d309956273e' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "Billing System","incident": {"description": "Test has ended"}, "authenticity_token": "lwyk8BzqvStGDugX377Uh76WJZ/YGRbK61BFHpeKlf8="}' localhost:3000/api/v1/incidents/HP123 --cookie cookie
+curl -X PATCH -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "BM", "incident": {"severity": "P1"}, "authenticity_token": "PZaMBI7pAX7C6mUikNKXq+gyKOSmaoJ6UAq8mbQilnE="}' gonzo/api/v1/incidents/HP123 --cookie cookie
+
+# Downgrade incident -JSON http delete request
+curl -X DELETE -H 'Authorization: Token token=11f673d8a2f47b6f2fb71d309956273e' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "Billing System", "query": "downgrade", "authenticity_token": "lwyk8BzqvStGDugX377Uh76WJZ/YGRbK61BFHpeKlf8="}' localhost:3000/api/v1/incidents/HP123 --cookie cookie
+curl -X DELETE -H 'Authorization: Token token=1b9f9d5ee7a0c118dda1f85a8367273d' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "BM", "query": "downgrade", "authenticity_token": "PZaMBI7pAX7C6mUikNKXq+gyKOSmaoJ6UAq8mbQilnE="}' gonzo/api/v1/incidents/HP123 --cookie cookie
+
+# Close incident - JSON http delete request
+curl -X DELETE -H 'Authorization: Token token=11f673d8a2f47b6f2fb71d309956273e' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "Billing System", "query": "close", "authenticity_token": "lwyk8BzqvStGDugX377Uh76WJZ/YGRbK61BFHpeKlf8="}' localhost:3000/api/v1/incidents/HP123 --cookie cookie
+curl -X DELETE -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "BM", "query": "close", "authenticity_token": "PZaMBI7pAX7C6mUikNKXq+gyKOSmaoJ6UAq8mbQilnE="}' gonzo/api/v1/incidents/HP123 --cookie cookie
+
+#Version 2 API
+# Get all systems
+curl -H 'Authorization: Token token=a7b1a5d7fb7395533c8d4f327c8ebd83' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems
+curl -H 'Authorization: Token token=decdfef8270dc34cc30c425aa15a4080' -H 'Accept: application/json' -H 'Content-Type: application/json' http://system-dashboard.herokuapp.com/api/v2/systems
+
+# Get all incidents for a system
+curl -H 'Authorization: Token token=a7b1a5d7fb7395533c8d4f327c8ebd83' -H 'Accept: application/json' localhost:3000/api/v2/systems/Human%20Resources/incidents
+curl -H 'Authorization: Token token=decdfef8270dc34cc30c425aa15a4080' -H 'Accept: application/json' http://system-dashboard.herokuapp.com/api/v2/systems/Payroll%20System/incidents
+
+
+
+
+
+
+
+
+
+
+
+

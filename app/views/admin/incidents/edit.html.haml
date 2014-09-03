@@ -1,0 +1,21 @@
+%div{class: 'row-fluid'}
+  %div{class: 'span12'}
+    %div{class: 'title-section'}
+      %h1 
+        Welcome
+        =get_dashboard_name
+        Dashboard Administrator!
+      %p
+        Please fill out the information below and click submit to create a new incident
+- if notice
+  %div{class: 'row-fluid'}
+    %div{class: 'span12 flash-notice'} 
+      =notice
+- elsif alert
+  %div{class: 'row-fluid'}
+    %div{class: 'span12 flash-alert'} 
+      =alert
+%div{class: 'row-fluid'}
+  %div{class: 'span12'}
+    %div{class: 'main-section'}
+      =render('incident_form')

@@ -1,0 +1,12 @@
+%div{id: 'login-form'}
+  %p{style: 'text-align: center; margin-top: 10px; font-weight: bold;'}
+    Please enter your login credentials below:
+  %form{action: sessions_path, method: 'post'}
+    %p
+      Enter Username
+      %input{type: 'text', name: 'session_email', label: 'Email'}
+    %p 
+      Enter Password
+      %input{type: 'password', name: 'session_password'}
+    %input{type: 'hidden', name: 'authenticity_token', value: form_authenticity_token}
+    %input{type: 'submit', value: 'LOGIN', id:'login_button'}

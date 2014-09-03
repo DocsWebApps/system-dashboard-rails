@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>System Dashboard</title>
+  			<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  			<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  			<%= csrf_meta_tags %>
+  			<!--[if lt IE 9]>
+    			<script src="/assets/html5shiv.js"></script>
+			<![endif]-->
+	</head>
+<body id="<%= params[:controller].parameterize %>_controller">
+	<header>
+		<%=render('layouts/navbar') %>
+		<%=render('layouts/header') %>
+	</header>
+	<div class='container'>
+		<div id='page-top'>
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

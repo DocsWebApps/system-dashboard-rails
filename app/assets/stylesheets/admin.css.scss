@@ -1,0 +1,44 @@
+@import "shared_mixins.css.scss";
+#admin-incidents_controller {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  @include back-panels;
+  @include page-headers;
+  @include page-subheaders;
+  @include page-links;
+  @include flash-settings;
+  
+  .main-section {
+    padding: 10px;
+    #incident_form {
+      text-align: left;
+      padding: 10px;
+    }
+    .text, .date, .time, .select, .radio, .string, .control-label {
+      font-size: 17px;
+    }
+    .btn {
+      font-size: 17px;
+      margin-left: 370px;
+      width: 200px;
+    }
+    .table {
+      border: 1px solid black;
+    }
+    .title {
+      text-align: center;
+    }
+    textarea {
+      width: 600px;
+      height: 200px;
+    }
+    select {
+      width: 200px;
+    }
+    .td-bold {
+      font-weight: bold;
+    }
+    .td-bg {
+      background: white;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+- if @system_decorator.no_historic_incidents?
+  %p
+    No incident history for this system 
+- else  
+  %h3
+    Historic Incidents 
+  %table{class: 'table table-bordered table-condensed td-bg'}
+    %div{class: 'row-fluid'}
+      %tr
+        %th{class: 'span2'} HP Reference
+        %th{class: 'span7'} Description
+        %th{class: 'span2'} Date
+        %th{class: 'span1'} Severity
+      - @system_decorator.incident_history_list.each do |incident|
+        %tr
+          %td 
+            =incident.hp_ref  
+          %td 
+            =incident.description
+          %td 
+            =incident.date.to_formatted_s(:rfc822)
+          %td 
+            =incident.severity

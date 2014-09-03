@@ -1,0 +1,54 @@
+@import "shared_mixins.css.scss";
+#systems_controller {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  @include back-panels;
+  @include page-headers;
+  @include page-subheaders;
+  @include page-links;
+  @include flash-settings;
+  
+  #system-key {
+    padding-top: 20px;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    table td{
+      text-align: center;
+    }
+  }
+  
+  #system-last-refresh {
+    margin-top: 20px;
+    color: white;
+  }
+
+  .main-section {
+    padding: 10px;
+    .system-green {
+      color: green;
+    }
+    .system-red {
+      color: red;
+    }
+    .system-black {
+      color: black;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .table {
+
+      border: 1px solid black;
+    }
+    .td-bold {
+      font-weight: bold;
+    }
+    .td-bg {
+      background: white;
+    }
+  }
+}

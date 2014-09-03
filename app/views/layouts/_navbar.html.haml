@@ -1,0 +1,21 @@
+%div{class: 'navbar navbar-inverse navbar-fixed-top'}
+  %div{class: 'navbar-inner'}
+    %div{class: 'container'}
+      %p{class: 'brand'} 
+        =get_dashboard_name
+        System Dashboard
+      %ul{class: 'nav'}
+        %li 
+          =link_to 'View Dashboard', root_path
+        %li 
+          =link_to 'Contacts', contacts_path
+        %li 
+          =link_to 'Tell Us?', new_comment_path
+        - if (session[:admin_key]==ENV['ADMIN_KEY'])
+          %li
+            =link_to 'Create New Incident', new_admin_incident_path
+          %li
+            =link_to 'Edit Existing Incident', admin_incidents_path
+        - else
+          %li
+            =link_to 'Admin Login', new_session_path, remote: true

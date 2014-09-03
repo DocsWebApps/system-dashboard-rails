@@ -1,0 +1,23 @@
+%div{class: 'row-fluid'}
+  %div{class: 'span12'}
+    %div{class: 'title-section'}
+      %h1 
+        Tell Us?
+      %p
+        Please use the form below to tell us about your experience working with 
+        =get_dashboard_name
+        ? 
+      %p
+        The feedback is completely anonymous and so please be both open and frank!
+- if notice
+  %div{class: 'row-fluid'}
+    %div{class: 'span12 flash-notice'} 
+      =notice
+- elsif alert
+  %div{class: 'row-fluid'}
+    %div{class: 'span12 flash-alert'} 
+      =alert
+%div{class: 'row-fluid'}
+  %div{class: 'span12'}
+    %div{class: 'main-section'}
+      = render 'comment_form'
