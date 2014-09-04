@@ -13,7 +13,7 @@ class Company < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   
   # Define class methods
-  def self.return_name
+  def self.company_name
     @@company_name ||= Company.first.name
   end
 end

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def get_dashboard_name
-    Company.return_name
+    Company.company_name
   end
 end

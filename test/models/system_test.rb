@@ -4,7 +4,7 @@ class SystemTest < ActiveSupport::TestCase
   
   def setup
     @system=FactoryGirl.create :system_with_incidents
-    @system.set_system_status
+    @system.update_status
     @incident=@system.incidents.first
   end
   
@@ -70,14 +70,20 @@ class SystemTest < ActiveSupport::TestCase
     assert_equal 5, System.system_list_for_row(2).count
   end
 
-  test 'Model Methods :set_system_status' do
+  test 'Model Methods :update_last_incident_date' do
+    last_incident_date=Date.parse('01/01/2014')
+    @system.update_last_incident_date(last_incident_date)
+    assert_equal last_incident_date, @system.last_incident_date
+  end
+
+  test 'Model Methods :update_status' do
     # Check that the status of a system is correctly set based on what incidents are open
     assert_equal 'amber', @system.status
     @incident.update(severity: 'P1')
-    @system.set_system_status
+    @system.update_status
     assert_equal 'red', @system.status
     @incident.update(status: 'Closed')
-    @system.set_system_status
+    @system.update_status
     assert_equal 'green', @system.status
   end
   

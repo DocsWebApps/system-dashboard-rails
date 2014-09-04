@@ -4,29 +4,48 @@ class IncidentTest < ActiveSupport::TestCase
   
   def setup
     @system=FactoryGirl.create :system_with_incidents
+    @system.update_status
     @hp_ref=@system.incidents.first.hp_ref
     @hp_ref_unique=@hp_ref+'X'
   end
+
+  test 'Testing Model Method :check_closed_at_time => :archive_incident' do
+    incident=@system.incidents.first
+    incident.status='Closed'
+    incident.closed_at=Time.now - 24.hours
+    incident.save
+    incident.check_closed_at_time
+    assert_equal 0, @system.incidents.count
+    assert_equal 2, @system.incident_histories.count
+  end
+
+  test 'Testing Model Method :self.open_incident_count' do
+    assert_equal 0, Incident.open_incident_count(@system,'P1')
+    assert_equal 1, Incident.open_incident_count(@system,'P2')
+  end
   
-  test 'Testing Model Methods :close_or_downgrade_incident(close)' do
+  test 'Testing Model Method :close_or_downgrade_incident(close)' do
     # it should close the incident when :close_or_downgrade_incident is called
     incident=@system.incidents.first
     assert_equal 'Open', incident.status
-    success_message={notice: "Incident #{@hp_ref} has been closed/downgraded successfully."}
+    success_message={notice: "Incident #{@hp_ref} has been closed successfully."}
     flash_message=incident.close_or_downgrade_incident('close')
     assert_equal 'Closed', incident.status
     assert_equal success_message, flash_message
   end
 
-  test 'Testing Model Methods :close_or_downgrade_incident(downgrade)' do   
+  test 'Testing Model Method :close_or_downgrade_incident(downgrade)' do   
     # it should downgrade the incident when :close_or_downgrade_incident is called
     incident=@system.incidents.first
-    assert_equal 'P2', incident.severity
-    incident.close_or_downgrade_incident('downgrade')
+    assert_equal 'Open', incident.status
+    success_message={notice: "Incident #{@hp_ref} has been downgraded successfully."}    
+    flash_message=incident.close_or_downgrade_incident('downgrade')
+    assert_equal 'Closed', incident.status
     assert_equal 'D', incident.severity
+    assert_equal success_message, flash_message
   end
 
-  test 'Testing Model Methods :self.no_open_incidents?' do
+  test 'Testing Model Method :self.no_open_incidents?' do
     # it should return true if there are no open incidents or false if there are open incidents
     assert_equal false, Incident.no_open_incidents?
     Incident.delete_all

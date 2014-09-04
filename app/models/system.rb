@@ -24,25 +24,20 @@ class System < ActiveRecord::Base
   # Define scopes
   scope :system_list_for_row, -> (row_id) { where("row_id=?", row_id).order(name: :asc) }
 
-  # Define scopes
+  # Define public instance methods
   def check_for_closed_incidents
-    self.incidents.where(status: 'Closed').each do |incident|
-      if (Time.now > (incident.closed_at + 24.hours))
-        self.incident_histories.create hp_ref: incident.hp_ref, title: incident.title, time: incident.time , date: incident.date, status: incident.status, severity: incident.severity, description: incident.description, resolution: incident.resolution, closed_at: incident.closed_at
-        self.last_incident_date=incident.closed_at.to_date
-        incident.delete
-      end
-    end
+    self.incidents.where(status: 'Closed').each(&:check_closed_at_time)
+  end
+
+  def update_last_incident_date(date)
+    self.last_incident_date=date
     self.save
   end
 
-  def set_system_status
-    open_P1_count=self.incidents.where(severity: 'P1', status: 'Open').count
-    open_P2_count=self.incidents.where(severity: 'P2', status: 'Open').count
-
-    if open_P1_count> 0
+  def update_status
+    if Incident.open_incident_count(self, 'P1') > 0
       self.status='red'
-    elsif open_P2_count > 0
+    elsif Incident.open_incident_count(self, 'P2') > 0
       self.status='amber'
     else
       self.status='green'

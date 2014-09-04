@@ -22,7 +22,7 @@ class CompanyTest < ActiveSupport::TestCase
   
   test 'Model Methods' do
     # it's method Company.return_name must return the :name attribute
-      assert_equal Company.return_name, @name
+      assert_equal Company.company_name, @name
   end
   
 end 

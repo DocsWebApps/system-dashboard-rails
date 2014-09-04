@@ -1,3 +1,6 @@
+*	04092014 - Refactored System.check_closed_incidents and System.set_system_status methods
+*	04092014 - Changed Company.return_name to Company.company_name, changed helper get_dashboard_name to match
+*	04092014 - Created FlashMessage NAR Model class
 *	03092014 - Added order(date: :desc) to incident_list/incident_history_list in system_decorator.rb
 *	03092014 - Updated version label in UML diagram to include System dashboard
 *	03092014 - Addition of a Heroku environment script

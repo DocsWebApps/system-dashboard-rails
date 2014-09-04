@@ -32,10 +32,24 @@ class Incident < ActiveRecord::Base
     where(status: 'Open').count==0 ? true : false
   end
 
+  def self.open_incident_count(system, severity)
+    system.incidents.where(severity: severity, status: 'Open').count
+  end 
+
   # Define instance methods
+  def check_closed_at_time
+    archive_incident if (Time.now > (self.closed_at + 24.hours))
+  end
+
+  def archive_incident
+    self.system.incident_histories.create hp_ref: self.hp_ref, title: self.title, time: self.time , date: self.date, status: self.status, severity: self.severity, description: self.description, resolution: self.resolution, closed_at: self.closed_at
+    self.system.update_last_incident_date(self.closed_at.to_date)
+    self.delete
+  end
+
   def save_new_incident
     if self.save
-      self.system.set_system_status
+      check_system_status(self.system)
     else
       return false
     end
@@ -43,22 +57,19 @@ class Incident < ActiveRecord::Base
 
   def update_existing_incident(incident_params)
     if self.update(incident_params)
-      self.system.set_system_status
+      check_system_status(self.system)
     else
       return false
     end
   end
 
   def close_or_downgrade_incident(query_param)
-    success_message={notice: "Incident #{self.hp_ref} has been closed/downgraded successfully."}
-    error_message={notice: 'Houston we have a problem! The close or downgrade operation failed for this incident.'}
-    
     if query_param=='close' && self.close_incident
-      success_message
+      FlashMessage.success("Incident #{self.hp_ref} has been closed successfully.")
     elsif query_param=='downgrade' && self.downgrade_incident
-      success_message
+      FlashMessage.success("Incident #{self.hp_ref} has been downgraded successfully.")
     else
-      error_message
+      FlashMessage.error('Houston we have a problem! The close or downgrade operation failed for this incident.')
     end
   end
   
@@ -68,7 +79,7 @@ class Incident < ActiveRecord::Base
       self.status='Closed'
       self.closed_at=Time.now
       self.save
-      self.system.set_system_status
+      check_system_status(self.system)
     end
   
     def downgrade_incident
@@ -76,5 +87,10 @@ class Incident < ActiveRecord::Base
       self.close_incident
       self.system.incident_histories.create hp_ref: self.hp_ref, description: self.description, resolution: self.resolution, date: self.date, time: self.time, status: self.status, severity: self.severity, closed_at: self.closed_at
       self.delete
+    end
+
+  private
+    def check_system_status(system)
+      system.update_status
     end
 end

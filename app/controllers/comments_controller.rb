@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.new(comment_params)
-    return_flash_hash=comment.save_new_comment
-    redirect_to new_comment_path, return_flash_hash
+    flash_hash=comment.save_new_comment
+    redirect_to new_comment_path, flash_hash
   end
 
   private
