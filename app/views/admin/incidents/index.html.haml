@@ -18,9 +18,9 @@
 %div{class: 'row-fluid'}
   %div{class: 'span12'}
     %div{class: 'main-section'}
-      - if @open_incidents    
-        -@systems.each do |system|
-          - if system.incidents.where(status: 'Open').count!=0
+      - if @incident_decorator.check_for_open_incidents?   
+        - @incident_decorator.list_systems.each do |system|
+          - if @incident_decorator.check_for_open_incidents?(system)
             %h4{class: 'title'}
               Open incidents for 
               =system.name

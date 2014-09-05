@@ -2,11 +2,11 @@ class Admin::IncidentsController < ApplicationController
   before_action :check_user
   
   def index
-    @systems=list_systems
-    @open_incidents=open_incidents?
+    @incident_decorator=IncidentDecorator.new
   end
   
   def destroy
+    @incident_decorator=IncidentDecorator.new
     @incident=get_incident
     flash_hash=@incident.close_or_downgrade_incident(params[:query])
     @open_incidents=open_incidents?
