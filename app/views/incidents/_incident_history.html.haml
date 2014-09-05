@@ -1,7 +1,4 @@
-- if @system_decorator.no_historic_incidents?
-  %p
-    No incident history for this system 
-- else  
+- if @system_decorator.any_historic_incidents?
   %h3
     Historic Incidents 
   %table{class: 'table table-bordered table-condensed td-bg'}
@@ -21,3 +18,6 @@
             =incident.date.to_formatted_s(:rfc822)
           %td 
             =incident.severity
+- else  
+  %p
+    No incident history for this system 

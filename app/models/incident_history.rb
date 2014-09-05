@@ -27,4 +27,10 @@ class IncidentHistory < ActiveRecord::Base
   validates :severity, presence: true, inclusion: %w(P1 P2 D) 
   validates :status, presence: true, inclusion: %w(Open Closed) 
   validates :closed_at, presence: true
+
+  # Define class methods
+  def self.create_new_record(system, incident)
+  	system.incident_histories.create hp_ref: incident.hp_ref, title: incident.title, time: incident.time , date: incident.date, status: incident.status, severity: incident.severity, description: incident.description, resolution: incident.resolution, closed_at: incident.closed_at
+	end
+
 end

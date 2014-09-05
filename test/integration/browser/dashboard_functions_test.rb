@@ -17,7 +17,7 @@ class DashboardFunctionsTest < ActionDispatch::IntegrationTest
     @system['sulu']=FactoryGirl.create :system, name: 'sulu', last_incident_date: Date.today-3
     @system['sulu'].incidents.create severity: 'P1', description: 'Test data', date: Date.today, time: Time.now, hp_ref: 'HP22222222', status: 'Open'  
     @system['sulu'].incident_histories.create severity: 'P1', description: 'Test data', date: Date.today-4, time: Time.now, hp_ref: 'HP3333333', status: 'Closed', closed_at: Time.now-72.hours
-    @system.each { |key, value | value.set_system_status }
+    @system.each { |key, value | value.update_status }
     visit root_path 
     click_link('View Dashboard')
   end

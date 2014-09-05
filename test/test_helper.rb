@@ -5,6 +5,7 @@ require 'capybara/rails'
 require 'database_cleaner'
 require 'selenium-webdriver'
 require 'minitest/pride'
+require 'page-right'
 
 Capybara.default_driver = :rack_test
 

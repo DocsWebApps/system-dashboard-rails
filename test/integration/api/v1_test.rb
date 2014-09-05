@@ -15,7 +15,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
             
   test 'check access is refused when using a fake token' do
     get new_api_v1_incident_path, {}, {'Accept'=>Mime::JSON, 'Authorization' => "Token token='fake'"}
-    assert_equal response.status, 401
+    assert_equal 401, response.status
     assert_equal response.body, 'Invalid Token'
   end
           

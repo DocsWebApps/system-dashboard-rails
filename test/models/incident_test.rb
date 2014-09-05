@@ -9,7 +9,7 @@ class IncidentTest < ActiveSupport::TestCase
     @hp_ref_unique=@hp_ref+'X'
   end
 
-  test 'Testing Model Method :check_closed_at_time => :archive_incident' do
+  test 'Testing Model Method :check_closed_at_time' do
     incident=@system.incidents.first
     incident.status='Closed'
     incident.closed_at=Time.now - 24.hours
@@ -17,11 +17,6 @@ class IncidentTest < ActiveSupport::TestCase
     incident.check_closed_at_time
     assert_equal 0, @system.incidents.count
     assert_equal 2, @system.incident_histories.count
-  end
-
-  test 'Testing Model Method :self.open_incident_count' do
-    assert_equal 0, Incident.open_incident_count(@system,'P1')
-    assert_equal 1, Incident.open_incident_count(@system,'P2')
   end
   
   test 'Testing Model Method :close_or_downgrade_incident(close)' do
@@ -43,13 +38,6 @@ class IncidentTest < ActiveSupport::TestCase
     assert_equal 'Closed', incident.status
     assert_equal 'D', incident.severity
     assert_equal success_message, flash_message
-  end
-
-  test 'Testing Model Method :self.no_open_incidents?' do
-    # it should return true if there are no open incidents or false if there are open incidents
-    assert_equal false, Incident.no_open_incidents?
-    Incident.delete_all
-    assert_equal true, Incident.no_open_incidents?
   end
   
   test 'Testing Model Relationships' do

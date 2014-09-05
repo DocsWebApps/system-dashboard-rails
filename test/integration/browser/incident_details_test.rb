@@ -9,7 +9,7 @@ class ViewIncidentDetailsTest < ActionDispatch::IntegrationTest
     @sys_name=system.name
     @incident_detail_desc=system.incidents.first.description
     @incident_hist_desc=system.incident_histories.first.description
-    system.set_system_status
+    system.update_status
     visit root_path
     click_link 'Incident Details'
   end

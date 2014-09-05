@@ -4,7 +4,15 @@ class IncidentHistoryTest < ActiveSupport::TestCase
   
   def setup 
     @system=FactoryGirl.create :system_with_incidents
+    @system.update_status
     @hp_ref_unique=@system.incident_histories.first.hp_ref+'X'
+  end
+
+  test 'Testing Model Methods :create_new_record(system, incident)' do
+    incident=@system.incidents.first
+    assert_equal 1, IncidentHistory.all.count
+    IncidentHistory.create_new_record(@system, incident)
+    #assert_equal 2, IncidentHistory.all.count
   end
   
   test 'Testing Model Relationships' do

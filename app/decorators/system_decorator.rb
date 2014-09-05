@@ -16,12 +16,12 @@ class SystemDecorator
     @system.incident_histories.order(date: :desc)
   end
 
-  def no_recent_incidents?
-    @system.incidents.empty? ? true : false
+  def any_recent_incidents?
+    @system.incidents.empty? ? false : true
   end
 
-  def no_historic_incidents?
-    @system.incident_histories.empty? ? true : false
+  def any_historic_incidents?
+    @system.incident_histories.empty? ? false : true
   end
 
 	def set_system_smiley

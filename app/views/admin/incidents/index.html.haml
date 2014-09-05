@@ -18,10 +18,7 @@
 %div{class: 'row-fluid'}
   %div{class: 'span12'}
     %div{class: 'main-section'}
-      - if @no_open_incidents
-        %p
-          There are no open incidents for any system in the last 24 hours
-      - else     
+      - if @open_incidents    
         -@systems.each do |system|
           - if system.incidents.where(status: 'Open').count!=0
             %h4{class: 'title'}
@@ -50,3 +47,6 @@
                       =link_to "Close", admin_incident_path(incident)+'?query=close', method: :delete
                     %td
                       =link_to "Downgrade", admin_incident_path(incident)+'?query=downgrade', method: :delete
+      -else
+        %p
+          There are no open incidents for any system in the last 24 hours

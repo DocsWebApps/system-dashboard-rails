@@ -8,10 +8,7 @@
 %div{id: 'incident-details'}
   %h3
     Recent Incidents
-  - if @system_decorator.no_recent_incidents?
-    %p
-      No P1 or P2 incidents during the last 24 hours  
-  - else  
+  - if @system_decorator.any_recent_incidents?
     %table{class: 'table table-bordered table-condensed td-bg'}
       %div{class: 'row-fluid'}
         %tr
@@ -34,4 +31,7 @@
             %td
               =incident.severity       
             %td
-              =incident.status     
+              =incident.status 
+  - else  
+    %p
+      No P1 or P2 incidents during the last 24 hours  

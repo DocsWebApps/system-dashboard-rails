@@ -26,23 +26,23 @@ class System < ActiveRecord::Base
 
   # Define public instance methods
   def check_for_closed_incidents
-    self.incidents.where(status: 'Closed').each(&:check_closed_at_time)
+    incidents.where(status: 'Closed').each(&:check_closed_at_time)
   end
 
   def update_last_incident_date(date)
     self.last_incident_date=date
-    self.save
+    save
   end
 
   def update_status
-    if Incident.open_incident_count(self, 'P1') > 0
+    if incidents.where(status: 'Open', severity: 'P1').count > 0
       self.status='red'
-    elsif Incident.open_incident_count(self, 'P2') > 0
+    elsif incidents.where(status: 'Open', severity: 'P2').count > 0
       self.status='amber'
     else
       self.status='green'
     end
-    self.save
+    save
   end
   
 end

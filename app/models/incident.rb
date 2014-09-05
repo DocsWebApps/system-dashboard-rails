@@ -27,28 +27,13 @@ class Incident < ActiveRecord::Base
   validates :severity, presence: true, inclusion: %w(P1 P2 D) 
   validates :status, presence: true, inclusion: %w(Open Closed) 
 
-  # Define class methods
-  def self.no_open_incidents?
-    where(status: 'Open').count==0 ? true : false
-  end
-
-  def self.open_incident_count(system, severity)
-    system.incidents.where(severity: severity, status: 'Open').count
-  end 
-
   # Define instance methods
   def check_closed_at_time
-    archive_incident if (Time.now > (self.closed_at + 24.hours))
-  end
-
-  def archive_incident
-    self.system.incident_histories.create hp_ref: self.hp_ref, title: self.title, time: self.time , date: self.date, status: self.status, severity: self.severity, description: self.description, resolution: self.resolution, closed_at: self.closed_at
-    self.system.update_last_incident_date(self.closed_at.to_date)
-    self.delete
+    archive_incident if closed_more_than_24_hours_ago
   end
 
   def save_new_incident
-    if self.save
+    if save
       check_system_status(self.system)
     else
       return false
@@ -56,7 +41,7 @@ class Incident < ActiveRecord::Base
   end
 
   def update_existing_incident(incident_params)
-    if self.update(incident_params)
+    if update(incident_params)
       check_system_status(self.system)
     else
       return false
@@ -64,9 +49,9 @@ class Incident < ActiveRecord::Base
   end
 
   def close_or_downgrade_incident(query_param)
-    if query_param=='close' && self.close_incident
+    if query_param=='close' && close_incident
       FlashMessage.success("Incident #{self.hp_ref} has been closed successfully.")
-    elsif query_param=='downgrade' && self.downgrade_incident
+    elsif query_param=='downgrade' && archive_incident(true)
       FlashMessage.success("Incident #{self.hp_ref} has been downgraded successfully.")
     else
       FlashMessage.error('Houston we have a problem! The close or downgrade operation failed for this incident.')
@@ -74,23 +59,31 @@ class Incident < ActiveRecord::Base
   end
   
   # Define protected/private methods
-  protected
+  private
     def close_incident
       self.status='Closed'
       self.closed_at=Time.now
-      self.save
+      save
       check_system_status(self.system)
     end
-  
-    def downgrade_incident
-      self.severity='D'
-      self.close_incident
-      self.system.incident_histories.create hp_ref: self.hp_ref, description: self.description, resolution: self.resolution, date: self.date, time: self.time, status: self.status, severity: self.severity, closed_at: self.closed_at
-      self.delete
+
+    def archive_incident(downgraded=false)
+      system=self.system
+      if downgraded
+        self.severity='D'
+        close_incident
+      else
+        system.update_last_incident_date(self.closed_at.to_date)
+      end
+      IncidentHistory.create_new_record(system, self)
+      delete
     end
 
-  private
     def check_system_status(system)
       system.update_status
+    end
+
+    def closed_more_than_24_hours_ago
+      Time.now > (self.closed_at + 24.hours)
     end
 end

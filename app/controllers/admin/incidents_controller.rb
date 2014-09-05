@@ -3,13 +3,13 @@ class Admin::IncidentsController < ApplicationController
   
   def index
     @systems=list_systems
-    @no_open_incidents=no_open_incidents?
+    @open_incidents=open_incidents?
   end
   
   def destroy
     @incident=get_incident
     flash_hash=@incident.close_or_downgrade_incident(params[:query])
-    @no_open_incidents=no_open_incidents?
+    @open_incidents=open_incidents?
     redirect_to admin_incidents_path, flash_hash
   end
 
@@ -50,8 +50,8 @@ class Admin::IncidentsController < ApplicationController
   end
 
   private
-    def no_open_incidents?
-      Incident.no_open_incidents?
+    def open_incidents?
+      Incident.where(status: 'Open').count>0 ? true : false
     end
 
     def list_systems
