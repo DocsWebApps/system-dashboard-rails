@@ -4,10 +4,6 @@ class IncidentDecorator
 		@incident=incident
 	end
 
-	def self.find_incident(id)
-		Incident.find_by(id: id)
-	end
-
   def list_systems
     System.order(:id)
   end
@@ -17,9 +13,6 @@ class IncidentDecorator
 		query=system.incidents.where(status: 'Open') if system
 		query.count>0 ? true : false
   end
-
-
-
 
   def method_missing(method_name, *args, &block)
 		@incident.send(method_name, *args, &block)

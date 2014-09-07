@@ -7,9 +7,7 @@ class Admin::IncidentsController < ApplicationController
   
   def destroy
     @incident_decorator=IncidentDecorator.new
-    @incident=get_incident
-    flash_hash=@incident.close_or_downgrade_incident(params[:query])
-    @open_incidents=open_incidents?
+    flash_hash=get_incident(id: params[:id]).close_or_downgrade_incident(params[:query])
     redirect_to admin_incidents_path, flash_hash
   end
 
@@ -17,7 +15,7 @@ class Admin::IncidentsController < ApplicationController
     system=System.find_by(id: params[:incident][:system_id])
     @incident=system.incidents.new(incident_params)
     if @incident.save_new_incident
-      redirect_to system_path(system), notice: 'Incident successfully saved to the database! Please check the details below.'
+      redirect_to system_path(system), FlashMessage.success('Incident successfully saved to the database! Please check the details below.')
     else
       @systems=list_systems
       @url=admin_incidents_path
@@ -34,32 +32,28 @@ class Admin::IncidentsController < ApplicationController
   end
 
   def edit
-    @incident=get_incident
+    @incident=get_incident(id: params[:id])
     @method=:put
     @url=admin_incident_path
     @systems=System.where(id: @incident.system_id)
   end
 
   def update
-    @incident=get_incident
+    @incident=get_incident(id: params[:id])
     if @incident.update_existing_incident(incident_params)
-      redirect_to system_path(@incident.system), notice: 'Incident successfully updated and saved to the database! Please check the details below.'
+      redirect_to system_path(@incident.system), FlashMessage.success('Incident successfully updated and saved to the database! Please check the details below.')
     else
-      redirect_to edit_admin_incident_path, alert: 'Houston there was a problem! Please make sure that all fields are populated before you submit the changes'
+      redirect_to edit_admin_incident_path, FlashMessage.error('Houston there was a problem! Please make sure that all fields are populated before you submit the changes')
     end
   end
 
   private
-    def open_incidents?
-      Incident.where(status: 'Open').count>0 ? true : false
-    end
-
     def list_systems
       System.order(:id)
     end
 
-    def get_incident
-      Incident.find_by(id: params[:id])
+    def get_incident(id)
+      Incident.find_by(id)
     end
 
     def check_user
