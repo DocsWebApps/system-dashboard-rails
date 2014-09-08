@@ -2,7 +2,7 @@
   - system_decorator=SystemDecorator.new(system)
   - system_name=system_decorator.name
   - system_decorator.check_for_closed_incidents
-  - smiley=system_decorator.set_system_smiley
+  - smiley="#{system_decorator.status}.png"
   - message_color, message=system_decorator.set_message_and_message_color
   %div{id: "#{system_name}", class: 'main-section'}
     %h3

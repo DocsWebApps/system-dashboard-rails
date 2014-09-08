@@ -4,30 +4,6 @@ class SystemDecorator
 		@system=system
 	end
 
-  def name
-    @system.name
-  end
-
-  def incident_list
-    @system.incidents.order(date: :desc)
-  end
-
-  def incident_history_list
-    @system.incident_histories.order(date: :desc)
-  end
-
-  def any_recent_incidents?
-    @system.incidents.empty? ? false : true
-  end
-
-  def any_historic_incidents?
-    @system.incident_histories.empty? ? false : true
-  end
-
-	def set_system_smiley
-    "#{@system.status}.png"
-	end
-
   def set_message_and_message_color
     closed_incident_count=@system.incidents.where(status: 'Closed').count
     last_incident_date=@system.last_incident_date

@@ -1,3 +1,4 @@
+*	08092014 - Refactored the System Decorator
 *	07092014 - Added an incident decorator class.
 *	04092014 - Refactored System.check_closed_incidents and System.set_system_status methods
 *	04092014 - Changed Company.return_name to Company.company_name, changed helper get_dashboard_name to match

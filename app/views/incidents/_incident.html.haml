@@ -1,14 +1,17 @@
 %h3
   =@system_decorator.name
 %br
-  =image_tag @system_decorator.set_system_smiley
+  =image_tag "#{@system_decorator.status}.png"
 %p
   Show Incident History
   =check_box_tag "history-check-box"
 %div{id: 'incident-details'}
   %h3
     Recent Incidents
-  - if @system_decorator.any_recent_incidents?
+  - if @system_decorator.incidents.empty?
+    %p
+      No P1 or P2 incidents during the last 24 hours
+  - else  
     %table{class: 'table table-bordered table-condensed td-bg'}
       %div{class: 'row-fluid'}
         %tr
@@ -18,7 +21,7 @@
           %th{class: 'span1'} Time
           %th{class: 'span1'} Severity
           %th{class: 'span1'} Status
-        - @system_decorator.incident_list.each do |incident|
+        - @system_decorator.incidents.order(date: :desc).each do |incident|
           %tr
             %td
               =incident.hp_ref  
@@ -32,6 +35,4 @@
               =incident.severity       
             %td
               =incident.status 
-  - else  
-    %p
-      No P1 or P2 incidents during the last 24 hours  
+  
