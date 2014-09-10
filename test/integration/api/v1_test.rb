@@ -16,7 +16,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
   test 'check access is refused when using a fake token' do
     get new_api_v1_incident_path, {}, {'Accept'=>Mime::JSON, 'Authorization' => "Token token='fake'"}
     assert_equal 401, response.status
-    assert_equal response.body, 'Invalid Token'
+    assert_equal 'Invalid Token', response.body 
   end
           
   test 'Closing existing incident - test for success' do
@@ -83,7 +83,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
     
     def get_csrf_v1_token
       get new_api_v1_incident_path, {}, {'Accept'=>Mime::JSON, 'Authorization' => "Token token=#{@user.auth_token}"}
-      assert_equal response.status, 200
+      assert_equal 200, response.status
       response.body
     end
  

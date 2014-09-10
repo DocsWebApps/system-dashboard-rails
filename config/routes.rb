@@ -19,7 +19,6 @@ SystemDashboard::Application.routes.draw do
 
   # Web application main functions namespace
   root 'systems#index'
-
   resources :systems, only: [:index, :show ]
   resources :comments, only: [:new, :create]
   resources :contacts, only: :index

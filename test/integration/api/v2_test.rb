@@ -13,14 +13,6 @@ class API::V2::Test < ActionDispatch::IntegrationTest
     DatabaseCleaner.clean
   end
           
-  test 'get a list of incidents for a system' do
-    system_list=json(get_systems_list)
-    system_list.each do |system|
-      get api_v2_system_incidents_path(system[:name]), {}, {'Accept'=>Mime::JSON, 'Authorization'=>"Token token=#{@user.auth_token}"}
-      assert_equal response.status, 200
-    end
-  end
-          
   test 'get csrf token from web server' do
     get_csrf_v2_token
   end
@@ -31,21 +23,21 @@ class API::V2::Test < ActionDispatch::IntegrationTest
   
   test 'check access is refused when using a fake token' do
     get api_v2_get_new_token_path, {}, {'Accept'=>Mime::JSON, 'Authorization' => "Token token='fake'"}
-    assert_equal response.status, 401
-    assert_equal response.body, 'Invalid Token'
+    assert_equal 401, response.status
+    assert_equal 'Invalid Token', response.body 
   end
   
   private
     def get_systems_list
       get api_v2_systems_path, {}, {'Accept'=>Mime::JSON, 'Authorization'=>"Token token=#{@user.auth_token}"}
-      assert_equal response.status, 200
-      assert_equal response.body, System.select(:name, :status).to_json(only: [:name, :status])
+      assert_equal 200, response.status
+      assert_equal '{"systems":[{"name":"kirk","status":"green"}]}', response.body
       response.body
     end
     
     def get_csrf_v2_token
       get api_v2_get_new_token_path, {}, {'Accept'=>Mime::JSON, 'Authorization' => "Token token=#{@user.auth_token}"}
-      assert_equal response.status, 200
+      assert_equal 200, response.status
       response.body
     end
   

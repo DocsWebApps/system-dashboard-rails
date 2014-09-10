@@ -4,8 +4,8 @@ module API
     before_action :authenticate
     
     def index
-      systems=System.select(:name, :status)
-      render json: systems.as_json(only: [:name, :status]), status: 200
+      systems=System.all
+      render json: systems, status: 200
     end
   end
 end

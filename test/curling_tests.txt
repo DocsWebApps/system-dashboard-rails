@@ -21,12 +21,14 @@ curl -X DELETE -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' 
 
 #Version 2 API
 # Get all systems
-curl -H 'Authorization: Token token=a7b1a5d7fb7395533c8d4f327c8ebd83' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems
-curl -H 'Authorization: Token token=decdfef8270dc34cc30c425aa15a4080' -H 'Accept: application/json' -H 'Content-Type: application/json' http://system-dashboard.herokuapp.com/api/v2/systems
+curl -H 'Authorization: Token token=1f57183b411b402523893b7717c6e8d1' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems
 
-# Get all incidents for a system
-curl -H 'Authorization: Token token=a7b1a5d7fb7395533c8d4f327c8ebd83' -H 'Accept: application/json' localhost:3000/api/v2/systems/Human%20Resources/incidents
-curl -H 'Authorization: Token token=decdfef8270dc34cc30c425aa15a4080' -H 'Accept: application/json' http://system-dashboard.herokuapp.com/api/v2/systems/Payroll%20System/incidents
+curl -H 'Authorization: Token token=a7cf047390a68d72b7fc4f2162093f63' -H 'Accept: application/json' -H 'Content-Type: application/json' http://system-dashboard.herokuapp.com/api/v2/systems
+
+
+
+
+
 
 
 

@@ -28,7 +28,7 @@ gem 'jquery-ui-rails'     # Use jquery for the UI
 gem 'turbolinks'
 
 # Build JSON APIs with ease.
-#gem 'active_model_serializers', '0.9'
+gem 'active_model_serializers', '0.9'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
