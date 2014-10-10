@@ -1,6 +1,11 @@
 class SystemSerializer < ActiveModel::Serializer
-  attributes :name, :status
+  attributes :id, :name, :status
 
-  #has_many :incidents
-  #has_many :incident_histories
+  def attributes
+  	data=super
+  	decorator=SystemDecorator.new object
+  	data[:color], data[:message]=decorator.set_message_and_message_color
+  	data
+  end
+
 end

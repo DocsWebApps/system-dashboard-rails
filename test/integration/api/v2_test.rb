@@ -29,9 +29,11 @@ class API::V2::Test < ActionDispatch::IntegrationTest
   
   private
     def get_systems_list
+      decorator=SystemDecorator.new @system
+      color,message=decorator.set_message_and_message_color
       get api_v2_systems_path, {}, {'Accept'=>Mime::JSON, 'Authorization'=>"Token token=#{@user.auth_token}"}
       assert_equal 200, response.status
-      assert_equal '{"systems":[{"name":"kirk","status":"green"}]}', response.body
+      assert_equal "{\"systems\":[{\"id\":#{@system.id},\"name\":\"#{@system.name}\",\"status\":\"#{@system.status}\",\"color\":\"#{color}\",\"message\":\"#{message}\"}]}", response.body
       response.body
     end
     
