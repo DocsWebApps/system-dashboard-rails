@@ -19,25 +19,10 @@ curl -X DELETE -H 'Authorization: Token token=1b9f9d5ee7a0c118dda1f85a8367273d' 
 curl -X DELETE -H 'Authorization: Token token=11f673d8a2f47b6f2fb71d309956273e' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "Billing System", "query": "close", "authenticity_token": "lwyk8BzqvStGDugX377Uh76WJZ/YGRbK61BFHpeKlf8="}' localhost:3000/api/v1/incidents/HP123 --cookie cookie
 curl -X DELETE -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"system": "BM", "query": "close", "authenticity_token": "PZaMBI7pAX7C6mUikNKXq+gyKOSmaoJ6UAq8mbQilnE="}' gonzo/api/v1/incidents/HP123 --cookie cookie
 
+
+
 #Version 2 API
 # Get all systems
-curl -H 'Authorization: Token token=1f57183b411b402523893b7717c6e8d1' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems
+curl -H 'Authorization: Token token=48d2acd289de32e7b675d9d191c70556' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems
 
 curl -H 'Authorization: Token token=a7cf047390a68d72b7fc4f2162093f63' -H 'Accept: application/json' -H 'Content-Type: application/json' http://system-dashboard.herokuapp.com/api/v2/systems
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
