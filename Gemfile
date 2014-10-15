@@ -49,7 +49,8 @@ end
 
 group :test do
   gem 'page-right', '0.1'
-  gem 'selenium-webdriver', '2.42.0'         # Web driver for running JS
+  #gem 'selenium-webdriver', '2.42.0'         # Web driver for running JS
+  gem 'selenium-webdriver', '2.43.0'         # Web driver for running JS
   gem 'shoulda', '~> 3.0'
   gem 'capybara'                              # Test your return html with Capybara
   gem 'database_cleaner', github: 'bmabey/database_cleaner'    # Clean up the Test DB after testing
