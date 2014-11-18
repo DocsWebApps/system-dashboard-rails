@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.5'
 
 # Rails version
 gem 'rails', '4.1.6'
@@ -48,7 +48,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'page-right', '0.1'
+  gem 'page_right', '0.3'
   #gem 'selenium-webdriver', '2.42.0'         # Web driver for running JS
   gem 'selenium-webdriver', '2.43.0'         # Web driver for running JS
   gem 'shoulda', '~> 3.0'
