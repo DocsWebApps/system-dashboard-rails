@@ -48,7 +48,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'page_right', '0.4'
+  gem 'page_right', '0.5'
   gem 'selenium-webdriver', '2.43.0'         # Web driver for running JS
   gem 'shoulda', '~> 3.0'
   gem 'capybara'                              # Test your return html with Capybara
