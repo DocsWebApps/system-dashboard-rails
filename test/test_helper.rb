@@ -3,9 +3,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
 require 'minitest/pride'
-require 'page_right/text_checks'
-require 'page_right/css_checks'
-require 'page_right/image_checks'
 
 Capybara.default_driver = :rack_test
 
