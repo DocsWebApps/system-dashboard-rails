@@ -1,22 +1,22 @@
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'title-section'}
-      %h1 
-        =get_dashboard_name
-        System Dashboard
-      %p
-        Providing information about the status of
-        =get_dashboard_name
-        systems
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    =render('layouts/key') 
-%div{class: 'row-fluid'}
-  =render(@systems_for_row1)
-%div{class: 'row-fluid'}
-  =render(@systems_for_row2)
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %p{id: 'system-last-refresh'}
-      Page last refreshed: 
-      =Time.now.to_formatted_s(:long)
+%header
+  =render('layouts/navbar')
+.system-title-section
+  .row
+    .header-text
+      =get_dashboard_name
+      System Dashboard
+    .lead-text
+      Providing information about the status of
+      =get_dashboard_name
+      systems
+.system-main-section
+  .row
+    .col-md-12
+      =render('layouts/key')
+  .row 
+    =render(@systems_for_row1)
+  .row
+    =render(@systems_for_row2)
+.system-footer-section
+  Page last refreshed: 
+  =Time.now.to_formatted_s(:long)

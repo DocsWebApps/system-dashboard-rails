@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
   		<title>System Dashboard</title>
@@ -10,14 +10,6 @@
 			<![endif]-->
 	</head>
 <body id="<%= params[:controller].parameterize %>_controller">
-	<header>
-		<%=render('layouts/navbar') %>
-		<%=render('layouts/header') %>
-	</header>
-	<div class='container'>
-		<div id='page-top'>
-			<%= yield %>
-		</div>
-	</div>
+	<%= yield %>
 </body>
 </html>

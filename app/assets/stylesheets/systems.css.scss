@@ -6,6 +6,36 @@
   @include page-subheaders;
   @include page-links;
   @include flash-settings;
+
+  .system-title-section {
+    margin: 50px 0 0 0;
+    padding: 0;
+    height: 400px;
+    width: 100%;
+    background-attachment: scroll;
+    background-image: image-url("server_room6.jpg");
+    background-repeat: none;
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    .header-text {
+      margin-top: 180px;
+      text-align: center;
+      font-size: 90px;
+      font-weight: bold;
+      color: white;
+    }
+    .lead-text {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+    }
+  }
   
   #system-key {
     padding-top: 20px;
@@ -25,6 +55,7 @@
 
   .main-section {
     padding: 10px;
+    
     .system-green {
       color: green;
     }
@@ -41,7 +72,6 @@
       margin-top: 10px;
     }
     .table {
-
       border: 1px solid black;
     }
     .td-bold {
