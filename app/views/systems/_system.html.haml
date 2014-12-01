@@ -4,12 +4,12 @@
   - system_decorator.check_for_closed_incidents
   - smiley="#{system_decorator.status}.png"
   - message_color, message=system_decorator.set_message_and_message_color
-  %div{id: "#{system_name}", class: 'main-section'}
+  .system-section{id: "#{system_name}"}
     %h3
-      =system_name
-      %br
       =image_tag("#{smiley}")
+      %br
+      =system_name
     %h5{class: "#{message_color}"}
       =message
     %h4
-      =link_to 'Incident Details', system_path(system)
+      =link_to 'Incident Details', system_path(system), class: 'btn btn-lg btn-primary'

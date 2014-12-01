@@ -7,7 +7,7 @@
   @include page-links;
   @include flash-settings;
 
-  .system-title-section {
+  #title-section {
     margin: 50px 0 0 0;
     padding: 0;
     height: 600px;
@@ -21,19 +21,79 @@
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    .header-text {
+
+    #header-text {
       margin-top: 200px;
       text-align: center;
       font-size: 90px;
       font-weight: bold;
       color: white;
     }
+
     .lead-text {
       margin-top: 20px;
       text-align: center;
       font-size: 35px;
       font-weight: bold;
       color: white;
+    }
+
+    .title-btn {
+      margin: 50px auto;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  #status-section {
+    background-color: #ddd;
+    padding-top: 30px;
+
+    .lead-text {
+      margin: 20px 0 20px 0;
+      text-align: center;
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    .system-section {
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: #eee;
+    }
+      
+    .system-green {
+      color: green;
+    }
+
+    .system-red {
+      color: red;
+    }
+
+    .system-black {
+      color: black;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .table {
+      border: 1px solid black;
+    }
+
+    .td-bold {
+      font-weight: bold;
+    }
+
+    .td-bg {
+      background: white;
     }
   }
   
@@ -53,32 +113,5 @@
     color: white;
   }
 
-  .main-section {
-    padding: 10px;
-    
-    .system-green {
-      color: green;
-    }
-    .system-red {
-      color: red;
-    }
-    .system-black {
-      color: black;
-    }
-    img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
-    .table {
-      border: 1px solid black;
-    }
-    .td-bold {
-      font-weight: bold;
-    }
-    .td-bg {
-      background: white;
-    }
-  }
+  
 }

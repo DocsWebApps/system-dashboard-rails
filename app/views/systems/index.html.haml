@@ -1,22 +1,28 @@
 %header
   =render('layouts/navbar')
-.system-title-section
+#title-section
   .row
-    .header-text
+    #header-text
       =get_dashboard_name
       System Dashboard
+  .row
     .lead-text
       Providing information about the status of
       =get_dashboard_name
       systems
-.system-main-section
   .row
-    .col-md-12
+    .col-md-4.col-md-offset-4.text-center
+      %a.btn.btn-lg.btn-primary.title-btn{href: '#status-section'}
+        View Dashboard
+#status-section
+  .container
+    .row
+      .lead-text
+        System Status Information
       =render('layouts/key')
-  .row 
-    =render(@systems_for_row1)
-  .row
-    =render(@systems_for_row2)
-.system-footer-section
-  Page last refreshed: 
-  =Time.now.to_formatted_s(:long)
+    .row 
+      =render(@systems_for_row1)
+    .row
+      =render(@systems_for_row2)
+    Page last refreshed: 
+    =Time.now.to_formatted_s(:long)
