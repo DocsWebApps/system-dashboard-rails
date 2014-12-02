@@ -1,12 +1,14 @@
-%div{id: 'system-key'}
-  %table{id: 'key-table', class: 'table table-bordered table-condensed'}
-    %tr
-      %td
-        =image_tag('green.png') 
+#status-key
+  %table.table
+    .tr
+      .td
+        =image_tag('green.png')
         No Major System Problems
-      %td   
+    .tr
+      .td
         =image_tag('amber.png') 
         Priority 2 (P2) Incident Running Now
-      %td
+    .tr
+      .td
         =image_tag('red.png')  
         Priority 1 (P1) Incident Running Now

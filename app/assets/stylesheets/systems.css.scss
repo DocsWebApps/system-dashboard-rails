@@ -1,15 +1,11 @@
 @import "shared_mixins.css.scss";
 #systems_controller {
-  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-  @include back-panels;
-  @include page-headers;
-  @include page-subheaders;
-  @include page-links;
   @include flash-settings;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 
   #title-section {
     margin: 50px 0 0 0;
-    padding: 0;
+    padding: 0 0 0 0;
     height: 600px;
     width: 100%;
     background-attachment: scroll;
@@ -42,76 +38,67 @@
       margin: 50px auto;
       font-size: 30px;
       font-weight: bold;
+      background-color: #459eaa;
     }
   }
 
   #status-section {
-    background-color: #ddd;
-    padding-top: 30px;
+    background-color: #eee;
 
     .lead-text {
-      margin: 20px 0 20px 0;
+      padding-top: 45px;
+      padding-bottom: 10px;
       text-align: center;
       font-size: 50px;
       font-weight: bold;
     }
 
     .system-section {
-      padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       text-align: center;
       border: 1px solid black;
       border-radius: 10px;
-      background-color: #eee;
-    }
-      
-    .system-green {
-      color: green;
+      background-color: #fff;
+
+      .details-btn {
+        background-color: #0fa05b;
+      }
+
+      .system-green {
+        color: green;
+      }
+
+      .system-red {
+        color: red;
+      }
+
+      .system-black {
+        color: black;
+      }
+
+      img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
     }
 
-    .system-red {
-      color: red;
+    #status-key {
+      font-size: 15px;
+      margin: 0px auto;
+      width: 300px;
+      img {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 5px;
+      }
     }
 
-    .system-black {
-      color: black;
-    }
-
-    img {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
-
-    .table {
-      border: 1px solid black;
-    }
-
-    .td-bold {
-      font-weight: bold;
-    }
-
-    .td-bg {
-      background: white;
-    }
-  }
-  
-  #system-key {
-    padding-top: 20px;
-    img {
-      width: 30px;
-      height: 30px;
-    }
-    table td{
+    #refresh {
+      margin: 20px 0 20px 0;
       text-align: center;
-    }
+      font-size: 20px;
+    }  
   }
-  
-  #system-last-refresh {
-    margin-top: 20px;
-    color: white;
-  }
-
-  
 }
