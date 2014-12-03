@@ -60,19 +60,29 @@
       border-radius: 10px;
       background-color: #fff;
 
+      h3 {
+        font-weight: bold;
+      }
+
       .details-btn {
-        background-color: #0fa05b;
+        font-size: 18px;
+        background-color: #eee;
+        color: black;
+        border: 1px solid black;
       }
 
       .system-green {
         color: green;
+        font-size: 20px;
       }
 
       .system-red {
+        font-size: 20px;
         color: red;
       }
 
       .system-black {
+        font-size: 18px;
         color: black;
       }
 
@@ -99,6 +109,7 @@
       margin: 20px 0 20px 0;
       text-align: center;
       font-size: 20px;
+      font-weight: bold;
     }  
   }
 }
