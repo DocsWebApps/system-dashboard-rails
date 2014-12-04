@@ -11,12 +11,9 @@
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
       %li.active
-        =link_to 'Goto Dashboard', '#status-section'
+        =link_to 'Dashboard', '#status-section'
       %li 
         =link_to 'Contacts', '#contacts-section'
-      %li 
-        =link_to 'Tell Us?', new_comment_path
-    %ul.nav.navbar-nav.navbar-right
       - if (session[:admin_key]==ENV['ADMIN_KEY'])
         %li
           =link_to 'Create New Incident', new_admin_incident_path
@@ -24,4 +21,4 @@
           =link_to 'Edit Existing Incident', admin_incidents_path
       - else
         %li
-          =link_to 'Admin Login', new_session_path, remote: true
+          =link_to 'Admin Login', '#admin-section'

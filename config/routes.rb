@@ -1,5 +1,7 @@
 SystemDashboard::Application.routes.draw do
   
+  get 'home_page/index'
+
   # API version 1 namespace
   namespace :api do
     namespace :v1 do
@@ -18,7 +20,7 @@ SystemDashboard::Application.routes.draw do
   end
 
   # Web application main functions namespace
-  root 'systems#index'
+  root 'home_page#index'
   resources :systems, only: [:index, :show ]
   resources :comments, only: [:new, :create]
   resources :contacts, only: :index

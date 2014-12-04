@@ -27,34 +27,13 @@
     .row#refresh
       Page last refreshed: 
       =Time.now.to_formatted_s(:long)
+#admin-login-section
+  =render('sessions/login_form')
 #contacts-section
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
-  %h1 dave
+  .container
+    .lead-text
+      Contact List
+    =render(@contacts)   
+    #copyright
+      &copy 2014
+      =get_dashboard_name      
