@@ -27,7 +27,7 @@
     .row#refresh
       Page last refreshed: 
       =Time.now.to_formatted_s(:long)
-#admin-login-section
+#loginmodal{style: 'display:none;'}
   =render('sessions/login_form')
 #contacts-section
   .container

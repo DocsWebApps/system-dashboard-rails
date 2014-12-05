@@ -22,14 +22,13 @@
         %hr
         =render('incidents/incident_history')
         
-%script
+:javascript
   $(function() {
-  $('#incident-history').hide();
-  $('#history-check-box').click(function() {
-  if ($(this).is(':checked')) {
-  $('#incident-history').show();
-  } else {
-  $('#incident-history').hide();
-  }
-  });
+    $('#incident-history').hide();
+    $('#history-check-box').click(function() {
+    if ($(this).is(':checked')) {
+      $('#incident-history').show();
+    } else {
+      $('#incident-history').hide();
+    }});
   });

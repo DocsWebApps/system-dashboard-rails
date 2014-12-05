@@ -11,6 +11,11 @@
 			<![endif]-->
 	</head>
 <body id="<%= params[:controller].parameterize %>_controller">
-	<%= yield %>
+<%=yield %> 
+<script type="text/javascript">
+$(function(){  
+  $('#modaltrigger').leanModal({ top: 200, overlay: 0.6, closeButton: ".hidemodal" });
+});
+</script>
 </body>
 </html>
