@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.leanModal.min
+//=	require simple-modal
 //= require_tree .

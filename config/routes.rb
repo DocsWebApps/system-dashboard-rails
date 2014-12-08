@@ -1,7 +1,5 @@
 SystemDashboard::Application.routes.draw do
   
-  get 'home_page/index'
-
   # API version 1 namespace
   namespace :api do
     namespace :v1 do

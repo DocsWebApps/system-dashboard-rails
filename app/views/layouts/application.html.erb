@@ -8,13 +8,18 @@
   			<!--[if lt IE 9]>
     			<script src="/assets/html5shiv.js"></script>
           <script src="/assets/respond.js"></script>
-			<![endif]-->
+			  <![endif]-->
 	</head>
 <body id="<%= params[:controller].parameterize %>_controller">
 <%=yield %> 
 <script type="text/javascript">
-$(function(){  
-  $('#modal-trigger').leanModal({ top: 200, overlay: 0.6, closeButton: ".hidemodal" });
+
+$("#modal-trigger").addEvent("click", function(){
+  var SM = new SimpleModal({"btn_ok":"Alert button"});
+      SM.show({
+        "title":"Title",
+        "contents":"Your message..."
+      });
 });
 </script>
 </body>
