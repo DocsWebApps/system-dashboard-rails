@@ -16,9 +16,9 @@
         =link_to 'Contacts', '#contacts-section'
       - if (session[:admin_key]==ENV['ADMIN_KEY'])
         %li
-          =link_to 'Create New Incident', new_admin_incident_path
+          =link_to 'Create New Incident', new_admin_incident_path, {"data-target"=>"#create-modal", "data-toggle"=>"modal", remote: true}
         %li
-          =link_to 'Edit Existing Incident', admin_incidents_path
+          =link_to 'Edit Existing Incident', admin_incidents_path, {"data-target"=>"#edit-modal", "data-toggle"=>"modal", remote: true}
       - else
         %li
-          =link_to 'Admin Login', "javascript;", id: 'modal-trigger'
+          =link_to 'Admin Login', new_session_path, {"data-target"=>"#login-modal", "data-toggle"=>"modal", remote: true}

@@ -1,8 +1,0 @@
-@import "shared_mixins.css.scss";
-#contacts_controller {
-  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-  @include back-panels;
-  @include page-headers;
-  @include page-subheaders;
-  @include page-links;
-}

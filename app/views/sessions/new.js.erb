@@ -1,1 +1,2 @@
-<%= escape_javascript(render(partial: 'login_form')) %>
+$("#login-modal").html("<%= escape_javascript(render(partial: 'login_form')) %>");
+$('#login-modal').modal('show')

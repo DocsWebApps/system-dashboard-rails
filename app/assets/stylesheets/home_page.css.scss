@@ -133,39 +133,58 @@
 }
 
 /** modal window styles **/
-#lean_overlay {
-    position: fixed;
-    z-index:100;
-    top: 0px;
-    left: 0px;
-    height:100%;
-    width:100%;
-    background: #000;
-    display: none;
-}
 
-#login-modal {
-  width: 300px;
+#create-modal {
+  overflow-y: auto;
+  width: 60%;
+  height: 80%;
+  margin: 20px auto;
   padding: 15px 20px;
   background: #f3f6fa;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-#loginform { /* no default styles */ }
+#edit-modal {
+  overflow-y: auto;
+  width: 60%;
+  height: 80%;
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: #f3f6fa;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
 
-#loginform label { display: block; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
+#details-modal {
+  overflow-y: auto;
+  width: 60%;
+  height: 80%;
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: #f3f6fa;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#login-modal {
+  width: 500px;
+  height: 300px;
+  margin: 200px auto;
+  padding: 15px 20px;
+  background: #f3f6fa;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#login-modal label { display: block; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
 
 #form-title {
   font-size: 2em;
-  text-align: center;
-}
-
-#login-button{
   text-align: center;
 }
 

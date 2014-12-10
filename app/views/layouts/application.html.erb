@@ -12,15 +12,5 @@
 	</head>
 <body id="<%= params[:controller].parameterize %>_controller">
 <%=yield %> 
-<script type="text/javascript">
-
-$("#modal-trigger").addEvent("click", function(){
-  var SM = new SimpleModal({"btn_ok":"Alert button"});
-      SM.show({
-        "title":"Title",
-        "contents":"Your message..."
-      });
-});
-</script>
 </body>
 </html>

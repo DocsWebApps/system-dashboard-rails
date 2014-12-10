@@ -27,7 +27,6 @@
     .row#refresh
       Page last refreshed: 
       =Time.now.to_formatted_s(:long)
-#login-modal{style: 'display:none;'}
 #contacts-section
   .container
     .lead-text
@@ -36,3 +35,7 @@
     #copyright
       &copy 2014
       =get_dashboard_name      
+#login-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"login-modal"}
+#details-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"details-modal"}
+#create-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"create-modal"}
+#edit-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"edit-modal"}
