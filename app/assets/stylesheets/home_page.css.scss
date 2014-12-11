@@ -160,14 +160,40 @@
 
 #details-modal {
   overflow-y: auto;
-  width: 60%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   margin: 20px auto;
   padding: 15px 20px;
-  background: #f3f6fa;
+  background: #ddd;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  border-radius: 6px;
+  border-radius: 10px;
+
+  h1,h2,h3 {
+    text-align: center;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display:block;
+  }
+
+  td, th {
+    position: static;
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  #modal-btn {
+    float: right;
+    display:block;
+  }
 }
 
 #login-modal {

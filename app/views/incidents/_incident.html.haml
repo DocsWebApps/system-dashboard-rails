@@ -1,38 +1,31 @@
-%h3
-  =@system_decorator.name
-%br
-  =image_tag "#{@system_decorator.status}.png"
-%p
-  Show Incident History
-  =check_box_tag "history-check-box"
-%div{id: 'incident-details'}
+=image_tag "#{@system_decorator.status}.png"
+%hr
+%h2
+  Incidents Occuring in the last 24 hours
+- if @system_decorator.incidents.empty?
   %h3
-    Recent Incidents
-  - if @system_decorator.incidents.empty?
-    %p
-      No P1 or P2 incidents during the last 24 hours
-  - else  
-    %table{class: 'table table-bordered table-condensed td-bg'}
-      %div{class: 'row-fluid'}
+    No P1 or P2 incidents during the last 24 hours
+- else  
+  .my-table
+    %table.table.table-condensed
+      %tr
+        %th HP Reference
+        %th Description
+        %th Start Date
+        %th Start Time
+        %th Severity
+        %th Status
+      - @system_decorator.incidents.order(date: :desc).each do |incident|
         %tr
-          %th{class: 'span2'} HP Reference
-          %th{class: 'span5'} Description
-          %th{class: 'span2'} Date
-          %th{class: 'span1'} Time
-          %th{class: 'span1'} Severity
-          %th{class: 'span1'} Status
-        - @system_decorator.incidents.order(date: :desc).each do |incident|
-          %tr
-            %td
-              =incident.hp_ref  
-            %td
-              =incident.description
-            %td
-              =incident.date.to_formatted_s(:rfc822)
-            %td
-              =incident.time.to_formatted_s(:time)              
-            %td
-              =incident.severity       
-            %td
-              =incident.status 
-  
+          %td
+            =incident.hp_ref  
+          %td
+            =incident.description
+          %td
+            =incident.date.to_formatted_s(:rfc822)
+          %td
+            =incident.time.to_formatted_s(:time)              
+          %td
+            =incident.severity       
+          %td
+            =incident.status 

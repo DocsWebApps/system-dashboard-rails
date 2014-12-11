@@ -1,34 +1,16 @@
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'title-section'}
-      %h1 
-        System Incident Information
-      %p 
-        Information about incidents that have occurred on
-        =@system_decorator.name 
-- if notice
-  %div{class: 'row-fluid'}
-    %div{class: 'span12 flash-notice'} 
-      =notice
-- elsif alert
-  %div{class: 'row-fluid'}
-    %div{class: 'span12 flash-alert'} 
-      =alert
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'main-section'}
-      =render('incidents/incident')  
-      %div{id: 'incident-history'}
-        %hr
-        =render('incidents/incident_history')
-        
-:javascript
-  $(function() {
-    $('#incident-history').hide();
-    $('#history-check-box').click(function() {
-    if ($(this).is(':checked')) {
-      $('#incident-history').show();
-    } else {
-      $('#incident-history').hide();
-    }});
+%button.btn.btn-default.btn-primary#modal-btn
+  Close
+%br
+%h1 
+  Status of 
+  =@system_decorator.name 
+=render('incidents/incident')  
+%hr
+=render('incidents/incident_history')
+%hr
+
+%script
+  $('#modal-btn').click(function() {
+  $("#details-modal").html("");
+  $('#details-modal').modal('hide');
   });

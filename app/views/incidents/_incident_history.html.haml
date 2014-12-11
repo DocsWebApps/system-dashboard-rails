@@ -1,23 +1,22 @@
+%h2
+  Chronological List of Historic Incidents 
 - if @system_decorator.incident_histories.empty?
-  %p
+  %h3
     No incident history for this system
 - else
-  %h3
-    Historic Incidents 
-  %table{class: 'table table-bordered table-condensed td-bg'}
-    %div{class: 'row-fluid'}
+  %table.table.table-bordered.table-condensed
+    %tr
+      %th HP Reference
+      %th Description
+      %th Start Date
+      %th Severity
+    - @system_decorator.incident_histories.order(date: :desc).each do |incident|
       %tr
-        %th{class: 'span2'} HP Reference
-        %th{class: 'span7'} Description
-        %th{class: 'span2'} Date
-        %th{class: 'span1'} Severity
-      - @system_decorator.incident_histories.order(date: :desc).each do |incident|
-        %tr
-          %td 
-            =incident.hp_ref  
-          %td 
-            =incident.description
-          %td 
-            =incident.date.to_formatted_s(:rfc822)
-          %td 
-            =incident.severity
+        %td 
+          =incident.hp_ref  
+        %td 
+          =incident.description
+        %td 
+          =incident.date.to_formatted_s(:rfc822)
+        %td 
+          =incident.severity
