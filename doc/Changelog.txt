@@ -1,10 +1,31 @@
-*	08092014 - Added SystemSerializer class to generate JSON response for web clients
-*	08092014 - Refactored the SystemDecorator
-*	07092014 - Added an IncidentDecorator class
-*	04092014 - Refactored System.check_closed_incidents and System.set_system_status methods
-*	04092014 - Changed Company.return_name to Company.company_name, changed helper get_dashboard_name to match
-*	04092014 - Created FlashMessage NAR Model class
-*	03092014 - Added order(date: :desc) to incident_list/incident_history_list in system_decorator.rb
-*	03092014 - Updated version label in UML diagram to include System dashboard
-*	03092014 - Addition of a Heroku environment script
-*	03092014 - *** Version 1.0 Released ***
+* 952d2e1 Incident details modal finsihed(ish) - 11/12/2014
+* 4f024ef Primitive modals are working for some elements - 11/12/2014
+* 560f2d0 Developing with SimpleModal - 8/12/2014
+* 7bdbf82 Working version with leanModal - 5/11/2014
+* f094cbf Admin login modal completed using leanModal JQuery plugin - 50122014
+* f61332b Draft HomePage completed - Single Page App - 04/12/2014
+* c90f760 System page and Title Page completed and responsive in IE8 - 3/12/2014
+* 07bea38 System page and Title Page completed(ish) - 2/12/2014
+* 85f0b39 System page 3rd attempt - 01/12/2014
+* 89b689a System page 2nd attempt - 1/12/2014
+* 7867013 System page 1st attempt - 30/11/2014
+* eecf65e (origin/develop, develop) Upgraded to PageRight 0.5.2 - 24/11/2014
+* c9bfd21 Upgraded to PageRight 0.5
+* 93ab8a7 Upgraded to page_right 0.4 - 20/11/2014
+* 1ee88b8 Upgraded to ruby 2.1.5 and page_right 0.3
+* 68784f7 Added new datafile
+* ae113a0 Migrated app to Ruby 2.1.3
+* 397e2c8 Migrated app to Rails version 4.1.6
+* 2c149ce Changed JSON systems response to include :id, :color and :message
+* 1a46ea7 V2 API Development underway - System names and statuses via JSON
+* 91186f9 Refactored the Systemdecorator class
+* c728e19 Added new incident decorator
+* 4eedcd3 Added IncidentDecorator for admin views
+* ce6d2a2 More but smaller changes to System and Incident die to POODR
+* 609f601 Major changes to System and Incident die to POODR
+* de5a9b2 Added order(date: :desc) to incident_list/incident_history_list in system_decorator.rb
+* 6d63cf2 Updated version label in UML diagram to include System dashboard
+* d7b64cb Addition of Heroku environment script
+* a181bd5 (tag: v1.0, origin/master, origin/HEAD, master) Version 1.0 complete 030920114
+
+*	03/09/2014 - *** Version 1.0 Released ***

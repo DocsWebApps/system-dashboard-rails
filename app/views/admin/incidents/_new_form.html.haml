@@ -1,13 +1,7 @@
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'title-section'}
-      %h1 
-        Welcome
-        =get_dashboard_name
-        Dashboard Administrator!
-      %p
-        Please fill out the information below and click submit to create a new incident
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'main-section'}
-      =render('incident_form')
+%button.btn.btn-default.btn-primary#modal-btn
+  Close
+%h1
+  Create a New System Incident 
+%h3
+  Please fill out the information below and click submit to create a new incident
+=render('incident_form')

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # Ruby version
 ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.0.rc1'
+gem 'rails', '~> 4.2.0.rc3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.17.1'
 # Use SCSS for stylesheets
@@ -21,7 +21,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease.
 gem 'active_model_serializers', '~> 0.9'
 # Bootstrap 3.0
-gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'bootstrap-sass', '~> 3.3.1.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.9'
 # Building forms
@@ -30,6 +30,7 @@ gem 'simple_form', '~> 3.0.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
+  # Automated deployment to production or staging environments
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-bundler', '~> 1.1.3'
   gem 'capistrano-rails', '~> 1.1.2'
@@ -52,9 +53,12 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # Gem for mocking and stubbing
-  gem 'mocha'
-  #########
-  gem 'factory_girl_rails', '~> 4.4.1'      # Build records for testing                             # Test your return html with Capybara
+  gem 'mocha', '~> 1.1.0'
+  # Gem for testing Javascript
+  gem 'jasmine', '~> 2.1.0'
+  # Provides extensions to Jasmine for using JQuery and fixtures
+  gem 'jasmine-jquery-rails', '~> 2.0.3'
+  # Build records for testing
+  gem 'factory_girl_rails', '~> 4.4.1'                                   # Test your return html with Capybara
   gem 'database_cleaner', github: 'bmabey/database_cleaner'    # Clean up the Test DB after testing
-
 end
