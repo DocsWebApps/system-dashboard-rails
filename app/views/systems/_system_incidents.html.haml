@@ -1,4 +1,4 @@
-%button.btn.btn-default.btn-primary#modal-btn
+%button.btn.btn-default.btn-primary#modal-close-btn
   Close
 %br
 %h1 
@@ -9,8 +9,14 @@
 =render('incidents/incident_history')
 %hr
 
-%script
-  $('#modal-btn').click(function() {
-  $("#details-modal").html("");
-  $('#details-modal').modal('hide');
-  });
+:javascript
+  var DM={
+    setup: function() {
+      $('#modal-close-btn').on('click', function() {
+        $('#details-modal').html('');
+        $('#details-modal').hide();
+      });
+    }
+  }
+
+  $(DM.setup);

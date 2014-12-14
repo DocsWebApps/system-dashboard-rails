@@ -10,8 +10,14 @@
   %input#login-button.btn.btn-primary.hidemodal{type: 'submit', value: 'LOGIN'}
   %input#cancel-btn.btn.btn-primary.hidemodal{value: 'CANCEL'}
 
-%script
-  $('#cancel-btn').click(function() {
-  $('#login-modal').html("");
-  $('#login-modal').modal('hide');
-  });
+:javascript
+  var LM={
+    setup: function() {
+      $('#cancel-btn').on('click', function() {
+        $('#login-modal').html('');
+        $('#login-modal').hide();
+      });
+    }
+  }
+
+  $(LM.setup);
