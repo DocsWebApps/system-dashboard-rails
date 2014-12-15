@@ -15,7 +15,7 @@ class Admin::IncidentsController < ApplicationController
     system=System.find_by(id: params[:incident][:system_id])
     @incident=system.incidents.new(incident_params)
     if @incident.save_new_incident
-      redirect_to system_path(system), FlashMessage.success('Incident successfully saved to the database! Please check the details below.')
+      redirect_to root_path(anchor: 'status-section'), FlashMessage.success('Incident successfully saved to the database! Please check the details below.')
     else
       @systems=list_systems
       @url=admin_incidents_path
@@ -41,7 +41,7 @@ class Admin::IncidentsController < ApplicationController
   def update
     @incident=get_incident(id: params[:id])
     if @incident.update_existing_incident(incident_params)
-      redirect_to system_path(@incident.system), FlashMessage.success('Incident successfully updated and saved to the database! Please check the details below.')
+      redirect_to root_path(anchor: 'status-section'), FlashMessage.success('Incident successfully updated and saved to the database! Please check the details below.')
     else
       redirect_to edit_admin_incident_path, FlashMessage.error('Houston there was a problem! Please make sure that all fields are populated before you submit the changes')
     end

@@ -1,7 +1,6 @@
 @import "shared_mixins.css.scss";
 #home_page_controller {
   @include flash-settings;
-  font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
 
   #title-section {
     margin: 50px 0 0 0;
@@ -112,9 +111,9 @@
 
   #contacts-section {
     width: 100%;
-    background-color: #2d3033;
-    height: 400px;
-    color: #858585;
+    background-color: #444;
+    height: 100%;
+    color: #fff;
     text-align: center;
     font-size: 18px;
 
@@ -134,40 +133,17 @@
 
 /** modal window styles **/
 
-#create-modal {
-  overflow-y: auto;
-  width: 60%;
-  height: 80%;
-  margin: 20px auto;
-  padding: 15px 20px;
-  background: #f3f6fa;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-
-#edit-modal {
-  overflow-y: auto;
-  width: 60%;
-  height: 80%;
-  margin: 20px auto;
-  padding: 15px 20px;
-  background: #f3f6fa;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-
 #details-modal {
   overflow-y: auto;
-  width: 90%;
-  height: 90%;
-  margin: 20px auto;
+  width: 100%;
+  height: 100%;
   padding: 15px 20px;
-  background: #ddd;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 10px;
+  background: #eee;
+  font-size: 1.4em;
+
+  .hr-rule{
+    color: black;
+  }
 
   h1,h2,h3 {
     text-align: center;
@@ -175,6 +151,10 @@
 
   h1 {
     font-weight: bold;
+  }
+
+  h2 {
+    text-decoration: underline;
   }
 
   img {
@@ -190,9 +170,18 @@
     background-color: white;
   }
 
-  #modal-close-btn {
+  .modal-close-btn {
+    margin: 50px auto 20px auto;
+    display:block;
+    width: 250px;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .modal-X-btn {
     float: right;
     display:block;
+    font-size: 1.2em;
   }
 }
 

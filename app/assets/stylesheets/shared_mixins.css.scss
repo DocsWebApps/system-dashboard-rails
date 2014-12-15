@@ -1,40 +1,6 @@
-$back-color: #DDDDDD;
-
-@mixin back-panels {
-  .main-section, .title-section, #login-form, #system-key {
-    margin-bottom: 20px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: $back-color;
-  }
-}
-
-@mixin page-headers {
-   h1 {
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-}
-
-@mixin page-subheaders {  
-  p {
-   font-size: 20px;
-   text-align: center;
-   margin-bottom: 20px;
-  }
-}
-
-@mixin page-links {
-  #nav-dash-link {
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 20px;
-  }
-}
-
 @mixin flash-settings {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  
   .flash-notice, .flash-alert {
     padding: 8px 35px 8px 14px;
     margin-bottom: 20px;
@@ -48,13 +14,22 @@ $back-color: #DDDDDD;
     line-height: 20px;
     text-align: center;
   }
+
   .flash-notice {
     background-color: #dff0d8;
     border-color: #d6e9c6;
     color: #468847;
   }
+
   .flash-alert {
     background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+  }
+
+  .alert {
+    background-color: #f2dede;
+    width: 90%;
     border-color: #eed3d7;
     color: #b94a48;
   }

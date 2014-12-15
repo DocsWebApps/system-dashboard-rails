@@ -1,5 +1,5 @@
 %header
-  =render('layouts/navbar')
+  =render('layouts/homepage_navbar')
 #title-section
   .row
     #header-text
@@ -21,6 +21,12 @@
         System Status Information
     .row
       =render('layouts/key')
+    - if notice
+      .flash-notice
+        =notice
+    - elsif alert
+      .flash-alert
+        =alert
     .row 
       =render(@systems_for_row1)
     .row
@@ -39,5 +45,3 @@
       =get_dashboard_name      
 #login-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"login-modal"}
 #details-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"details-modal"}
-#create-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"create-modal"}
-#edit-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"edit-modal"}

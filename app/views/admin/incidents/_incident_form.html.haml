@@ -1,11 +1,11 @@
 =simple_form_for @incident, url: @url, method: @method, html: {class: 'form-horizontal', id: 'incident_form'}  do |f|
   =f.error_notification 
   =f.association :system, collection: @systems, default: 1
-  =f.input :hp_ref, label: 'HP Reference'
+  =f.input :hp_ref, label: 'Fault Reference'
   =f.input :description, label: 'Description'
   =f.input :severity, label: 'Severity', collection: ['P1','P2'], as: :radio_buttons
   =f.input :date, label: 'Start Date'
   =f.input :time, label: 'Start Time (HH24:MM)'
   =f.input :status, as: :hidden, input_html: {value: 'Open'}
   =f.error :base
-  =f.button :submit, label: 'Create Incident'
+  =f.button :submit, label: 'Create Incident', class: 'btn-primary'
