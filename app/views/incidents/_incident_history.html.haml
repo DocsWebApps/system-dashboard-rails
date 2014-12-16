@@ -8,15 +8,16 @@
     %tr
       %th Fault Reference
       %th Description
-      %th Start Date
+      %th Incident Date
       %th Severity
     - @system_decorator.incident_histories.order(date: :desc).each do |incident|
       %tr
-        %td 
+        .row
+        %td.col-md-1 
           =incident.hp_ref  
-        %td 
+        %td.col-md-9
           =incident.description
-        %td 
+        %td.col-md-1 
           =incident.date.to_formatted_s(:rfc822)
-        %td 
+        %td.col-md-1 
           =incident.severity

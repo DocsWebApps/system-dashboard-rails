@@ -1,54 +1,40 @@
 %header
   =render('layouts/admin_navbar')
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'title-section'}
-      %h1 
-        Welcome
-        =get_dashboard_name
-        Dashboard Administrator!
+.main-section
+  %h2 Welcome Administrator !
+  %h3
+    All open incidents are displayed below
+  #incident-index
+    - if @incident_decorator.check_for_open_incidents?   
+      - @incident_decorator.list_systems.each do |system|
+        - if @incident_decorator.check_for_open_incidents?(system)
+          %h4.title
+            Open incidents for 
+            =system.name
+          %table.table.table-bordered.table-condensed.td-bg
+            %tr
+              .row
+                %th Fault Reference
+                %th Description
+                %th Start Date
+                %th Start Time
+            -system.incidents.where(status: 'Open').each do |incident|
+              %tr
+                .row
+                  %td.col-md-1
+                    =incident.hp_ref
+                  %td.col-md-6
+                    =incident.description
+                  %td.col-md-1
+                    =incident.date.to_formatted_s(:long)
+                  %td.col-md-1
+                    =incident.time.to_s(:time)
+                  %td.text-center.col-md-1
+                    =link_to "Update", edit_admin_incident_path(incident)
+                  %td.text-center.col-md-1
+                    =link_to "Close", admin_incident_path(incident)+'?query=close', method: :delete
+                  %td.text-center.col-md-1
+                    =link_to "Downgrade", admin_incident_path(incident)+'?query=downgrade', method: :delete
+    -else
       %p
-        Please update, close or downgrade any of the incidents below
-- if notice
-  %div{class: 'row-fluid'}
-    %div{class: 'span12 flash-notice'} 
-      =notice
-- elsif alert
-  %div{class: 'row-fluid'}
-    %div{class: 'span12 flash-alert'} 
-      =alert
-%div{class: 'row-fluid'}
-  %div{class: 'span12'}
-    %div{class: 'main-section'}
-      - if @incident_decorator.check_for_open_incidents?   
-        - @incident_decorator.list_systems.each do |system|
-          - if @incident_decorator.check_for_open_incidents?(system)
-            %h4{class: 'title'}
-              Open incidents for 
-              =system.name
-            %table{class: 'table table-bordered table-condensed td-bg'}
-              %div{class: 'row-fluid'}
-                %tr
-                  %th{class: 'span2'} HP Reference
-                  %th{class: 'span7'} Description
-                  %th{class: 'span2'} Date
-                  %th{class: 'span1'} Time
-                -system.incidents.where(status: 'Open').each do |incident|
-                  %tr
-                    %td
-                      =incident.hp_ref
-                    %td
-                      =incident.description
-                    %td
-                      =incident.date.to_formatted_s(:long)
-                    %td
-                      =incident.time.to_s(:time)
-                    %td
-                      =link_to "Update", edit_admin_incident_path(incident)
-                    %td
-                      =link_to "Close", admin_incident_path(incident)+'?query=close', method: :delete
-                    %td
-                      =link_to "Downgrade", admin_incident_path(incident)+'?query=downgrade', method: :delete
-      -else
-        %p
-          There are no open incidents for any system in the last 24 hours
+        There are currently no open incidents for any system !! 

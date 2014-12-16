@@ -17,15 +17,16 @@
         %th Status
       - @system_decorator.incidents.order(date: :desc).each do |incident|
         %tr
-          %td
-            =incident.hp_ref  
-          %td
-            =incident.description
-          %td
-            =incident.date.to_formatted_s(:rfc822)
-          %td
-            =incident.time.to_formatted_s(:time)              
-          %td
-            =incident.severity       
-          %td
-            =incident.status 
+          .row
+            %td.col-md-1
+              =incident.hp_ref  
+            %td.col-md-7
+              =incident.description
+            %td.col-md-1
+              =incident.date.to_formatted_s(:rfc822)
+            %td.col-md-1
+              =incident.time.to_formatted_s(:time)              
+            %td.col-md-1
+              =incident.severity       
+            %td.col-md-1
+              =incident.status 

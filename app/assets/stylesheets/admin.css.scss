@@ -13,11 +13,6 @@
     background-color: #eee;
     border-radius: 10px;
 
-    #incident_form {
-      margin-left: 10%;
-      font-size: 1.4em;
-    }
-
     h2 {
       text-align: center;
       font-weight: bold;
@@ -27,52 +22,76 @@
       text-align: center;
     }
 
-    #incident_form {
+    #incident-index {
+      .table {
+        border: 1px solid black;
+      }
+
+      .td-bold {
+        font-weight: bold;
+      }
+
+      .td-bg {
+        background: white;
+      }
+
+      p {
+        margin-top: 50px;
+        font-size: 1.5em;
+        text-align: center;
+      }
+
+      h4{
+        font-weight: bold;
+      }
+
+      tr{
+        font-size: 1.3em
+      }
+
+      .table {
+        background-color: #eee;
+      }
+
+      td, th {
+        position: static;
+        border: 1px solid black;
+        background-color: white;
+      }
+    }
+
+    #incident-form {
+      margin-left: 10%;
+      font-size: 1.4em;
       text-align: left;
       padding: 10px;
-    }
 
-    .btn {
-      font-size: 1.1em;
-      width: 200px;
-      margin-top: 30px;
-    }
+      textarea {
+        width: 90%;
+        height: 200px;
+      }
 
-    .table {
-      border: 1px solid black;
-    }
+      select {
+        width: 20%;
+      }
 
-    .title {
-      text-align: center;
-    }
+      .btn {
+        font-size: 1.1em;
+        width: 200px;
+        margin-top: 30px;
+      }
 
-    textarea {
-      width: 90%;
-      height: 200px;
-    }
+      .help-inline {
+        color: #b94a48;
+      }
 
-    select {
-      width: 20%;
-    }
+      .radio {
+        margin-left: 20px;
+      }
 
-    .td-bold {
-      font-weight: bold;
-    }
-
-    .td-bg {
-      background: white;
-    }
-
-    .help-inline {
-      color: #b94a48;
-    }
-
-    .radio {
-      margin-left: 20px;
-    }
-
-    .controls {
-      margin-top: 10px;
+      .controls {
+        margin-top: 10px;
+      }
     }
   }
 }

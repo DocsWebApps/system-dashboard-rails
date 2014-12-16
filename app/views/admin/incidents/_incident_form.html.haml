@@ -1,4 +1,4 @@
-=simple_form_for @incident, url: @url, method: @method, html: {class: 'form-horizontal', id: 'incident_form'}  do |f|
+=simple_form_for @incident, url: @url, method: @method, html: {class: 'form-horizontal', id: 'incident-form'}  do |f|
   =f.error_notification 
   =f.association :system, collection: @systems, default: 1
   =f.input :hp_ref, label: 'Fault Reference'
