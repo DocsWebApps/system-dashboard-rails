@@ -28,9 +28,7 @@
       .flash-alert
         =alert
     .row 
-      =render(@systems_for_row1)
-    .row
-      =render(@systems_for_row2)
+      =render(@systems)
     .row#refresh
       Page last refreshed: 
       =Time.now.to_formatted_s(:long)
