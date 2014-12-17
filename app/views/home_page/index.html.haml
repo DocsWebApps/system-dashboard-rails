@@ -19,7 +19,7 @@
     .row
       .lead-text
         System Status Information
-    .row
+    .row#key-section
       =render('layouts/key')
     - if notice
       .flash-notice
@@ -27,7 +27,7 @@
     - elsif alert
       .flash-alert
         =alert
-    .row 
+    .row#system-section
       =render(@systems)
     .row#refresh
       Page last refreshed: 

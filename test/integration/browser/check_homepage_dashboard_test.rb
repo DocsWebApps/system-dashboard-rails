@@ -2,7 +2,7 @@ require 'test_helper'
 
 # Tests the layout of the page by setting up a set of incidents and intregating the html/css that gets returned
 
-class DashboardFunctionsTest < ActionDispatch::IntegrationTest
+class CheckHomepageDashboardTest < ActionDispatch::IntegrationTest
   
   def setup 
     @contact=FactoryGirl.create :contact 
@@ -19,40 +19,33 @@ class DashboardFunctionsTest < ActionDispatch::IntegrationTest
     @system['sulu'].incident_histories.create severity: 'P1', description: 'Test data', date: Date.today-4, time: Time.now, hp_ref: 'HP3333333', status: 'Closed', closed_at: Time.now-72.hours
     @system.each { |key, value | value.update_status }
     visit root_path 
-    click_link('View Dashboard')
+    click_link('Dashboard')
   end
         
   def teardown
     DatabaseCleaner.clean
   end
-  
-  test 'Check the contents of the page'  do
-    # Check content of the <div> .nav
-    css_in_page '.nav' 
-    text_in_section '.brand', "#{@dash_name} System Dashboard"
-    text_in_section '.nav', 'View Dashboard'
-    text_in_section '.nav', 'Contacts'
-    text_in_section '.nav', 'Tell Us?'
-    text_in_section '.nav', 'Admin Login'
-    
-    # Check content of the <div> #title-section
-    css_in_page '.title-section' 
-    text_in_section '.title-section', "#{@dash_name} System Dashboard"
-    text_in_section '.title-section', "Providing information about the status of #{@dash_name} systems"
-    
+
+  test 'Check the dashboard title' do
+    text_in_section '#status-section', 'System Status Information'
+  end
+
+  test 'Check the contents of the #key-section'  do
     # Check content of the <div> #system-key
-    css_in_page '#system-key' 
+    css_in_page '#key-section' 
     
     ['green.png','red.png','amber.png'].each do |colour|
-      image_in_section '#system-key', colour, 1
+      image_in_section '#key-section', colour, 1
     end
 
-    text_in_section '#system-key', 'No Major System Problems'
-    text_in_section '#system-key', 'Priority 2 (P2) Incident Running Now'
-    text_in_section '#system-key', 'Priority 1 (P1) Incident Running Now'
-    
-    # Check content of each <div> .main-section
-    css_in_page '.main-section' 
+    text_in_section '#key-section', 'No Major System Problems'
+    text_in_section '#key-section', 'Priority 2 (P2) Incident Running Now'
+    text_in_section '#key-section', 'Priority 1 (P1) Incident Running Now'
+  end
+
+  test 'Check the contents of the #system-section'  do
+    # Check content of each <div> #system-section
+    css_in_page '#system-section' 
     @system.each do |key, value|
       css_in_page "##{key}"
       case value.name
@@ -70,9 +63,11 @@ class DashboardFunctionsTest < ActionDispatch::IntegrationTest
             text_in_section("##{key}", 'Incident Details')           
       end
     end
-    
-    # Check content of <p> system-last-refresh
-    text_in_section('#system-last-refresh','Page last refreshed:')
+  end
+
+  test 'Check the contents of the #refresh'  do
+    # Check content of <p> #refresh
+    text_in_section('#refresh','Page last refreshed:')
   end
 
 end  

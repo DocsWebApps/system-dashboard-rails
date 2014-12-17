@@ -4,19 +4,23 @@
 %h1 
   Status of 
   =@system_decorator.name 
-=render('incidents/incident')  
-=render('incidents/incident_history')
+#incident-section
+  =render('incidents/incident')  
+#history-section
+  =render('incidents/incident_history')
 %button.btn.btn-primary.modal-close-btn
   Close Window
 
 :javascript
   var DM={
     setup: function() {
+      $('body').css('overflow','hidden');
       $('.modal-close-btn, .modal-X-btn').on('click', function() {
         $('#details-modal').html('');
         $('#details-modal').hide();
+        $('body').css('overflow','visible');
       });
     }
-  }
+  };
 
   $(DM.setup);

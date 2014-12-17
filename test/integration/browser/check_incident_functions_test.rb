@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class IncidentFunctionsTest < ActionDispatch::IntegrationTest
+class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
   
   def setup   
     Capybara.default_driver = :selenium 
@@ -14,21 +14,11 @@ class IncidentFunctionsTest < ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     DatabaseCleaner.clean
   end
-  
+
   test 'Test all the functions related to managing incidents' do
     # Visit root path
     visit root_path
     check_system_section @sys_name, "No previous incidents recorded yet", 'green.png'
-
-    # Check content of the <div> .nav
-    css_in_page '.nav' 
-    text_in_section '.brand', "#{@dash_name} System Dashboard"
-    text_in_section '.nav', 'View Dashboard'
-    text_in_section '.nav', 'Contacts'
-    text_in_section '.nav', 'Tell Us?'
-    text_in_section '.nav', 'Admin Login'
-    text_in_section '.nav', 'Create New Incident', false
-    text_in_section '.nav', 'Edit Existing Incident', false
 
     # Login with correct credentials
     click_link 'Admin Login'  
@@ -36,19 +26,9 @@ class IncidentFunctionsTest < ActionDispatch::IntegrationTest
     fill_in 'session_password', with: @password
     click_button 'LOGIN'
     
-    # Check content of the <div> .nav
-    css_in_page '.nav' 
-    text_in_section '.brand', "#{@dash_name} System Dashboard"
-    text_in_section '.nav', 'View Dashboard'
-    text_in_section '.nav', 'Contacts'
-    text_in_section '.nav', 'Tell Us?'
-    text_in_section '.nav', 'Admin Login', false
-    text_in_section '.nav', 'Create New Incident'
-    text_in_section '.nav', 'Edit Existing Incident'
-    
     # Navigate to Create New Incident page and enter incident details
     click_link 'Create New Incident'
-    fill_in 'HP Reference', with: 'HP12345678'
+    fill_in 'Fault Reference', with: 'HP12345678'
     fill_in 'Description', with: 'Test Description'
     choose 'P2'
     click_button 'Create Incident'
@@ -83,11 +63,10 @@ class IncidentFunctionsTest < ActionDispatch::IntegrationTest
     visit root_path
     check_system_section @sys_name, "No previous incidents recorded yet", 'green.png'
     click_link 'Incident Details'
-    text_in_section '#incident-details', 'HP12345678', false
-    text_in_section '#incident-details', 'Test Description', false
-    check 'history-check-box'
-    text_in_section '#incident-history', 'HP12345678'
-    text_in_section '#incident-history', 'Test Description'
+    text_in_section '#incident-section', 'HP12345678', false
+    text_in_section '#incident-section', 'Test Description', false
+    text_in_section '#history-section', 'HP12345678'
+    text_in_section '#history-section', 'Test Description'
 
     # Make the downgraded incident older and it should not trigger an indicator change
     incident=IncidentHistory.first

@@ -16,8 +16,6 @@ gem 'haml', '~> 4.0.5'
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'jquery-ui-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease.
 gem 'active_model_serializers', '~> 0.9'
 # Bootstrap 3.0
