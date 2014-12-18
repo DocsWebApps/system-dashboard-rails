@@ -33,7 +33,6 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     choose 'P2'
     click_button 'Create Incident'
     text_in_section '.flash-notice', 'Incident successfully saved to the database! Please check the details below.'
-    visit root_path
     check_system_section @sys_name, "No previous incidents recorded yet", 'amber.png'
    
     # Navigate to Edit Existing Incident page and update incident
@@ -42,14 +41,12 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     choose 'P1'
     click_button 'Update Incident'
     text_in_section '.flash-notice', 'Incident successfully updated and saved to the database! Please check the details below.' 
-    visit root_path
     check_system_section @sys_name, "No previous incidents recorded yet", 'red.png' 
     
     # Navigate to Edit Existing Incident page and close incident
     click_link 'Edit Existing Incident'
     click_link 'Close'
     text_in_section '.flash-notice', 'Incident HP12345678 has been closed successfully.'
-    visit root_path
     check_system_section @sys_name, "1 Incident in the last 24 hours", 'green.png'
     
     # Reset incident to 'Open', navigate to Edit Existing incident and downgrade incident
@@ -60,7 +57,6 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     click_link 'Edit Existing Incident'
     click_link 'Downgrade'
     text_in_section '.flash-notice', 'Incident HP12345678 has been downgraded successfully.'
-    visit root_path
     check_system_section @sys_name, "No previous incidents recorded yet", 'green.png'
     click_link 'Incident Details'
     text_in_section '#incident-section', 'HP12345678', false

@@ -28,7 +28,7 @@ class CheckHomepageContactsTest < ActionDispatch::IntegrationTest
     text_in_section '#contacts-section', @message
   end
 
-  test 'Check the copyright' do
+  test 'Check the copyright is present' do
     text_in_section '#contacts-section', "&copy 2014 #{@dash_name}"
   end
   
