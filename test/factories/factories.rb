@@ -35,7 +35,7 @@ FactoryGirl.define do
     status 'Open'
     date Date.today
     time Time.now
-    hp_ref 'HP12345678'
+    fault_ref 'HP12345678'
     description 'Test description'
   end
   
@@ -44,7 +44,7 @@ FactoryGirl.define do
     status 'Open'
     date Date.today - 10
     time '12:00'
-    hp_ref 'HP98765432'
+    fault_ref 'HP98765432'
     description 'Test description'
     closed_at (Time.now - 76.hours)
   end

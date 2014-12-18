@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218162738) do
+ActiveRecord::Schema.define(version: 20141218211736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141218162738) do
   end
 
   create_table "incident_histories", force: true do |t|
-    t.string   "hp_ref",      limit: 255
+    t.string   "fault_ref",   limit: 255
     t.text     "description"
     t.date     "date"
     t.string   "status",      limit: 255
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141218162738) do
   add_index "incident_histories", ["system_id"], name: "index_incident_histories_on_system_id", using: :btree
 
   create_table "incidents", force: true do |t|
-    t.string   "hp_ref",      limit: 255
+    t.string   "fault_ref",   limit: 255
     t.text     "description"
     t.date     "date"
     t.string   "status",      limit: 255

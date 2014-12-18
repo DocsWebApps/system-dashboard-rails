@@ -23,7 +23,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
     create_new_incident
     incident=@system.incidents.first
     
-    delete api_v1_incident_path(incident.hp_ref),
+    delete api_v1_incident_path(incident.fault_ref),
     {system: @system.name, query: 'close'}.to_json,
     {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
     
@@ -34,7 +34,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
     create_new_incident
     incident=@system.incidents.first
     
-    delete api_v1_incident_path(incident.hp_ref),
+    delete api_v1_incident_path(incident.fault_ref),
     {system: @system.name, query: 'downgrade'}.to_json,
     {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
     
@@ -45,7 +45,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
     create_new_incident
     incident=@system.incidents.first
     
-    patch api_v1_incident_path(incident.hp_ref),
+    patch api_v1_incident_path(incident.fault_ref),
     {system: @system.name, incident: {description: 'Test is now finsihed'}}.to_json, 
     {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
     
@@ -60,7 +60,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
   test 'Create new incident using API - test for failed' do
     # In this test not all of the required params are sent in the post request; severity: is missing   
     post api_v1_incidents_path, 
-    {system: @system.name, incident: {description: 'Test', hp_ref: 'HP 123', time: '10:00', date: '01/01/2014', status: 'Open' }}.to_json, 
+    {system: @system.name, incident: {description: 'Test', fault_ref: 'HP 123', time: '10:00', date: '01/01/2014', status: 'Open' }}.to_json, 
     {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
     
     check_response('createBAD', response, 400)
@@ -69,7 +69,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
   private 
     def create_new_incident
       post api_v1_incidents_path, 
-      {system: @system.name, incident: {description: 'Test', severity: 'P2', hp_ref: 'HP 123', time: '10:00', date: '01/01/2014', status: 'Open' }}.to_json, 
+      {system: @system.name, incident: {description: 'Test', severity: 'P2', fault_ref: 'HP 123', time: '10:00', date: '01/01/2014', status: 'Open' }}.to_json, 
       {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
       
       check_response('createOK', response, 201)

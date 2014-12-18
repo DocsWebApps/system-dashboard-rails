@@ -19,13 +19,13 @@ module API
     
     def update
       system=get_system
-      incident=system.incidents.find_by hp_ref: params[:id]
+      incident=system.incidents.find_by fault_ref: params[:id]
       incident.update_existing_incident(incident_params) ? (render json: {result: 'updateOK'}, status: 201) : (render json: {result: 'updateBAD'}, status: 400)
     end
     
     def destroy
       system=get_system
-      incident=system.incidents.where(hp_ref: params[:id], status: 'Open')[0]
+      incident=system.incidents.where(fault_ref: params[:id], status: 'Open')[0]
       incident.close_or_downgrade_incident(params[:query]) ? (render json: {result: 'close_downgrade_OK'}, status: 201) : (render json: {result: 'close_downgrade_BAD'}, status: 400)
     end
 
@@ -35,7 +35,7 @@ module API
       end
       
       def incident_params
-        params.require(:incident).permit(:description, :severity, :hp_ref, :date, :time, :status)
+        params.require(:incident).permit(:description, :severity, :fault_ref, :date, :time, :status)
       end
     
   end

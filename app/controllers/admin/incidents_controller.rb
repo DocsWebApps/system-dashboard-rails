@@ -61,6 +61,6 @@ class Admin::IncidentsController < ApplicationController
     end
 
     def incident_params
-      params.require(:incident).permit(:system_id, :description, :severity, :status, :hp_ref, :date, :time)
+      params.require(:incident).permit(:system_id, :description, :severity, :status, :fault_ref, :date, :time)
     end
 end
