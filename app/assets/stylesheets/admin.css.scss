@@ -22,6 +22,11 @@
       text-align: center;
     }
 
+    .required-field {
+      text-align: center;
+      color: red;
+    }
+
     #incident-index {
       .table {
         border: 1px solid black;

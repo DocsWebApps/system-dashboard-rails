@@ -1,3 +1,5 @@
+%h4.required-field
+  (*) indicates a required field
 =simple_form_for @incident, url: @url, method: @method, html: {class: 'form-horizontal', id: 'incident-form'}  do |f|
   =f.error_notification 
   =f.association :system, collection: @systems, default: 1

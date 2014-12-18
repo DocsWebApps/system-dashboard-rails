@@ -11,41 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828125008) do
+ActiveRecord::Schema.define(version: 20141218162738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: true do |t|
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "companies", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "contacts", force: true do |t|
-    t.string   "contact"
+    t.string   "contact",    limit: 255
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "incident_histories", force: true do |t|
-    t.string   "hp_ref"
+    t.string   "hp_ref",      limit: 255
     t.text     "description"
-    t.text     "resolution"
     t.date     "date"
-    t.string   "status"
+    t.string   "status",      limit: 255
     t.integer  "system_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "title"
-    t.string   "severity"
+    t.string   "severity",    limit: 255
     t.time     "time"
     t.datetime "closed_at"
   end
@@ -53,16 +45,14 @@ ActiveRecord::Schema.define(version: 20140828125008) do
   add_index "incident_histories", ["system_id"], name: "index_incident_histories_on_system_id", using: :btree
 
   create_table "incidents", force: true do |t|
-    t.string   "hp_ref"
+    t.string   "hp_ref",      limit: 255
     t.text     "description"
-    t.text     "resolution"
     t.date     "date"
-    t.string   "status"
+    t.string   "status",      limit: 255
     t.integer  "system_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "title"
-    t.string   "severity"
+    t.string   "severity",    limit: 255
     t.time     "time"
     t.datetime "closed_at"
   end
@@ -70,15 +60,15 @@ ActiveRecord::Schema.define(version: 20140828125008) do
   add_index "incidents", ["system_id"], name: "index_incidents_on_system_id", using: :btree
 
   create_table "roles", force: true do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "systems", force: true do |t|
-    t.string   "name"
-    t.string   "status"
+    t.string   "name",               limit: 255
+    t.string   "status",             limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "row_id"
@@ -86,13 +76,13 @@ ActiveRecord::Schema.define(version: 20140828125008) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "password_digest"
+    t.string   "email",           limit: 255
+    t.string   "name",            limit: 255
+    t.string   "password_digest", limit: 255
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "auth_token"
+    t.string   "auth_token",      limit: 255
   end
 
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree

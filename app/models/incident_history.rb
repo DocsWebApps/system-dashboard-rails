@@ -30,7 +30,7 @@ class IncidentHistory < ActiveRecord::Base
 
   # Define class methods
   def self.create_new_record(system, incident)
-  	system.incident_histories.create hp_ref: incident.hp_ref, title: incident.title, time: incident.time , date: incident.date, status: incident.status, severity: incident.severity, description: incident.description, resolution: incident.resolution, closed_at: incident.closed_at
+  	system.incident_histories.create hp_ref: incident.hp_ref, time: incident.time , date: incident.date, status: incident.status, severity: incident.severity, description: incident.description, closed_at: incident.closed_at
 	end
 
 end

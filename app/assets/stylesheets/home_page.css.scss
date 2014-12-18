@@ -18,9 +18,9 @@
     -o-background-size: cover;
 
     #header-text {
-      margin-top: 100px;
+      margin-top: 50px;
       text-align: center;
-      font-size: 60px;
+      font-size: 55px;
       font-weight: bold;
       color: white;
     }
@@ -28,7 +28,7 @@
     .lead-text {
       margin-top: 20px;
       text-align: center;
-      font-size: 35px;
+      font-size: 30px;
       font-weight: bold;
       color: white;
     }
@@ -41,8 +41,8 @@
 
     @media(min-width: 768px) {
       #header-text {
-        margin-top: 150px;
-        font-size: 70px;
+        margin-top: 75px;
+        font-size: 65px;
       }
 
       .lead-text {
@@ -56,9 +56,26 @@
       }
     }
 
-    @media(min-width: 1200px) {
+    @media(min-width: 1000px) {
       #header-text {
-        margin-top: 200px;
+        margin-top: 100px;
+        font-size: 75px;
+      }
+
+      .lead-text {
+        margin-top: 40px;
+        font-size: 45px;
+      }
+
+      .title-btn {
+        margin: 40px auto;
+        font-size: 30px;
+      }
+    }
+
+    @media(min-width: 1400px) {
+      #header-text {
+        margin-top: 150px;
         font-size: 90px;
       }
 
