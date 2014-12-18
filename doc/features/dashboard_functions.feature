@@ -37,28 +37,17 @@ Scenario: Check that the contents of the page refelct the background data above
 
 	When I go to the dashboard home page
 
-	Then in the nav bar the following <links> should be <visible>
-	Examples:
-	| links 					| visible 	|
-	| View Dashboard			| yes		|
-	| Contacts	 				| yes		|
-	| Tell Us?					| yes		|
-	| Admin Login				| yes		|
-	| Create New Incident		| no		|
-	| Edit Existing Incident	| no	 	|
-
-	And I should see the title-section on the page
-	And I should see the system-key section on the page	
+	And I should see the title on the page
+	And I should see the status key on the page	
 
 	And I should see the following in the main-section
-	| system 	| smiley colour | indicator message 						|
-	| kirk 		| green 		| No previous incidents recorded yet		|
-	| spock 	| amber 		| No previous incidents recorded yet		|
-	| bones 	| green 		| 1 Incident in the last 24 hours			|
-	| sulu 		| red 			| 4 Days since the last incident 			|
+	| system 	| smiley colour | indicator message 								|
+	| kirk 		| green 				| No previous incidents recorded yet|
+	| spock 	| amber 				| No previous incidents recorded yet|
+	| bones 	| green 				| 1 Incident in the last 24 hours		|
+	| sulu 		| red 					| 4 Days since the last incident 		|
 
-	And I should see 'More Information'
-
+	And I should see 'Incident Details'
 	And I should see the 'Page last refreshed:' message at the bottom of the page		
 
-Integration Test: ./test/integration/browser/dashboard_functions_test.rb 
+Integration Test: ./test/integration/browser/check_homepage_dashboard_test.rb 

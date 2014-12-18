@@ -1,3 +1,10 @@
+* aa3e6ae (HEAD, bootstrap3) Minor changes to navabar testcase - now tests before and after login - 18/12/2014
+* fe15123 (tag: v2.0rc1, origin/bootstrap3) Release candidate 2.0rc1 - 17/12/2014
+* 05630f0 Responsive front page - 16/11/2014
+* 7318102 Edit form complete - basic app now works! 16/12/2014
+* 9943058 Create and Update forms complete - 15/12/2014
+* ffef610 JS namespaced - app working - 14/12/2014
+* 73af073 Interim commit to reorg JS
 * 952d2e1 Incident details modal finsihed(ish) - 11/12/2014
 * 4f024ef Primitive modals are working for some elements - 11/12/2014
 * 560f2d0 Developing with SimpleModal - 8/12/2014
@@ -9,7 +16,7 @@
 * 85f0b39 System page 3rd attempt - 01/12/2014
 * 89b689a System page 2nd attempt - 1/12/2014
 * 7867013 System page 1st attempt - 30/11/2014
-* eecf65e (origin/develop, develop) Upgraded to PageRight 0.5.2 - 24/11/2014
+* eecf65e (origin/develop, gonzo_master, develop) Upgraded to PageRight 0.5.2 - 24/11/2014
 * c9bfd21 Upgraded to PageRight 0.5
 * 93ab8a7 Upgraded to page_right 0.4 - 20/11/2014
 * 1ee88b8 Upgraded to ruby 2.1.5 and page_right 0.3
@@ -27,5 +34,6 @@
 * 6d63cf2 Updated version label in UML diagram to include System dashboard
 * d7b64cb Addition of Heroku environment script
 * a181bd5 (tag: v1.0, origin/master, origin/HEAD, master) Version 1.0 complete 030920114
+
 
 *	03/09/2014 - *** Version 1.0 Released ***

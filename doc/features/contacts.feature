@@ -13,18 +13,7 @@ Background: Assume the following data exists in the system
 Scenario: Check the details on the contacts page	
 
 	When I navigate to the contacts page
-	
-	Then in the nav bar the following <links> should be <visible>
-	Examples:
-	| links 					| visible 	|
-	| View Dashboard			| yes		|
-	| Contacts	 				| yes		|
-	| Tell Us?					| yes		|
-	| Admin Login				| yes		|
-	| Create New Incident		| no		|
-	| Edit Existing Incident	| no	 	|	
-
-	And the page title-section should be displayed 
+	And the page title should be displayed 
 	And the main section containing the contact deails should be displayed
 
-Integration Test: ./test/integration/browser/contacts_test.rb 
+Integration Test: ./test/integration/browser/check_homepage_contacts_test.rb 

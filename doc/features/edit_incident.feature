@@ -20,5 +20,6 @@ Scenario: Check that we can escalate the severity of a P2 incident to P1 sand sa
 	When I choose 'P1' and click 'Update Incident'
 	Then I get redirected to the main page
 	And the system now displays a red smiley
+	And a flash message indicating success or failure
 
-Integration Test: ./test/integration/browser/incident_functions_test.rb - 'Test all the functions related to managing incidents'
+Integration Test: ./test/integration/browser/check_incident_functions_test.rb

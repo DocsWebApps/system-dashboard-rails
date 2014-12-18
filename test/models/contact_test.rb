@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id         :integer          not null, primary key
+#  contact    :string(255)
+#  message    :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'test_helper'
 
 class ContactTest < ActiveSupport::TestCase

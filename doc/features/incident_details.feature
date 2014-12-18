@@ -13,24 +13,11 @@ Background: Assume the following data exists in the system
 Scenario: Check that the incident details page displays the right information in the right section
 
 	When I navigate to the incident details section of this system
-
-	Then in the nav bar the following <links> should be <visible>
-	Examples:
-	| links 					| visible 	|
-	| View Dashboard			| yes		|
-	| Contacts	 				| yes		|
-	| Tell Us?					| yes		|
-	| Admin Login				| yes		|
-	| Create New Incident		| no		|
-	| Edit Existing Incident	| no	 	|
-
-	And the page title-section should be displayed 
-	And the name of the system should be displayed
+	Then the name of the system should be displayed
 	And the smiley on the page should be amber
-	And 'Show Incident History' check box should be displayed
-	And 'Recent Incidents for #{System}' should be displayed
+	And 'Incidents Occuring in the last 24 hours' should be displayed
 	And one incident should be displayed in the incident-details section
-	And 'Historic Incidents for #{System}' should be displayed
+	And 'Chronological List of Historic Incidents' should be displayed
 	And one incident should be displayed in the incident-history section	
 
-Integration Test: ./test/integration/browser/incident_details_test.rb
+Integration Test: ./test/integration/browser/check_incident_details_test.rb

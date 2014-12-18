@@ -163,11 +163,12 @@
 /** modal window styles **/
 #details-modal {
   overflow-y: auto;
-  width: 100%;
+  width: 90%;
   height: 100%;
   padding: 15px 20px;
-  background: #eee;
+  background: #fff;
   font-size: 1.4em;
+  margin:0 auto 0 auto;
 
   .hr-rule{
     color: black;
@@ -182,7 +183,7 @@
   }
 
   h2 {
-    text-decoration: underline;
+    font-weight: bold;
   }
 
   img {
@@ -199,7 +200,7 @@
   }
 
   .modal-close-btn {
-    margin: 50px auto 20px auto;
+    margin: 30px auto 20px auto;
     display:block;
     width: 250px;
     font-size: 1.2em;

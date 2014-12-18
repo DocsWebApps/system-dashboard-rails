@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: systems
+#
+#  id                 :integer          not null, primary key
+#  name               :string(255)
+#  status             :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  row_id             :integer
+#  last_incident_date :date
+#
+
 require 'test_helper'
 
 class SystemTest < ActiveSupport::TestCase

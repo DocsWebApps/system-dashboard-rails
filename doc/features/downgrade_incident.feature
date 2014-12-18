@@ -18,10 +18,10 @@ Scenario: Check that I can downgrade the incident from the 'Edit Exisitng Incide
 	And I click on the 'Downgrade' option for the open incident
 	Then I get redirected to the main page 
 	And the system now displays a green smiley
+	And a flash message indicating success or failure
 
-	When I click on the "More Information" link
+	When I click on the "Incident Details" link
 	Then I should not see the details of the incident in the incident details section
-	But when I click the 'Show History' checkbox
-	Then I should see the details of the incident with a serverity of 'D' and a status of 'Closed'
+	And I should see the details of the incident with a serverity of 'D' and a status of 'Closed'
 
-Integration Test: ./test/integration/browser/incident_functions_test.rb - 'Test all the functions related to managing incidents'
+Integration Test: ./test/integration/browser/check_incident_functions_test.rb 

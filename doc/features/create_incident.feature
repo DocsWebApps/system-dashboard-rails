@@ -7,7 +7,7 @@ Feature: Create a new incident
 		System: A dropdown listing all the systems I can enter incident information for
 		Description: a description of the incident
 		Severity: The severity of the incident, P1 or P2
-		HP_REF: The HP reference number of the incident
+		Fault reference: The fault reference of the incident
 		Date: The date of the incident
 		Time: The time of the incident
 		
@@ -20,7 +20,8 @@ Background: Assume the following data exists in the system
 Scenario: Create a new incident via the 'Create New Incident' page
 
 	When I navigate to the 'Create New Incident' page
-	And I enter the system name, description, severity (P2), hp_ref, date and time and click 'Create Incident'
+	And I enter the system name, description, severity (P2), fault ref, date and time and click 'Create Incident'
 	Then I get redirected to the main page and the system is showing an amber smiley
+	And a flash message indicating success or failure
 
-Integration Test: ./test/integration/browser/incident_functions_test.rb - 'Test all the functions related to managing incidents'
+Integration Test: ./test/integration/browser/check_incident_functions_test.rb 

@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: incidents
+#
+#  id          :integer          not null, primary key
+#  hp_ref      :string(255)
+#  description :text
+#  resolution  :text
+#  date        :date
+#  status      :string(255)
+#  system_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  title       :text
+#  severity    :string(255)
+#  time        :time
+#  closed_at   :datetime
+#
+
 require 'test_helper'
 
 class IncidentTest < ActiveSupport::TestCase

@@ -18,7 +18,7 @@ Scenario: Check that I can close the incident from the 'Edit Exisitng Incident' 
 	Then I get redirected to the main page 
 	And the system now displays a green smiley
 
-	When I click on the "More Information" link
+	When I click on the 'Incident Details' link
 	Then I should see the details of the incident with a status of 'Closed'
 
-Integration Test: ./test/integration/browser/incident_functions_test.rb - 'Test all the functions related to managing incidents'
+Integration Test: ./test/integration/browser/check_incident_functions_test.rb
