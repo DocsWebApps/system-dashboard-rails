@@ -1,31 +1,73 @@
-<h1>Welcome to the System Dash Board</h1>
+## Welcome to the System Dashboard
 
-<p><i>Version 1.0 3rd September 2014</i></p>
+Version 2.0 beta 19th December 2014
 
-<p>The System Dashboard is a simple web application developed using Ruby(v2.1.2) on Rails(v4.1.4) that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.</p>
+The System Dashboard is a simple web application developed using Ruby(2.1.5) on Rails(4.2) that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
-<p>When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a serverity level and commit the information to the database. Immediatley the status of the system in question changes which is then clearly displayed on the dashboard for all to see. Users can then click on a link for that system to see the details of the incident, the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.</p>
+When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a serverity level and commit the information to the database. Immediatley the status of the system in question changes which is then clearly displayed on the dashboard for all to see. Users can then click on a link for that system to see the details of the incident, the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.
 
-<p>It therefore provides a simple but effective way to keep your key stakeholders updated with any problems that your systems or services may be experiencing and what work is being undertaken to restore them.</p>
+It therefore provides a simple but effective way to keep your key stakeholders updated with any problems that your systems or services may be experiencing and what work is being undertaken to restore them.
 
-<p>It also provides you with a facility to receive anonymous feedback from you customers so that you get a better understanding of their needs and problems, feedback you may not get face to face.</p>
+An API is being developed to enable web clients, like Android or IOS mobile applications, to interact with the Dashboard but the application has also been designed to be responsive to mobile devices using the Bootstrap framework.
 
-<p>An API is being developed to enable web clients to interact with the Dashboard.</p>
+Semantic versioning is applied to this application.
 
-<p>Screenshots are below:</p>
+### Screenshots
 
-<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVSG5Ld3V4UmZja1k/edit?usp=sharing" target="_blank">The Dashboard Homepage</a></p>
+Here are a few screenshots of the application.
 
-<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVWEkyN1cxekMwYnc/edit?usp=sharing" target="_blank">System Information Page</a></p>
+<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLNUVaaTBHazRHMHM&authuser=0" target="_blank">Homepage</a></p>
+<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLam82ZHpLVjhFekU&authuser=0" target="_blank">Dashboard</a></p>
+<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLU2NEcldnQTJTQ1E&authuser=0" target="_blank">Problem Details</a></p>
 
-<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVNVNLNHVZMzRJODQ/edit?usp=sharing" target="_blank">Administrator Login</a></p>
+### Installation:
 
-<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVSi1KalBBaDhCYnc/edit?usp=sharing" target="_blank">Create New Incident Page</a></p>
+I will assume you already have an environment built to host a Rails application. If not then here is an excellent post describing the process (thanks to Chris Oliver for providing this).
 
-<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVbGg5V3VYMXMzOFk/edit?usp=sharing" target="_blank">Edit Existing Incident Page</a></p>
+<a href="http://gorails.com/deploy/ubuntu/14.04" target="_blank">Build a Rails production environment</a>
 
-<h1>License</h1>
+From your Rails production environment clone the Github System Dashboard repository.
 
-<p>The System Dash Board is released under the <a href="http://www.opensource.org/licenses/MIT" target="_blank">MIT License</a>.</p>
+```ruby
+git clone https://github.com/lardelbow/system-dashboard-rails.git
+```
 
-[ ![Codeship Status for lardelbow/system-dashboard-rails](https://www.codeship.io/projects/0aa36ab0-157f-0132-abca-7e6cc3f5e0be/status)](https://www.codeship.io/projects/33671)
+Set up the following environment variables. In a production environment these will have to be set up so that they are visible from the Rails executables's perspective.
+
+```ruby
+export RAILS_ENV=production
+export DASH_USER=** DBUSER **
+export DASH_PASS=** DBPASSWORD **
+export SECRET_KEY_BASE='** YOUR SECRET KEY **'
+export ADMIN_KEY='** YOUR ADMIN PASSWORD **'
+```
+
+Run bundle install to download the gems.
+
+```ruby
+bundle install
+```
+
+Load the database schema into your database.
+
+```ruby
+rake db:schema:load
+```
+
+Ammend the data in the ./db/seed.rb file to reflect the your systems and contact details. Then load the data into the database.
+
+```ruby
+rake db:seed
+```
+
+Compile the assets.
+
+```ruby
+rake assets:compile
+```
+
+Then simply configure your Ruby web server to point to the System Dashboard code and all should be well!
+
+### License
+
+System Dashboard is released under the <a href="http://www.opensource.org/licenses/MIT" target="_blank">MIT License</a>.

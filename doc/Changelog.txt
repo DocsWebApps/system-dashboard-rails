@@ -1,5 +1,10 @@
-* aa3e6ae (HEAD, bootstrap3) Minor changes to navabar testcase - now tests before and after login - 18/12/2014
-* fe15123 (tag: v2.0rc1, origin/bootstrap3) Release candidate 2.0rc1 - 17/12/2014
+* 4678b8e (HEAD, tag: v2.0beta, origin/master, origin/HEAD, master) Version 2.0 beta
+* ec9c028 (origin/bootstrap3, heroku/master, heroku/bootstrap3, bootstrap3) Rename hp_ref to fault_ref - 18/12/2014
+* 6143629 Dropped comments table and :resolution and :title columns off incidents and incident_histories - 18/12/2014
+* 1a450ae Updated UML class diagram - 18/12/2014
+* c55688d Changes to the modal and updated features and tests - 18/12/2014
+* aa3e6ae Minor changes to navabar testcase - now tests before and after login - 18/12/2014
+* fe15123 Release candidate 2.0rc1 - 17/12/2014
 * 05630f0 Responsive front page - 16/11/2014
 * 7318102 Edit form complete - basic app now works! 16/12/2014
 * 9943058 Create and Update forms complete - 15/12/2014
@@ -33,7 +38,7 @@
 * de5a9b2 Added order(date: :desc) to incident_list/incident_history_list in system_decorator.rb
 * 6d63cf2 Updated version label in UML diagram to include System dashboard
 * d7b64cb Addition of Heroku environment script
-* a181bd5 (tag: v1.0, origin/master, origin/HEAD, master) Version 1.0 complete 030920114
+* a181bd5 (tag: v1.0) Version 1.0 complete 030920114
 
 
 *	03/09/2014 - *** Version 1.0 Released ***
