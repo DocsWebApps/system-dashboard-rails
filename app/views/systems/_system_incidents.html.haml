@@ -12,7 +12,7 @@
   Close Window
 
 :javascript
-  var DM={
+  var DetailsModal={
     setup: function() {
       $('body').css('overflow','hidden');
       $('.modal-close-btn, .modal-X-btn').on('click', function() {
@@ -20,7 +20,21 @@
         $('#details-modal').hide();
         $('body').css('overflow','visible');
       });
+
+      $('.modal-close-btn').mouseenter(function() {
+        $(this).addClass('inv-btn');
+      });
+      $('.modal-close-btn').mouseleave(function() {
+        $(this).removeClass('inv-btn');
+      });
+
+      $('.modal-X-btn').mouseenter(function() {
+        $(this).addClass('inv-X-btn');
+      });
+      $('.modal-X-btn').mouseleave(function() {
+        $(this).removeClass('inv-X-btn');
+      });
     }
   };
 
-  $(DM.setup);
+  $(DetailsModal.setup);

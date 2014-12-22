@@ -8,33 +8,26 @@ Feature: Administrator Login
 
 Background: Assume the following data exists in the system
 
-	We have a single system with no running incidents, no incidents in the last 24 hours and no historic incidents
 	We have a single user with the admin role
 	
 Scenario: Check that you can login using the correct credentials
 
 	When I go to the root path for the application
-	Then I should see the system with a green smiley 
-	And an indicator stating there were no previous incidents in the last 24 hours
-
-	And in the nav bar the following <links> should be <visible>
+	Then in the nav bar the following <links> should be <visible>
 	Examples:
 	| links 									| visible |
-	| View Dashboard					| yes			|
+	| Dashboard								| yes			|
 	| Contacts	 							| yes			|
-	| Tell Us?								| yes			|
 	| Admin Login							| yes			|
 	| Create New Incident			| no			|
 	| Edit Existing Incident	| no	 		|	
 
-	Then I login into the Dashboard using the correct login credentials
-
-	And in the nav bar the following <links> should be <visible>
+	When I login into the Dashboard using the correct login credentials
+	Then in the nav bar the following <links> should be <visible>
 	Examples:
 	| links 									| visible |
-	| View Dashboard					| yes			|
+	| Dashboard								| yes			|
 	| Contacts	 							| yes			|
-	| Tell Us?								| yes			|
 	| Admin Login							| no			|
 	| Create New Incident			| yes			|
 	| Edit Existing Incident	| yes	 		|	

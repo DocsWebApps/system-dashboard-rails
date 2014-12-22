@@ -1,6 +1,7 @@
 @import "shared_mixins.css.scss";
 #home_page_controller {
   @include flash-settings;
+  @include btn-settings;
 
   #title-section {
     margin: 50px 0 0 0;
@@ -33,10 +34,11 @@
       color: white;
     }
 
-    .title-btn {
+    #title-btn {
       margin: 40px auto;
       font-size: 25px;
       font-weight: bold;
+      border: 3px solid #337ab7;
     }
 
     @media(min-width: 768px) {
@@ -50,7 +52,7 @@
         font-size: 40px;
       }
 
-      .title-btn {
+      #title-btn {
         margin: 50px auto;
         font-size: 30px;
       }
@@ -67,7 +69,7 @@
         font-size: 45px;
       }
 
-      .title-btn {
+      #title-btn {
         margin: 40px auto;
         font-size: 30px;
       }
@@ -110,7 +112,7 @@
 
       .details-btn {
         font-size: 18px;
-        border: 1px solid black;
+        border: 3px solid #337ab7;
       }
 
       .system-green {
@@ -222,12 +224,14 @@
     width: 250px;
     font-size: 1.2em;
     text-align: center;
+    border: 3px solid #337ab7;
   }
 
   .modal-X-btn {
     float: right;
     display:block;
     font-size: 1.2em;
+    border: 3px solid #d9534f;
   }
 }
 

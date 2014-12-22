@@ -1,6 +1,6 @@
 ## Welcome to the System Dashboard
 
-Version 2.0 beta 19th December 2014
+Version 2.0.0 22nd December 2014
 
 The System Dashboard is a simple web application developed using Ruby(2.1.5) on Rails(4.2) that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
@@ -16,11 +16,11 @@ Semantic versioning is applied to this application.
 
 Here are a few screenshots of the application.
 
-<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLNUVaaTBHazRHMHM&authuser=0" target="_blank">Homepage</a></p>
-<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLam82ZHpLVjhFekU&authuser=0" target="_blank">Dashboard</a></p>
-<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLU2NEcldnQTJTQ1E&authuser=0" target="_blank">Problem Details</a></p>
+<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLRFFsMjhQU1BiRGc&authuser=0" target="_blank">Homepage</a></p>
+<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLeG9ZeXJ6NVRpNWc&authuser=0" target="_blank">Dashboard</a></p>
+<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLMkJ0TTdVdy1Nc0E&authuser=0" target="_blank">Problem Details</a></p>
 
-### Installation:
+### Installation
 
 I will assume you already have an environment built to host a Rails application. If not then here is an excellent post describing the process (thanks to Chris Oliver for providing this).
 
@@ -36,10 +36,10 @@ Set up the following environment variables. In a production environment these wi
 
 ```ruby
 export RAILS_ENV=production
-export DASH_USER=** DBUSER **
-export DASH_PASS=** DBPASSWORD **
+export DASH_USER='** YOUR DB USERNAME **'
+export DASH_PASS='** YOUR DB PASSWORD **'
 export SECRET_KEY_BASE='** YOUR SECRET KEY **'
-export ADMIN_KEY='** YOUR ADMIN PASSWORD **'
+export ADMIN_KEY='** YOUR ADMIN KEY **'
 ```
 
 Run bundle install to download the gems.
@@ -54,7 +54,7 @@ Load the database schema into your database.
 rake db:schema:load
 ```
 
-Ammend the data in the ./db/seed.rb file to reflect the your systems and contact details. Then load the data into the database.
+Amend the data in the ./db/seed.rb file to reflect the your systems and contact details. Then load the data into the database.
 
 ```ruby
 rake db:seed

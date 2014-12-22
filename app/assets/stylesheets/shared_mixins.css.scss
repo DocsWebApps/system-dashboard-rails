@@ -34,3 +34,15 @@
     color: #b94a48;
   }
 }
+
+@mixin btn-settings {
+  .inv-btn {
+    background-color: #fff;
+    color: #337ab7;
+  } 
+
+  .inv-X-btn {
+    background-color: #fff;
+    color: #d9534f;  
+  }
+}
