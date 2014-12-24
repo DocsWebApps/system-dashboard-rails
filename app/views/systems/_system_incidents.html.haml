@@ -10,31 +10,3 @@
   =render('incidents/incident_history')
 %button.btn.btn-primary.modal-close-btn
   Close Window
-
-:javascript
-  var DetailsModal={
-    setup: function() {
-      $('body').css('overflow','hidden');
-      $('.modal-close-btn, .modal-X-btn').on('click', function() {
-        $('#details-modal').html('');
-        $('#details-modal').hide();
-        $('body').css('overflow','visible');
-      });
-
-      $('.modal-close-btn').mouseenter(function() {
-        $(this).addClass('inv-btn');
-      });
-      $('.modal-close-btn').mouseleave(function() {
-        $(this).removeClass('inv-btn');
-      });
-
-      $('.modal-X-btn').mouseenter(function() {
-        $(this).addClass('inv-X-btn');
-      });
-      $('.modal-X-btn').mouseleave(function() {
-        $(this).removeClass('inv-X-btn');
-      });
-    }
-  };
-
-  $(DetailsModal.setup);

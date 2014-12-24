@@ -9,15 +9,3 @@
   %input{type: 'hidden', name: 'authenticity_token', value: form_authenticity_token}
   %input#login-button.btn.btn-primary.hidemodal{type: 'submit', value: 'LOGIN'}
   %input#cancel-btn.btn.btn-primary.hidemodal{value: 'CANCEL'}
-
-:javascript
-  var AdminLogin={
-    setup: function() {
-      $('#cancel-btn').on('click', function() {
-        $('#login-modal').html('');
-        $('#login-modal').hide();
-      });
-    }
-  };
-
-  $(AdminLogin.setup);

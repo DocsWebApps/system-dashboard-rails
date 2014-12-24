@@ -1,6 +1,6 @@
 ## Welcome to the System Dashboard
 
-Version 2.0.0 22nd December 2014
+Version 2.0.1 24th December 2014
 
 The System Dashboard is a simple web application developed using Ruby(2.1.5) on Rails(4.2) that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
@@ -54,7 +54,7 @@ Load the database schema into your database.
 rake db:schema:load
 ```
 
-Amend the data in the ./db/seed.rb file to reflect the your systems and contact details. Then load the data into the database.
+Amend the data in the ./db/seed.rb file to reflect your systems and contact details. Then load the data into the database.
 
 ```ruby
 rake db:seed
