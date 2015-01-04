@@ -6,7 +6,6 @@ require 'minitest/pride'
 
 Capybara.default_driver = :rack_test
 
-
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   self.use_transactional_fixtures=false
