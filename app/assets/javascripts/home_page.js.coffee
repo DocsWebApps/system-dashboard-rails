@@ -9,10 +9,11 @@ HomePage=
       $(@).addClass('active'))
     $('.navbar-brand').on('click', ->
       $('.navbar-nav').find('li').removeClass('active'))
+    $('.details-btn').on('click', ->
+      $('body').css('overflow','hidden'))
 
 SystemIncidents=
   init: ->
-    $('body').css('overflow','hidden')
     $('#details-modal').on('click','.modal-close-btn, .modal-X-btn', ->
       $('#details-modal').html('')
       $('#details-modal').hide()
