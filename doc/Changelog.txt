@@ -1,8 +1,14 @@
+* 40bc3a0 (HEAD, gonzo_master_v3) Changed downgrade to delete and fixed 2 integration test bugs - 7/01/2015
+* 5ef3d50 (gonzo_master_v2) Added gems for gonzo version and tested OK \o/ - 5/01/2015
+* fc09bbb (origin/master, origin/HEAD, heroku/master, master) Found a subtle bug when using .css('overflow','hidden')) in the wrong place - 5/1/2015
+* fbc9427 JS converted to CS - 4/1/2015
+* a8ab960 Moved all the JS to home_page.js
+
 *	22/12/2014 - *** Version 2.0 Released ***
 
-* 996978e (HEAD, origin/bootstrap3, heroku/master, master, bootstrap3) Upgrade to rails 4.2 plus additional JQuery - 22/12/2014
-* 4678b8e (HEAD, tag: v2.0beta, origin/master, origin/HEAD, master) Version 2.0 beta
-* ec9c028 (origin/bootstrap3, heroku/master, heroku/bootstrap3, bootstrap3) Rename hp_ref to fault_ref - 18/12/2014
+* e3f99f3 (tag: v2.0, bootstrap3) Upgrade to rails 4.2 plus additional JQuery - 22/12/2014
+* 38f845d Version 2.0 beta
+* ec9c028 Rename hp_ref to fault_ref - 18/12/2014
 * 6143629 Dropped comments table and :resolution and :title columns off incidents and incident_histories - 18/12/2014
 * 1a450ae Updated UML class diagram - 18/12/2014
 * c55688d Changes to the modal and updated features and tests - 18/12/2014
@@ -24,7 +30,7 @@
 * 85f0b39 System page 3rd attempt - 01/12/2014
 * 89b689a System page 2nd attempt - 1/12/2014
 * 7867013 System page 1st attempt - 30/11/2014
-* eecf65e (origin/develop, gonzo_master, develop) Upgraded to PageRight 0.5.2 - 24/11/2014
+* eecf65e (gonzo_master_v1) Upgraded to PageRight 0.5.2 - 24/11/2014
 * c9bfd21 Upgraded to PageRight 0.5
 * 93ab8a7 Upgraded to page_right 0.4 - 20/11/2014
 * 1ee88b8 Upgraded to ruby 2.1.5 and page_right 0.3

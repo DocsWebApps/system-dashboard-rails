@@ -36,24 +36,24 @@ class IncidentTest < ActiveSupport::TestCase
     assert_equal 2, @system.incident_histories.count
   end
   
-  test 'Testing Model Method :close_or_downgrade_incident(close)' do
-    # it should close the incident when :close_or_downgrade_incident is called
+  test 'Testing Model Method :close_or_delete_incident(close)' do
+    # it should close the incident when :close_or_delete_incident is called
     incident=@system.incidents.first
     assert_equal 'Open', incident.status
     success_message={notice: "Incident #{@fault_ref} has been closed successfully."}
-    flash_message=incident.close_or_downgrade_incident('close')
+    flash_message=incident.close_or_delete_incident('close')
     assert_equal 'Closed', incident.status
     assert_equal success_message, flash_message
   end
 
-  test 'Testing Model Method :close_or_downgrade_incident(downgrade)' do   
-    # it should downgrade the incident when :close_or_downgrade_incident is called
+  test 'Testing Model Method :close_or_delete_incident(delete)' do   
+    # it should downgrade the incident when :close_or_delete_incident is called
     incident=@system.incidents.first
     assert_equal 'Open', incident.status
-    success_message={notice: "Incident #{@fault_ref} has been downgraded successfully."}    
-    flash_message=incident.close_or_downgrade_incident('downgrade')
-    assert_equal 'Closed', incident.status
-    assert_equal 'D', incident.severity
+    success_message={notice: "Incident #{@fault_ref} has been deleted successfully."} 
+    assert_equal 1, @system.incidents.count  
+    flash_message=incident.close_or_delete_incident('delete')
+    assert_equal 0, @system.incidents.count
     assert_equal success_message, flash_message
   end
   
@@ -90,18 +90,15 @@ class IncidentTest < ActiveSupport::TestCase
     incident=FactoryGirl.build :incident, status: 'a', fault_ref: @fault_ref_unique
     assert !incident.valid?, 'can only be :Open or :Closed, should not be valid'
 
-    # it's severity value should be constrained to :P1, :P2 OR :D
+    # it's severity value should be constrained to :P1 or :P2
     incident=FactoryGirl.build :incident, severity: 'P1', fault_ref: @fault_ref_unique
-    assert incident.valid?, 'can only be :P1, :P2 OR :D, should be valid'
+    assert incident.valid?, 'can only be :P1 or :P2, should be valid'
       
     incident=FactoryGirl.build :incident, severity: 'P2', fault_ref: @fault_ref_unique
-    assert incident.valid?, 'can only be :P1, :P2 OR :D, should be valid'
-
-    incident=FactoryGirl.build :incident, severity: 'D', fault_ref: @fault_ref_unique
-    assert incident.valid?, 'can only be :P1, :P2 OR :D, should be valid'
+    assert incident.valid?, 'can only be :P1 or :P2, should be valid'
       
     incident=FactoryGirl.build :incident, severity: 'a', fault_ref: @fault_ref_unique
-    assert !incident.valid?, 'can only be :P1, :P2 OR :D, should not be valid'
+    assert !incident.valid?, 'can only be :P1 or :P2, should not be valid'
   end
     
 end

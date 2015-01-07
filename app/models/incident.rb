@@ -22,7 +22,7 @@ class Incident < ActiveRecord::Base
   # Define validations
   validates :date, :time, :description, presence: true
   validates :fault_ref, presence: true, uniqueness: {case_sensitive: false}
-  validates :severity, presence: true, inclusion: %w(P1 P2 D) 
+  validates :severity, presence: true, inclusion: %w(P1 P2) 
   validates :status, presence: true, inclusion: %w(Open Closed) 
 
   # Define instance methods
@@ -46,13 +46,14 @@ class Incident < ActiveRecord::Base
     end
   end
 
-  def close_or_downgrade_incident(query_param)
+  def close_or_delete_incident(query_param)
     if query_param=='close' && close_incident
       FlashMessage.success("Incident #{self.fault_ref} has been closed successfully.")
-    elsif query_param=='downgrade' && archive_incident(true)
-      FlashMessage.success("Incident #{self.fault_ref} has been downgraded successfully.")
+    elsif query_param=='delete' && delete_incident
+      FlashMessage.success("Incident #{self.fault_ref} has been deleted successfully.")
     else
-      FlashMessage.error('Houston we have a problem! The close or downgrade operation failed for this incident.')
+      FlashMessage.error('Houston we have a problem! The close or delete operation failed for this incident.')
+      return false
     end
   end
   
@@ -65,14 +66,14 @@ class Incident < ActiveRecord::Base
       check_system_status(self.system)
     end
 
-    def archive_incident(downgraded=false)
+    def delete_incident
+      delete
+      check_system_status(self.system)
+    end
+
+    def archive_incident
       system=self.system
-      if downgraded
-        self.severity='D'
-        close_incident
-      else
-        system.update_last_incident_date(self.closed_at.to_date)
-      end
+      system.update_last_incident_date(self.closed_at.to_date)
       IncidentHistory.create_new_record(system, self)
       delete
     end

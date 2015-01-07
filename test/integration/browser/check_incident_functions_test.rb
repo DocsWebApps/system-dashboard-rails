@@ -49,27 +49,22 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     text_in_section '.flash-notice', 'Incident HP12345678 has been closed successfully.'
     check_system_section @sys_name, "1 Incident in the last 24 hours", 'green.png'
     
-    # Reset incident to 'Open', navigate to Edit Existing incident and downgrade incident
+    # Reset incident to 'Open', navigate to Edit Existing incident and delete the incident
     incident=Incident.first
     incident.status='Open'
     incident.save
+    incident.system.status='red'
+    incident.system.save
      
     click_link 'Edit Existing Incident'
-    click_link 'Downgrade'
-    text_in_section '.flash-notice', 'Incident HP12345678 has been downgraded successfully.'
+    click_link 'Delete'
+    text_in_section '.flash-notice', 'Incident HP12345678 has been deleted successfully.'
     check_system_section @sys_name, "No previous incidents recorded yet", 'green.png'
     click_link 'Incident Details'
     text_in_section '#incident-section', 'HP12345678', false
     text_in_section '#incident-section', 'Test Description', false
-    text_in_section '#history-section', 'HP12345678'
-    text_in_section '#history-section', 'Test Description'
-
-    # Make the downgraded incident older and it should not trigger an indicator change
-    incident=IncidentHistory.first
-    incident.date=Time.now-24.hours
-    incident.save
-    visit root_path
-    check_system_section @sys_name, "No previous incidents recorded yet", 'green.png'
+    text_in_section '#history-section', 'HP12345678', false
+    text_in_section '#history-section', 'Test Description', false
   end
   
 end

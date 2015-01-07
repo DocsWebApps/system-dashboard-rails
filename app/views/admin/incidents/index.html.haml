@@ -34,7 +34,7 @@
                   %td.text-center.col-md-1
                     =link_to "Close", admin_incident_path(incident)+'?query=close', method: :delete
                   %td.text-center.col-md-1
-                    =link_to "Downgrade", admin_incident_path(incident)+'?query=downgrade', method: :delete
+                    =link_to "Delete", admin_incident_path(incident)+'?query=delete', method: :delete
     -else
       %p
         There are currently no open incidents for any system !! 

@@ -66,18 +66,15 @@ class IncidentHistoryTest < ActiveSupport::TestCase
       incident=FactoryGirl.build :incident_history, status: 'a', fault_ref: @fault_ref_unique
       assert !incident.valid?, 'can only be :Open or :Closed, should not be valid'
     
-    # it's severity value should be constrained to :P1,:P2 or :D
+    # it's severity value should be constrained to :P1 or :P2 
       incident=FactoryGirl.build :incident_history, severity: 'P1', fault_ref: @fault_ref_unique
-      assert incident.valid?, 'can only be :D, :P1 or :P2, should be valid'
+      assert incident.valid?, 'can only be :P1 or :P2, should be valid'
       
       incident=FactoryGirl.build :incident_history, severity: 'P2', fault_ref: @fault_ref_unique
       assert incident.valid?, 'can only be :P1 or :P2, should be valid'
       
-      incident=FactoryGirl.build :incident_history, severity: 'D', fault_ref: @fault_ref_unique
-      assert incident.valid?, 'can only be :D, :P1 or :P2, should be valid'
-      
       incident=FactoryGirl.build :incident_history,  severity: 'a', fault_ref: @fault_ref_unique
-      assert !incident.valid?, 'can only be :D, :P1 or :P2, should not be valid'
+      assert !incident.valid?, 'can only be :P1 or :P2, should not be valid'
   end
   
 end

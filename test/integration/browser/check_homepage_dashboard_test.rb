@@ -9,12 +9,11 @@ class CheckHomepageDashboardTest < ActionDispatch::IntegrationTest
     @dash_name=(FactoryGirl.create :company).name
     @system=Hash.new
     @system['kirk']=FactoryGirl.create :system, name: 'kirk'
-    @system['kirk'].incident_histories.create severity: 'D', description: 'Test data', date: Date.today, time: Time.now, fault_ref: 'HP4444444', status: 'Closed'
     @system['spock']=FactoryGirl.create :system, name: 'spock'
     @system['spock'].incidents.create severity: 'P2', description: 'Test data', date: Date.today, time: Time.now, fault_ref: 'HP5555555', status: 'Open' 
     @system['bones']=FactoryGirl.create :system, name: 'bones'
     @system['bones'].incidents.create severity: 'P1', description: 'Test data', date: Date.today, time: Time.now, fault_ref: 'HP11111111', status: 'Closed', closed_at: Time.now 
-    @system['sulu']=FactoryGirl.create :system, name: 'sulu', last_incident_date: Date.today-3
+    @system['sulu']=FactoryGirl.create :system, name: 'sulu', last_incident_date: Date.today-4
     @system['sulu'].incidents.create severity: 'P1', description: 'Test data', date: Date.today, time: Time.now, fault_ref: 'HP22222222', status: 'Open'  
     @system['sulu'].incident_histories.create severity: 'P1', description: 'Test data', date: Date.today-4, time: Time.now, fault_ref: 'HP3333333', status: 'Closed', closed_at: Time.now-72.hours
     @system.each { |key, value | value.update_status }
@@ -59,7 +58,7 @@ class CheckHomepageDashboardTest < ActionDispatch::IntegrationTest
             check_system_section value.name, "1 Incident in the last 24 hours", 'green.png' #
             text_in_section("##{key}", 'Incident Details')
         when 'sulu'
-            check_system_section value.name, "3 Days since the last incident", 'red.png'  
+            check_system_section value.name, "4 Days since the last incident", 'red.png'  
             text_in_section("##{key}", 'Incident Details')           
       end
     end

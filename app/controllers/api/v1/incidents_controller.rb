@@ -26,7 +26,7 @@ module API
     def destroy
       system=get_system
       incident=system.incidents.where(fault_ref: params[:id], status: 'Open')[0]
-      incident.close_or_downgrade_incident(params[:query]) ? (render json: {result: 'close_downgrade_OK'}, status: 201) : (render json: {result: 'close_downgrade_BAD'}, status: 400)
+      incident.close_or_delete_incident(params[:query]) ? (render json: {result: 'close_delete_OK'}, status: 201) : (render json: {result: 'close_delete_BAD'}, status: 400)
     end
 
     private  

@@ -22,7 +22,7 @@ class IncidentHistory < ActiveRecord::Base
   # Define validations
   validates :date, :time, :description, presence: true
   validates :fault_ref, presence: true, uniqueness: {case_sensitive: false}
-  validates :severity, presence: true, inclusion: %w(P1 P2 D) 
+  validates :severity, presence: true, inclusion: %w(P1 P2) 
   validates :status, presence: true, inclusion: %w(Open Closed) 
   validates :closed_at, presence: true
 

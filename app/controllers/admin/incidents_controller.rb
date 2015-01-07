@@ -7,7 +7,7 @@ class Admin::IncidentsController < ApplicationController
   
   def destroy
     @incident_decorator=IncidentDecorator.new
-    flash_hash=get_incident(id: params[:id]).close_or_downgrade_incident(params[:query])
+    flash_hash=get_incident(id: params[:id]).close_or_delete_incident(params[:query])
     redirect_to root_path(anchor: 'status-section'), flash_hash
   end
 

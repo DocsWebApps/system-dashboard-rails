@@ -27,18 +27,18 @@ class API::V1::Test < ActionDispatch::IntegrationTest
     {system: @system.name, query: 'close'}.to_json,
     {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
     
-    check_response('close_downgrade_OK', response, 201)
+    check_response('close_delete_OK', response, 201)
   end
   
-  test 'Downgrade existing incident - test for success' do
+  test 'Delete existing incident - test for success' do
     create_new_incident
     incident=@system.incidents.first
     
     delete api_v1_incident_path(incident.fault_ref),
-    {system: @system.name, query: 'downgrade'}.to_json,
+    {system: @system.name, query: 'delete'}.to_json,
     {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'authenticity_token' => get_csrf_v1_token, 'Authorization' => "Token token=#{@user.auth_token}"}
     
-    check_response('close_downgrade_OK', response, 201)  
+    check_response('close_delete_OK', response, 201)  
   end
           
   test 'Update existing incident - test for success' do

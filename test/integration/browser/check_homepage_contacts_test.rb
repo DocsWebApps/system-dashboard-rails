@@ -29,7 +29,7 @@ class CheckHomepageContactsTest < ActionDispatch::IntegrationTest
   end
 
   test 'Check the copyright is present' do
-    text_in_section '#contacts-section', "&copy 2014 #{@dash_name}"
+    text_in_section '#contacts-section', "&copy 2015 #{@dash_name}"
   end
   
 end
