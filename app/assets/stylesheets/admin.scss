@@ -1,4 +1,4 @@
-@import "shared_mixins.css.scss";
+@import "shared_mixins.scss";
 #admin-incidents_controller {
   @include flash-settings;
   background-color: #444;

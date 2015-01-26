@@ -1,0 +1,48 @@
+* [33m2cea3cb ([1;36mHEAD[m[33m, [1;31morigin/develop[m[33m, [1;32mmaster[m[33m, [1;32mdevelop[m[33m)[m Updated gems for master
+* [33mb6502d4 ([1;32mgonzo_master_v3[m[33m)[m Changed downgrade to delete and fixed 2 integration test bugs - 7/01/2015
+* [33m5ef3d50 ([1;32mgonzo_master_v2[m[33m)[m Added gems for gonzo version and tested OK \o/ - 5/01/2015
+* [33mfc09bbb ([1;31morigin/master[m[33m, [1;31morigin/HEAD[m[33m, [1;31mheroku/master[m[33m)[m Found a subtle bug when using .css('overflow','hidden')) in the wrong place - 5/1/2015
+* [33mfbc9427[m JS converted to CS - 4/1/2015
+* [33ma8ab960[m Moved all the JS to home_page.js
+* [33me3f99f3 ([1;33mtag: v2.0[m[33m, [1;32mbootstrap3[m[33m)[m Upgrade to rails 4.2 plus additional JQuery - 22/12/2014
+* [33m38f845d[m Version 2.0 beta
+* [33mec9c028[m Rename hp_ref to fault_ref - 18/12/2014
+* [33m6143629[m Dropped comments table and :resolution and :title columns off incidents and incident_histories - 18/12/2014
+* [33m1a450ae[m Updated UML class diagram - 18/12/2014
+* [33mc55688d[m Changes to the modal and updated features and tests - 18/12/2014
+* [33maa3e6ae[m Minor changes to navabar testcase - now tests before and after login - 18/12/2014
+* [33mfe15123[m Release candidate 2.0rc1 - 17/12/2014
+* [33m05630f0[m Responsive front page - 16/11/2014
+* [33m7318102[m Edit form complete - basic app now works! 16/12/2014
+* [33m9943058[m Create and Update forms complete - 15/12/2014
+* [33mffef610[m JS namespaced - app working - 14/12/2014
+* [33m73af073[m Interim commit to reorg JS
+* [33m952d2e1[m Incident details modal finsihed(ish) - 11/12/2014
+* [33m4f024ef[m Primitive modals are working for some elements - 11/12/2014
+* [33m560f2d0[m Developing with SimpleModal - 8/12/2014
+* [33m7bdbf82[m Working version with leanModal - 5/11/2014
+* [33mf094cbf[m Admin login modal completed using leanModal JQuery plugin - 50122014
+* [33mf61332b[m Draft HomePage completed - Single Page App - 04/12/2014
+* [33mc90f760[m System page and Title Page completed and responsive in IE8 - 3/12/2014
+* [33m07bea38[m System page and Title Page completed(ish) - 2/12/2014
+* [33m85f0b39[m System page 3rd attempt - 01/12/2014
+* [33m89b689a[m System page 2nd attempt - 1/12/2014
+* [33m7867013[m System page 1st attempt - 30/11/2014
+* [33meecf65e ([1;32mgonzo_master_v1[m[33m)[m Upgraded to PageRight 0.5.2 - 24/11/2014
+* [33mc9bfd21[m Upgraded to PageRight 0.5
+* [33m93ab8a7[m Upgraded to page_right 0.4 - 20/11/2014
+* [33m1ee88b8[m Upgraded to ruby 2.1.5 and page_right 0.3
+* [33m68784f7[m Added new datafile
+* [33mae113a0[m Migrated app to Ruby 2.1.3
+* [33m397e2c8[m Migrated app to Rails version 4.1.6
+* [33m2c149ce[m Changed JSON systems response to include :id, :color and :message
+* [33m1a46ea7[m V2 API Development underway - System names and statuses via JSON
+* [33m91186f9[m Refactored the Systemdecorator class
+* [33mc728e19[m Added new incident decorator
+* [33m4eedcd3[m Added IncidentDecorator for admin views
+* [33mce6d2a2[m More but smaller changes to System and Incident die to POODR
+* [33m609f601[m Major changes to System and Incident die to POODR
+* [33mde5a9b2[m Added order(date: :desc) to incident_list/incident_history_list in system_decorator.rb
+* [33m6d63cf2[m Updated version label in UML diagram to include System dashboard
+* [33md7b64cb[m Addition of Heroku environment script
+* [33ma181bd5 ([1;33mtag: v1.0[m[33m)[m Version 1.0 complete 030920114
