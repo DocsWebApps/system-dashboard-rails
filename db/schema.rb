@@ -16,73 +16,73 @@ ActiveRecord::Schema.define(version: 20141218211736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: true do |t|
-    t.string   "name",       limit: 255
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "contacts", force: true do |t|
-    t.string   "contact",    limit: 255
+  create_table "contacts", force: :cascade do |t|
+    t.string   "contact"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "incident_histories", force: true do |t|
-    t.string   "fault_ref",   limit: 255
+  create_table "incident_histories", force: :cascade do |t|
+    t.string   "fault_ref"
     t.text     "description"
     t.date     "date"
-    t.string   "status",      limit: 255
+    t.string   "status"
     t.integer  "system_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "severity",    limit: 255
+    t.string   "severity"
     t.time     "time"
     t.datetime "closed_at"
   end
 
   add_index "incident_histories", ["system_id"], name: "index_incident_histories_on_system_id", using: :btree
 
-  create_table "incidents", force: true do |t|
-    t.string   "fault_ref",   limit: 255
+  create_table "incidents", force: :cascade do |t|
+    t.string   "fault_ref"
     t.text     "description"
     t.date     "date"
-    t.string   "status",      limit: 255
+    t.string   "status"
     t.integer  "system_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "severity",    limit: 255
+    t.string   "severity"
     t.time     "time"
     t.datetime "closed_at"
   end
 
   add_index "incidents", ["system_id"], name: "index_incidents_on_system_id", using: :btree
 
-  create_table "roles", force: true do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "systems", force: true do |t|
-    t.string   "name",               limit: 255
-    t.string   "status",             limit: 255
+  create_table "systems", force: :cascade do |t|
+    t.string   "name"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "row_id"
     t.date     "last_incident_date"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",           limit: 255
-    t.string   "name",            limit: 255
-    t.string   "password_digest", limit: 255
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "password_digest"
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "auth_token",      limit: 255
+    t.string   "auth_token"
   end
 
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
