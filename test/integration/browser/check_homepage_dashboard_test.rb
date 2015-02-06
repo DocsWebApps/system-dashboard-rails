@@ -49,10 +49,10 @@ class CheckHomepageDashboardTest < ActionDispatch::IntegrationTest
       css_in_page "##{key}"
       case value.name
         when 'spock'
-            check_system_section value.name, "No previous incidents recorded yet", 'amber.png' 
+            check_system_section value.name, "No previous incidents recorded", 'amber.png' 
             text_in_section("##{key}", 'Incident Details')
         when 'kirk'
-            check_system_section value.name, "No previous incidents recorded yet", 'green.png'         
+            check_system_section value.name, "No previous incidents recorded", 'green.png'         
             text_in_section("##{key}", 'Incident Details')
         when 'bones'
             check_system_section value.name, "1 Incident in the last 24 hours", 'green.png' #

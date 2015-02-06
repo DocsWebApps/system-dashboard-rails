@@ -13,7 +13,7 @@ class SystemDecorator
       incident='Incident'.pluralize(closed_incident_count)
       return 'system-red',"#{closed_incident_count} #{incident} in the last 24 hours"
     elsif (last_incident_date==nil)
-      return 'system-green', 'No previous incidents recorded yet'
+      return 'system-green', 'No previous incidents recorded'
     elsif (days_since_last_incident>0)
       day='Day'.pluralize(days_since_last_incident)
       return 'system-green', "#{days_since_last_incident} #{day} since the last incident"

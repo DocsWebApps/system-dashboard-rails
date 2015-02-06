@@ -22,6 +22,6 @@ Contact.create contact: 'me@mydomain.com', message: 'For dashboard problems plea
 Contact.create contact: 'Bill and Ted in business support', message: 'For more information about the systems or problems reported please contact:'
 
 Company.delete_all
-Company.create name: 'Your Busines'
+Company.create name: 'Your Business'
 
 puts 'Seed data has been loaded OK'
