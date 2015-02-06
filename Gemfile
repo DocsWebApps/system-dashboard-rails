@@ -19,7 +19,7 @@ gem 'jquery-ui-rails', '~> 5.0.3'
 # Build JSON APIs with ease.
 gem 'active_model_serializers', '~> 0.9.2'
 # Bootstrap 3.0
-gem 'bootstrap-sass', '~> 3.3.1.0'
+gem 'bootstrap-sass', '~> 3.3.3'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.9'
 # Building forms

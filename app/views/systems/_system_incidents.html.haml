@@ -1,4 +1,4 @@
-%button.btn.btn-danger.modal-X-btn
+%button.btn.btn-danger.modal-X-btn{'data-dismiss'=>'modal'}
   X
 %br
 %h1 
@@ -8,5 +8,5 @@
   =render('incidents/incident')  
 #history-section
   =render('incidents/incident_history')
-%button.btn.btn-primary.modal-close-btn
+%button.btn.btn-primary.modal-close-btn{'data-dismiss'=>'modal'}
   Close Window
