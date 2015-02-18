@@ -1,8 +1,8 @@
 ## Welcome to the System Dashboard
 
-Version 2.0.1 24th December 2014
+Version 2.1 19th February 2015
 
-The System Dashboard is a simple web application developed using Ruby(2.1.5) on Rails(4.2) that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
+The System Dashboard is a web application developed using Ruby on Rails that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
 When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a serverity level and commit the information to the database. Immediatley the status of the system in question changes which is then clearly displayed on the dashboard for all to see. Users can then click on a link for that system to see the details of the incident, the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.
 
@@ -16,9 +16,9 @@ Semantic versioning is applied to this application.
 
 Here are a few screenshots of the application.
 
-<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLRFFsMjhQU1BiRGc&authuser=0" target="_blank">Homepage</a></p>
-<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLeG9ZeXJ6NVRpNWc&authuser=0" target="_blank">Dashboard</a></p>
-<p><a href="https://drive.google.com/open?id=0B3Nt8Mp5CddLMkJ0TTdVdy1Nc0E&authuser=0" target="_blank">Problem Details</a></p>
+<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVR0ZvMjZ2TnZWd1k/view?usp=sharing" target="_blank">Homepage</a></p>
+<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVNXh4a2xqLTVYUVE/view?usp=sharing" target="_blank">Dashboard</a></p>
+<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVSnUxUkRpdGhXQ1E/view?usp=sharing" target="_blank">Problem Details</a></p>
 
 ### Installation
 
