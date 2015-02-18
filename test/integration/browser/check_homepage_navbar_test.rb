@@ -23,8 +23,8 @@ class CheckHomepageNavbarTest < ActionDispatch::IntegrationTest
     text_in_section '.navbar-nav', 'Dashboard'
     text_in_section '.navbar-nav', 'Contacts'
     text_in_section '.navbar-nav', 'Admin Login'
-    text_in_section '.navbar-nav', 'Create New Incident', false
-    text_in_section '.navbar-nav', 'Edit Existing Incident', false
+    text_in_section '.navbar-nav', 'Create Incident', false
+    text_in_section '.navbar-nav', 'Edit Incident', false
 
     # Login with correct credentials
     click_link 'Admin Login'  
@@ -38,8 +38,8 @@ class CheckHomepageNavbarTest < ActionDispatch::IntegrationTest
     text_in_section '.navbar-nav', 'Dashboard'
     text_in_section '.navbar-nav', 'Contacts'
     text_in_section '.navbar-nav', 'Admin Login', false
-    text_in_section '.navbar-nav', 'Create New Incident'
-    text_in_section '.navbar-nav', 'Edit Existing Incident'
+    text_in_section '.navbar-nav', 'Create Incident'
+    text_in_section '.navbar-nav', 'Edit Incident'
   end
   
 end

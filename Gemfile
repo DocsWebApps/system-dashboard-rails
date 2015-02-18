@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.9'
 gem 'simple_form', '~> 3.1.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Cool fonts and glyphs that are scalable
+gem "font-awesome-rails",'~> 4.2.0'
 
 group :development do
   # Automated deployment to production or staging environments

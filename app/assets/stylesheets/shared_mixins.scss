@@ -46,3 +46,26 @@
     color: #d9534f;  
   }
 }
+
+@mixin navbar-settings {
+  .navbar {
+    margin: 0px;
+    .nav > li > a {
+      color: white;
+      font-size: 1.2em;
+    }
+  }
+
+  .navbar-default .navbar-brand {
+    color: white;
+    font-size: 1.6em;
+  }
+
+  .navbar-brand:hover {
+    color: #bbb !important;
+  }
+
+  ul.nav a:hover {
+    color: #bbb !important;
+  }
+}

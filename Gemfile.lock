@@ -102,6 +102,8 @@ GEM
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     ffi (1.9.6)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -240,6 +242,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner!
   factory_girl_rails (~> 4.4.1)
+  font-awesome-rails (~> 4.2.0)
   haml (~> 4.0.6)
   jasmine (~> 2.1.0)
   jasmine-jquery-rails (~> 2.0.3)

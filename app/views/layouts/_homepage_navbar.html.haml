@@ -2,6 +2,7 @@
   .container
     .navbar-header
       %a.navbar-brand{href: "#"} 
+        %i.fa.fa-database
         System Dashboard
       %button.navbar-toggle{"data-target"=>".navbar-collapse", "data-toggle"=>"collapse", type: "button"}
         %span.sr-only Toggle navigation
@@ -15,9 +16,9 @@
         =link_to 'Contacts', '#contacts-section'
       - if (session[:admin_key]==ENV['ADMIN_KEY'])
         %li
-          =link_to 'Create New Incident', new_admin_incident_path
+          =link_to 'Create Incident', new_admin_incident_path
         %li
-          =link_to 'Edit Existing Incident', admin_incidents_path
+          =link_to 'Edit Incident', admin_incidents_path
       - else
         %li
-          =link_to 'Admin Login', new_session_path, {"data-target"=>"#login-modal", "data-toggle"=>"modal", remote: true}
+          =link_to 'Admin Login', new_session_path, {id: 'admin-login', "data-target"=>"#login-modal", "data-toggle"=>"modal", remote: true}

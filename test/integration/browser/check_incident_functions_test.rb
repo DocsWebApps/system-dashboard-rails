@@ -27,7 +27,7 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     click_button 'LOGIN'
     
     # Navigate to Create New Incident page and enter incident details
-    click_link 'Create New Incident'
+    click_link 'Create Incident'
     fill_in 'Fault Reference', with: 'HP12345678'
     fill_in 'Description', with: 'Test Description'
     choose 'P2'
@@ -36,7 +36,7 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     check_system_section @sys_name, "No previous incidents recorded", 'amber.png'
    
     # Navigate to Edit Existing Incident page and update incident
-    click_link 'Edit Existing Incident'
+    click_link 'Edit Incident'
     click_link 'Update'
     choose 'P1'
     click_button 'Update Incident'
@@ -44,7 +44,7 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     check_system_section @sys_name, "No previous incidents recorded", 'red.png' 
     
     # Navigate to Edit Existing Incident page and close incident
-    click_link 'Edit Existing Incident'
+    click_link 'Edit Incident'
     click_link 'Close'
     text_in_section '.flash-notice', 'Incident HP12345678 has been closed successfully.'
     check_system_section @sys_name, "1 Incident in the last 24 hours", 'green.png'
@@ -56,7 +56,7 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     incident.system.status='red'
     incident.system.save
      
-    click_link 'Edit Existing Incident'
+    click_link 'Edit Incident'
     click_link 'Delete'
     text_in_section '.flash-notice', 'Incident HP12345678 has been deleted successfully.'
     check_system_section @sys_name, "No previous incidents recorded", 'green.png'
