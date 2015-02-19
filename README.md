@@ -18,7 +18,7 @@ Here are a few screenshots of the application.
 
 <p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVR0ZvMjZ2TnZWd1k/view?usp=sharing" target="_blank">Homepage</a></p>
 <p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVNXh4a2xqLTVYUVE/view?usp=sharing" target="_blank">Dashboard</a></p>
-<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVSnUxUkRpdGhXQ1E/view?usp=sharing" target="_blank">Problem Details</a></p>
+<p><a href="https://drive.google.com/file/d/0B8ga1CuDRyBVSnUxUkRpdGhXQ1E/view?usp=sharing" target="_blank">Incident Details</a></p>
 
 ### Installation
 

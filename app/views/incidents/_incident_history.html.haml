@@ -5,7 +5,7 @@
   %h3
     No incident history for this system
 - else
-  %table.table.table-bordered.table-condensed
+  %table.table-responsive.table-bordered.table-condensed
     %tr
       %th Fault Reference
       %th Description
@@ -14,11 +14,11 @@
     - @system_decorator.incident_histories.order(date: :desc).each do |incident|
       %tr
         .row
-        %td.col-md-1 
+        %td.col-sm-1 
           =incident.fault_ref  
-        %td.col-md-9
+        %td.col-sm-9
           =incident.description
-        %td.col-md-1 
+        %td.col-sm-1 
           =incident.date.to_formatted_s(:rfc822)
-        %td.col-md-1 
+        %td.col-sm-1 
           =incident.severity

@@ -1,5 +1,6 @@
 %header
   =render('layouts/homepage_navbar')
+
 #title-section
   .container
     .row
@@ -12,9 +13,9 @@
         =get_dashboard_name
         systems
     .row
-      .col-md-4.col-md-offset-4.text-center
-        %a.btn.btn-lg.btn-primary#title-btn.blue-btn{href: '#status-section'}
-          Goto Dashboard
+      %a.btn.btn-lg.btn-primary#title-btn.blue-btn{href: '#status-section'}
+        Goto Dashboard
+
 #status-section
   .container
     .row
@@ -33,6 +34,7 @@
     .row#refresh
       Page last refreshed: 
       =Time.now.to_formatted_s(:long)
+
 #contacts-section
   .container
     .lead-text
@@ -42,6 +44,8 @@
     #copyright
       &copy 
       =Date.today.year
-      =get_dashboard_name      
+      =get_dashboard_name    
+
 #login-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"login-modal"}
+
 #details-modal.modal{"aria-hidden"=>"true", "aria-labelledby"=>"details-modal"}

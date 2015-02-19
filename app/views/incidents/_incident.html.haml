@@ -6,27 +6,26 @@
   %h3
     No P1 or P2 incidents during the last 24 hours
 - else  
-  .my-table
-    %table.table.table-condensed
+  %table.table-responsive.table-condensed
+    %tr
+      %th Fault Reference
+      %th Description
+      %th Start Date
+      %th Start Time
+      %th Severity
+      %th Status
+    - @system_decorator.incidents.order(date: :desc).each do |incident|
       %tr
-        %th Fault Reference
-        %th Description
-        %th Start Date
-        %th Start Time
-        %th Severity
-        %th Status
-      - @system_decorator.incidents.order(date: :desc).each do |incident|
-        %tr
-          .row
-            %td.col-md-1
-              =incident.fault_ref  
-            %td.col-md-7
-              =incident.description
-            %td.col-md-1
-              =incident.date.to_formatted_s(:rfc822)
-            %td.col-md-1
-              =incident.time.to_formatted_s(:time)              
-            %td.col-md-1
-              =incident.severity       
-            %td.col-md-1
-              =incident.status 
+        .row
+          %td.col-xs-1
+            =incident.fault_ref  
+          %td.col-xs-7
+            =incident.description
+          %td.col-xs-1
+            =incident.date.to_formatted_s(:rfc822)
+          %td.col-xs-1
+            =incident.time.to_formatted_s(:time)              
+          %td.col-xs-1
+            =incident.severity       
+          %td.col-xs-1
+            =incident.status 
