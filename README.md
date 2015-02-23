@@ -29,7 +29,7 @@ I will assume you already have an environment built to host a Rails application.
 From your Rails production environment clone the Github System Dashboard repository.
 
 ```ruby
-git clone https://github.com/lardelbow/system-dashboard-rails.git
+git clone https://github.com/DocsWebApps/system-dashboard-rails.git
 ```
 
 Set up the following environment variables. In a production environment these will have to be set up so that they are visible from the Rails executables's perspective.
