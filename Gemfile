@@ -43,7 +43,7 @@ group :development, :test do
   # My gem for testing  
   gem 'page_right', '~> 0.5'
   # Web browser driver for testing JS
-  gem 'selenium-webdriver', '~> 2.43.0' 
+  gem 'selenium-webdriver', '~> 2.45.0' 
   # Testing DSL
   gem 'capybara', '~> 2.4.4'  
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
