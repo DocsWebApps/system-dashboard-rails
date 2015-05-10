@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 # Ruby version
-ruby '2.2.0'
+ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 4.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.17.1'
 # Use SCSS for stylesheets
@@ -41,7 +41,7 @@ group :development, :test do
   # Add table properties info to models and specs
   gem 'annotate', '~> 2.6.5'    
   # My gem for testing  
-  gem 'page_right', '~> 0.5'
+  gem 'page_right', '~> 0.5.0'
   # Web browser driver for testing JS
   gem 'selenium-webdriver', '~> 2.45.0' 
   # Testing DSL
