@@ -38,6 +38,8 @@ group :development do
 end
 
 group :development, :test do
+  # Analyse the DB calls and performance timings
+  gem 'rack-mini-profiler'
   # Add table properties info to models and specs
   gem 'annotate', '~> 2.6.5'    
   # My gem for testing  
