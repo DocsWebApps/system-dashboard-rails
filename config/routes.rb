@@ -1,11 +1,11 @@
 SystemDashboard::Application.routes.draw do
   
-  # API version 1 namespace
-  namespace :api do
-    namespace :v1 do
-      resources :incidents, only: [:new, :create, :update, :destroy]
-    end
-  end
+  # API version 1 namespace - **** DEPRICATED ****
+  #namespace :api do
+  #  namespace :v1 do
+  #    resources :incidents, only: [:new, :create, :update, :destroy]
+  #  end
+  #end
   
   # API version 2 namespace
   namespace :api do

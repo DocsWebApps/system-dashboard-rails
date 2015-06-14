@@ -30,6 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "font-awesome-rails",'~> 4.2.0'
 
 group :development do
+  # Generate ERD diagrams
+  gem 'rails-erd', '~> 1.4.0'
   # Automated deployment to production or staging environments
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-bundler', '~> 1.1.3'
@@ -61,6 +63,6 @@ group :development, :test do
   # Provides extensions to Jasmine for using JQuery and fixtures
   gem 'jasmine-jquery-rails', '~> 2.0.3'
   # Build records for testing
-  gem 'factory_girl_rails', '~> 4.4.1'                                   # Test your return html with Capybara
+  gem 'factory_girl_rails', '~> 4.4.1'                         # Test your return html with Capybara
   gem 'database_cleaner', github: 'bmabey/database_cleaner'    # Clean up the Test DB after testing
 end
