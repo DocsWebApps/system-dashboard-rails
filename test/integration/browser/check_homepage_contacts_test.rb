@@ -17,20 +17,20 @@ class CheckHomepageContactsTest < ActionDispatch::IntegrationTest
 
   test 'Check the title of #contacts-section'  do  
     # Check the contents of the <div> .title-section
-    css_in_page '#contacts-section' 
-    text_in_section '#contacts-section', "#{@dash_name} Contact List"  
+    is_css_in_page? '#contacts-section' 
+    is_text_in_section? '#contacts-section', "#{@dash_name} Contact List"  
   end
 
   test 'Check the contents of the #contacts-section'  do
     # Check the contents of the <div>#contacts-section
-    css_in_page '#contacts-section' 
-    text_in_section '#contacts-section', @contact
-    text_in_section '#contacts-section', @message
+    is_css_in_page? '#contacts-section' 
+    is_text_in_section? '#contacts-section', @contact
+    is_text_in_section? '#contacts-section', @message
   end
 
   test 'Check the copyright is present' do
     year=Date.today.year
-    text_in_section '#contacts-section', "&copy #{year} #{@dash_name}"
+    is_text_in_section? '#contacts-section', "&copy #{year} #{@dash_name}"
   end
   
 end

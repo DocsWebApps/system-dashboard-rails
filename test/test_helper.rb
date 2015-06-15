@@ -38,10 +38,10 @@ class ActiveSupport::TestCase
   end
 
   def check_system_section(name, indicator, smiley)
-    image_in_section "##{name}", smiley, 1
-    text_in_section "##{name}", indicator
-    text_in_section "##{name}", name
-    text_in_section "##{name}", "Incident Details"    
+    is_image_in_section? "##{name}", smiley, 1
+    is_text_in_section? "##{name}", indicator
+    is_text_in_section? "##{name}", name
+    is_text_in_section? "##{name}", "Incident Details"    
   end
   
   def json(body)

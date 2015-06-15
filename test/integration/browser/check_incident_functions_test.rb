@@ -32,7 +32,7 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     fill_in 'Description', with: 'Test Description'
     choose 'P2'
     click_button 'Create Incident'
-    text_in_section '.flash-notice', 'Incident successfully saved to the database! Please check the details below.'
+    is_text_in_section? '.flash-notice', 'Incident successfully saved to the database! Please check the details below.'
     check_system_section @sys_name, "No previous incidents recorded", 'amber.png'
    
     # Navigate to Edit Existing Incident page and update incident
@@ -40,13 +40,13 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
     click_link 'Update'
     choose 'P1'
     click_button 'Update Incident'
-    text_in_section '.flash-notice', 'Incident successfully updated and saved to the database! Please check the details below.' 
+    is_text_in_section? '.flash-notice', 'Incident successfully updated and saved to the database! Please check the details below.' 
     check_system_section @sys_name, "No previous incidents recorded", 'red.png' 
     
     # Navigate to Edit Existing Incident page and close incident
     click_link 'Edit Incident'
     click_link 'Close'
-    text_in_section '.flash-notice', 'Incident HP12345678 has been closed successfully.'
+    is_text_in_section? '.flash-notice', 'Incident HP12345678 has been closed successfully.'
     check_system_section @sys_name, "1 Incident in the last 24 hours", 'green.png'
     
     # Reset incident to 'Open', navigate to Edit Existing incident and delete the incident
@@ -58,13 +58,13 @@ class CheckIncidentFunctionsTest < ActionDispatch::IntegrationTest
      
     click_link 'Edit Incident'
     click_link 'Delete'
-    text_in_section '.flash-notice', 'Incident HP12345678 has been deleted successfully.'
+    is_text_in_section? '.flash-notice', 'Incident HP12345678 has been deleted successfully.'
     check_system_section @sys_name, "No previous incidents recorded", 'green.png'
     click_link 'Incident Details'
-    text_in_section '#incident-section', 'HP12345678', false
-    text_in_section '#incident-section', 'Test Description', false
-    text_in_section '#history-section', 'HP12345678', false
-    text_in_section '#history-section', 'Test Description', false
+    is_text_in_section? '#incident-section', 'HP12345678', false
+    is_text_in_section? '#incident-section', 'Test Description', false
+    is_text_in_section? '#history-section', 'HP12345678', false
+    is_text_in_section? '#history-section', 'Test Description', false
   end
   
 end

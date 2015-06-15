@@ -18,13 +18,13 @@ class CheckHomepageNavbarTest < ActionDispatch::IntegrationTest
 
   test 'Check the contents of the navbar'  do
     # Check content of the <div> .nav
-    css_in_page '.nav' 
-    text_in_section '.navbar-brand', "System Dashboard"
-    text_in_section '.navbar-nav', 'Dashboard'
-    text_in_section '.navbar-nav', 'Contacts'
-    text_in_section '.navbar-nav', 'Admin Login'
-    text_in_section '.navbar-nav', 'Create Incident', false
-    text_in_section '.navbar-nav', 'Edit Incident', false
+    is_css_in_page? '.nav' 
+    is_text_in_section? '.navbar-brand', "System Dashboard"
+    is_text_in_section? '.navbar-nav', 'Dashboard'
+    is_text_in_section? '.navbar-nav', 'Contacts'
+    is_text_in_section? '.navbar-nav', 'Admin Login'
+    is_text_in_section? '.navbar-nav', 'Create Incident', false
+    is_text_in_section? '.navbar-nav', 'Edit Incident', false
 
     # Login with correct credentials
     click_link 'Admin Login'  
@@ -33,13 +33,13 @@ class CheckHomepageNavbarTest < ActionDispatch::IntegrationTest
     click_button 'LOGIN'
 
     # Check content of the <div> .nav
-    css_in_page '.nav' 
-    text_in_section '.navbar-brand', "System Dashboard"
-    text_in_section '.navbar-nav', 'Dashboard'
-    text_in_section '.navbar-nav', 'Contacts'
-    text_in_section '.navbar-nav', 'Admin Login', false
-    text_in_section '.navbar-nav', 'Create Incident'
-    text_in_section '.navbar-nav', 'Edit Incident'
+    is_css_in_page?  '.nav' 
+    is_text_in_section? '.navbar-brand', "System Dashboard"
+    is_text_in_section? '.navbar-nav', 'Dashboard'
+    is_text_in_section? '.navbar-nav', 'Contacts'
+    is_text_in_section? '.navbar-nav', 'Admin Login', false
+    is_text_in_section? '.navbar-nav', 'Create Incident'
+    is_text_in_section? '.navbar-nav', 'Edit Incident'
   end
   
 end

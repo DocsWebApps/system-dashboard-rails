@@ -14,10 +14,10 @@ class CheckHomepageTitleTest < ActionDispatch::IntegrationTest
 
   test 'Check the contents of the #title-section'  do
     # Check content of the <div> #title-section
-    css_in_page '#title-section' 
-    text_in_section '#title-section', "#{@dash_name} System Dashboard"
-    text_in_section '#title-section', "Providing information about the status of #{@dash_name} systems"
-    text_in_section '#title-section', 'Goto Dashboard'
+    is_css_in_page? '#title-section' 
+    is_text_in_section? '#title-section', "#{@dash_name} System Dashboard"
+    is_text_in_section? '#title-section', "Providing information about the status of #{@dash_name} systems"
+    is_text_in_section? '#title-section', 'Goto Dashboard'
   end
   
 end

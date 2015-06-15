@@ -26,47 +26,47 @@ class CheckHomepageDashboardTest < ActionDispatch::IntegrationTest
   end
 
   test 'Check the dashboard title' do
-    text_in_section '#status-section', 'System Status Information'
+    is_text_in_section? '#status-section', 'System Status Information'
   end
 
   test 'Check the contents of the #key-section'  do
     # Check content of the <div> #system-key
-    css_in_page '#key-section' 
+    is_css_in_page? '#key-section' 
     
     ['green.png','red.png','amber.png'].each do |colour|
-      image_in_section '#key-section', colour, 1
+      is_image_in_section? '#key-section', colour, 1
     end
 
-    text_in_section '#key-section', 'No Major System Problems'
-    text_in_section '#key-section', 'Priority 2 (P2) Incident Running Now'
-    text_in_section '#key-section', 'Priority 1 (P1) Incident Running Now'
+    is_text_in_section? '#key-section', 'No Major System Problems'
+    is_text_in_section? '#key-section', 'Priority 2 (P2) Incident Running Now'
+    is_text_in_section? '#key-section', 'Priority 1 (P1) Incident Running Now'
   end
 
   test 'Check the contents of the #system-section'  do
     # Check content of each <div> #system-section
-    css_in_page '#system-section' 
+    is_css_in_page? '#system-section' 
     @system.each do |key, value|
-      css_in_page "##{key}"
+      is_css_in_page? "##{key}"
       case value.name
         when 'spock'
             check_system_section value.name, "No previous incidents recorded", 'amber.png' 
-            text_in_section("##{key}", 'Incident Details')
+            is_text_in_section?("##{key}", 'Incident Details')
         when 'kirk'
             check_system_section value.name, "No previous incidents recorded", 'green.png'         
-            text_in_section("##{key}", 'Incident Details')
+            is_text_in_section?("##{key}", 'Incident Details')
         when 'bones'
             check_system_section value.name, "1 Incident in the last 24 hours", 'green.png' #
-            text_in_section("##{key}", 'Incident Details')
+            is_text_in_section?("##{key}", 'Incident Details')
         when 'sulu'
             check_system_section value.name, "4 Days since the last incident", 'red.png'  
-            text_in_section("##{key}", 'Incident Details')           
+            is_text_in_section?("##{key}", 'Incident Details')           
       end
     end
   end
 
   test 'Check the contents of the #refresh'  do
     # Check content of <p> #refresh
-    text_in_section('#refresh','Page last refreshed:')
+    is_text_in_section?('#refresh','Page last refreshed:')
   end
 
 end  
