@@ -1,5 +1,8 @@
 module API
-  class API::V2::SystemsController < ApplicationController
+  class API::V1::SystemsController < ApplicationController
+    skip_before_action :protect_from_forgery
+    protect_from_forgery with: :null_session
+
     include AuthenticateAPIRequest
     before_action :authenticate
     

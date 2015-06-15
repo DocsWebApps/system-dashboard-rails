@@ -1,5 +1,5 @@
 module API
-  class API::V2::TokensController < ApplicationController
+  class API::V1::TokensController < ApplicationController
     include AuthenticateAPIRequest
     before_action :authenticate
 

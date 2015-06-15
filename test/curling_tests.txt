@@ -22,7 +22,8 @@ curl -X DELETE -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' 
 
 
 #Version 2 API
-# Get all systems
-curl -H 'Authorization: Token token=fbcdbe86dfbf8c24bde83b20c361be6e' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems
+# Get CSRF Token
+curl -H 'Authorization: Token token=e63362ee65a25f331d6e0b5c16934ca3' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/token --cookie-jar cookie
 
-curl -H 'Authorization: Token token=a7cf047390a68d72b7fc4f2162093f63' -H 'Accept: application/json' -H 'Content-Type: application/json' http://system-dashboard.herokuapp.com/api/v2/systems
+# Get all systems
+curl -H 'Authorization: Token token=e63362ee65a25f331d6e0b5c16934ca3' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems --cookie cookie

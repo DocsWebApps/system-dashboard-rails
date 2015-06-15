@@ -9,10 +9,10 @@ SystemDashboard::Application.routes.draw do
   
   # API version 2 namespace
   namespace :api do
-    namespace :v2 do
+    namespace :v1 do
       get :token, to: 'tokens#get_new_token', as: :get_new_token
       resources :systems, only: :index do
-        resources :incidents, only: [:create, :update, :destroy, :index]
+        #resources :incidents, only: [:create, :update, :destroy, :index]
       end
     end
   end
