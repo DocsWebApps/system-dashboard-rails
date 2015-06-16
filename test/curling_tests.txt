@@ -22,8 +22,8 @@ curl -X DELETE -H 'Authorization: Token token=13411e2d037f4e99be893d45cd5bc746' 
 
 
 #Version 2 API
-# Get CSRF Token
-curl -H 'Authorization: Token token=e63362ee65a25f331d6e0b5c16934ca3' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/token --cookie-jar cookie
+# Get CSRF Token - resource protected by a token
+curl -H 'Authorization: Token token=e63362ee65a25f331d6e0b5c16934ca3' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v1/token --cookie-jar cookie
 
-# Get all systems
-curl -H 'Authorization: Token token=e63362ee65a25f331d6e0b5c16934ca3' -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v2/systems --cookie cookie
+# Get all systems - resource is not protected as its not required
+curl -H 'Accept: application/json' -H 'Content-Type: application/json' localhost:3000/api/v1/systems

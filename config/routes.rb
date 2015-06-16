@@ -19,7 +19,7 @@ SystemDashboard::Application.routes.draw do
 
   # Web application main functions namespace
   root 'home_page#index'
-  resources :systems, only: [:index, :show ]
+  resources :systems, only: [:show]
   resources :contacts, only: :index
   resources :sessions, only: [:new, :create]
   

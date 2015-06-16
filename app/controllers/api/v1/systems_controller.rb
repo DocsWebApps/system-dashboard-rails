@@ -4,7 +4,7 @@ module API
     protect_from_forgery with: :null_session
 
     include AuthenticateAPIRequest
-    before_action :authenticate
+    before_action :authenticate, except: :index
     
     def index
       systems=System.all
