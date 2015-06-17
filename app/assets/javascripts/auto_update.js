@@ -1,20 +1,18 @@
-var AUTO_UPDATE={
-  init: function() {
-    return 1;
-  },
-
-  fetchSystems: function() {
+(function poll() {
+  setTimeout(function() {
     $.get('/api/v1/systems', function(data) {
+      var sectionID;
       data['systems'].forEach(function(value, index, array) {
-        //$("#"+value.name).find("img").attr("src","/assets/green.png");
-        //$("#"+value.name).find("h3").text('Dave');
-        alert(value.name);
+        sectionID=value.name.replace(/\s+/g,'');
+        $("#"+sectionID).find("img").attr({src:"/assets/"+value.status+".png", alt: value.status});
+        $("#"+sectionID).find("h5").attr({class: value.color})
+        $("#"+sectionID).find("h5").text(value.message);
       });
+      poll();
     });
-  }
-};
+  },30000);
+})();
 
 $(document).ready(function() {
-  //AUTO_UPDATE.init();
-  AUTO_UPDATE.fetchSystems();
+  poll();
 });

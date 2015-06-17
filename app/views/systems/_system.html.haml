@@ -4,7 +4,7 @@
   - system_decorator.check_for_closed_incidents
   - smiley="#{system_decorator.status}.png"
   - message_color, message=system_decorator.set_message_and_message_color
-  .system-section{id: "#{system_name}"}
+  .system-section{id: "#{system_name.delete(' ')}"}
     %h3
       =image_tag("#{smiley}")
       %br

@@ -3,13 +3,14 @@ New Features to Add
 - Add static method to Incident to archive incidents closed > 24 hrs ago
 - Create a cyclic batch job (1min) to run above method and then remove all request
   driven methods in the current app. Too many requests = lots of DB work
-- Add SLA information plus a description of the system
+- Add SLA information plus a description of the system, change button to System Details
 - Add cucumber ????
-- Add ajax polling feature to update statues dynamically
+- Remove the modal and have a proper page refresh for incidents as the page will hold more dynamic information
 - API Version 2 - fully functional API for controlling the Dashboard
 
 3.0.0 dd/mm/yyyy
 ----------------
+- Added a new feature to automatically update itself every 30secs without a full page refresh - 17/06/2015
 - Updated gem page_right to version 0.6 - 15/06/2015
 - V1 API depricated - 14/06/2016
 - Added Gem rack-mini-profiler - 19/05/2015
@@ -36,7 +37,7 @@ New Features to Add
 - Moved all the JS to home_page.js
 - Upgrade to rails 4.2 plus additional JQuery - 22/12/2014
 
-2.0.0 20/12/2014
+2.0.0 22/12/2014
 ----------------
 - Version 2.0 beta
 - Rename hp_ref to fault_ref - 18/12/2014
@@ -81,4 +82,4 @@ New Features to Add
 
 1.0.0 03/09/2014
 ----------------
-- Version 1.0 complete 030920114
+- Version 1.0 complete 03/09/2014

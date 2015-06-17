@@ -41,9 +41,9 @@ class CheckAutoupdateTest < ActionDispatch::IntegrationTest
     incident.save
     @system.update_status
 
-    # Wait 60secs and then check the Homepage, it should now be a P1 (red.png) ie. autoupdated !!
-    #sleep(1) # Must change to 60 when feature is ready !!!!!!!!!!!!!!!!!
-    #check_system_section @system.name, "No previous incidents recorded", 'red.png'
+    # Wait 30secs and then check the Homepage, it should now be a P1 (red.png) ie. autoupdated !!
+    sleep(30) # Must change to 30 when feature is ready !!!!!!!!!!!!!!!!!
+    check_system_section @system.name, "No previous incidents recorded", 'red.png'
   end
   
 end
