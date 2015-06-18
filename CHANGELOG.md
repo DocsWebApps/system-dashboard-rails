@@ -1,10 +1,8 @@
 New Features to Add
 -------------------
-- Add static method to Incident to archive incidents closed > 24 hrs ago
-  Create a cyclic batch job (1min) to run above method and then remove all request
-  driven methods in the current app. Too many requests = lots of DB work
+- Create a cyclic batch job to run at 1min intervals to archive all closed incidents over 24hrs old and remove the
+  current request driven process.
 - Add SLA information plus a description of the system, change button to System Details
-- Remove the modal and have a proper page refresh for incidents as the page will hold more dynamic information
 - API Version 2 - fully functional API for controlling the Dashboard
 
 3.0.0 dd/mm/yyyy
