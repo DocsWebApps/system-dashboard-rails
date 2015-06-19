@@ -8,7 +8,7 @@ When an incident occurs on a particular system, you enter the details of the fau
 
 The status of your systems are colour coded to show whether the system is operating normaly (green), has a significant problem with it (yellow) or has a major problem with it (red). This means you can display the dashboard on a monitor or smart television mounted within your office space giving your user community a visual representation of the status of your key systems.
 
-Users can then click on a link for that system to see the details of the incident, plus any details you choose yo share with your users such as the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.
+Users can then click on a link for that system to see the details of the incident, plus any details you choose to share with your users such as the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.
 
 It therefore provides a simple but effective way to keep your key stakeholders updated with any problems that your systems or services may be experiencing and what work is being undertaken to restore them.
 

@@ -1,9 +1,10 @@
 New Features to Add
 -------------------
+- Add SLA information plus a description of the system, change button to System Details
 - Create a cyclic batch job to run at 1min intervals to archive all closed incidents over 24hrs old and remove the
   current request driven process.
-- Add SLA information plus a description of the system, change button to System Details
 - API Version 2 - fully functional API for controlling the Dashboard
+- A module to work out automatically the layout given any number of systems and display it
 
 2.2.0 19/06/2015
 ----------------
