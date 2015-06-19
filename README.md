@@ -1,14 +1,18 @@
 ## Welcome to the System Dashboard
 
-Version 2.1 19th February 2015
+Version 2.2 19th June 2015
 
 The System Dashboard is a web application developed using Ruby on Rails that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
-When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a serverity level and commit the information to the database. Immediatley the status of the system in question changes which is then clearly displayed on the dashboard for all to see. Users can then click on a link for that system to see the details of the incident, the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.
+When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a serverity level and commit the information to the database. Any browser displaying the dashboard will then automatically update itself within 30 seconds to show the details of that incident to your user community. 
+
+The status of your systems are colour coded to show whether the system is operating normaly (green), has a significant problem with it (yellow) or has a major problem with it (red). This means you can display the dashboard on a monitor or smart television mounted within your office space giving your user community a visual representation of the status of your key systems.
+
+Users can then click on a link for that system to see the details of the incident, plus any details you choose yo share with your users such as the details of any workarounds you want to convey to your user community or an estimated time to fix the fault.
 
 It therefore provides a simple but effective way to keep your key stakeholders updated with any problems that your systems or services may be experiencing and what work is being undertaken to restore them.
 
-An API is being developed to enable web clients, like Android or IOS mobile applications, to interact with the Dashboard but the application has also been designed to be responsive to mobile devices using the Bootstrap framework.
+An API is under development to enable web clients, like Android or IOS mobile applications, to interact with the Dashboard and the application has also been designed to be responsive to mobile devices. This means it will give your users a good viewing experience whether they are viewing the dashboard via a browser, tablet ot mobile phone.
 
 Semantic versioning is applied to this application.
 

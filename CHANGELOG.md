@@ -5,7 +5,7 @@ New Features to Add
 - Add SLA information plus a description of the system, change button to System Details
 - API Version 2 - fully functional API for controlling the Dashboard
 
-3.0.0 dd/mm/yyyy
+2.2.0 19/06/2015
 ----------------
 - Added a new feature to automatically update itself every 30secs without a full page refresh - 17/06/2015
 - Updated gem page_right to version 0.6 - 15/06/2015
