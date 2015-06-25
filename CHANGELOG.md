@@ -6,6 +6,12 @@ New Features to Add
 - API Version 2 - fully functional API for controlling the Dashboard
 - A module to work out automatically the layout given any number of systems and display it
 
+
+
+2.2.1 dd/mm/yyyy
+----------------
+- Added the momentjs library to format dates on the client
+
 2.2.0 19/06/2015
 ----------------
 - Added a new feature to automatically update itself every 30secs without a full page refresh - 17/06/2015

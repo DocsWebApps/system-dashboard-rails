@@ -8,6 +8,8 @@
         $("#"+sectionID).find("h5").attr({class: value.color})
         $("#"+sectionID).find("h5").text(value.message);
       });
+      var dt=moment().format('MMMM DD, YYYY H:mm');
+      $('#refresh').text('Last Refreshed: '+ dt);
       poll();
     });
   },30000);

@@ -28,6 +28,8 @@ gem 'simple_form', '~> 3.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Cool fonts and glyphs that are scalable
 gem "font-awesome-rails",'~> 4.2.0'
+# Use momentjs for Javascript time formatting
+gem 'momentjs-rails', '~> 2.10.3'
 
 group :development do
   # Generate ERD diagrams

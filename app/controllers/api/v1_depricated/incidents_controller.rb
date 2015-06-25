@@ -29,15 +29,15 @@
 #      incident=system.incidents.where(fault_ref: params[:id], status: 'Open')[0]
 #      incident.close_or_delete_incident(params[:query]) ? (render json: {result: 'close_delete_OK'}, status: 201) : (render json: {result: 'close_delete_BAD'}, status: 400)
 #    end
-
-    private  
-      def get_system
-        System.find_by name: params[:system]
-      end
-      
-      def incident_params
-        params.require(:incident).permit(:description, :severity, :fault_ref, :date, :time, :status)
-      end
-    
-  end
-end
+#
+#    private  
+#      def get_system
+#        System.find_by name: params[:system]
+#      end
+#      
+#      def incident_params
+#        params.require(:incident).permit(:description, :severity, :fault_ref, :date, :time, :status)
+#      end
+#    
+#  end
+#end
