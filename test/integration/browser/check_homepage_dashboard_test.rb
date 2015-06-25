@@ -66,7 +66,7 @@ class CheckHomepageDashboardTest < ActionDispatch::IntegrationTest
 
   test 'Check the contents of the #refresh'  do
     # Check content of <p> #refresh
-    is_text_in_section?('#refresh','Page last refreshed:')
+    is_text_in_section?('#refresh','Last Refreshed:')
   end
 
 end  

@@ -7,13 +7,15 @@ New Features to Add
 - A module to work out automatically the layout given any number of systems and display it
 
 
+Version 2.3.0 dd/mm/yyyy
+------------------------
+- V1 API Removed - 25/06/2015
+- Added the momentjs library to format dates on the client - 25/06/2015
+- Upgraded to rails 4.2.2 - 21/06/2015
+- Ammended documentation - 19/06/2015
 
-2.2.1 dd/mm/yyyy
-----------------
-- Added the momentjs library to format dates on the client
-
-2.2.0 19/06/2015
-----------------
+Version 2.2.0 19/06/2015
+------------------------
 - Added a new feature to automatically update itself every 30secs without a full page refresh - 17/06/2015
 - Updated gem page_right to version 0.6 - 15/06/2015
 - V1 API depricated - 14/06/2016
@@ -23,8 +25,8 @@ New Features to Add
 - Minor correction for homepage image no-repeat - 22/02/2015
 - Changes to incident details to and added viewport meta data in application.html - 19/02/2015
 
-2.1.0 19/02/2015
-----------------
+Version 2.1.0 19/02/2015
+------------------------
 - Added new pics and updated README v2.1 - 19/02/2015
 - Design/presentation of homepage given a lift - 19/02/2015
 - Changed config.serve_static_assets to config.serve_static_files in production.rb - 11/02/2015
@@ -41,8 +43,8 @@ New Features to Add
 - Moved all the JS to home_page.js
 - Upgrade to rails 4.2 plus additional JQuery - 22/12/2014
 
-2.0.0 22/12/2014
-----------------
+Version 2.0.0 22/12/2014
+------------------------
 - Version 2.0 beta
 - Rename hp_ref to fault_ref - 18/12/2014
 - Dropped comments table and :resolution and :title columns off incidents and incident_histories - 18/12/2014
@@ -84,6 +86,6 @@ New Features to Add
 - Updated version label in UML diagram to include System dashboard
 - Addition of Heroku environment script
 
-1.0.0 03/09/2014
-----------------
+Version 1.0.0 03/09/2014
+------------------------
 - Version 1.0 complete 03/09/2014
