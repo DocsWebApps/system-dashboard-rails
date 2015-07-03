@@ -7,7 +7,7 @@ New Features to Add
 - A module to work out automatically the layout given any number of systems and display it
 
 
-Version 2.3.0 dd/mm/yyyy
+Version 2.3.0 03/07/2015
 ------------------------
 - V1 API Removed - 25/06/2015
 - Added the momentjs library to format dates on the client - 25/06/2015

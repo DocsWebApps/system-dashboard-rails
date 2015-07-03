@@ -1,4 +1,3 @@
-
 System.delete_all
 System.create name: 'Billing System', row_id: 1, status: 'green'
 System.create name: 'Human Resources', row_id: 1, status: 'green'

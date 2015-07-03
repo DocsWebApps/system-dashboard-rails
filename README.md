@@ -1,10 +1,10 @@
 ## Welcome to the System Dashboard
 
-Version 2.2 19th June 2015
+Version 2.3 3rd July 2015
 
 The System Dashboard is a web application developed using Ruby on Rails that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
-When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a serverity level and commit the information to the database. Any browser displaying the dashboard will then automatically update itself within 30 seconds to show the details of that incident to your user community. 
+When an incident occurs on a particular system, you enter the details of the fault and the date and time it took place, you then choose a severity level and commit the information to the database. Any browser displaying the dashboard will then automatically update itself within 30 seconds to show the details of that incident to your user community. 
 
 The status of your systems are colour coded to show whether the system is operating normaly (green), has a significant problem with it (yellow) or has a major problem with it (red). This means you can display the dashboard on a monitor or smart television mounted within your office space giving your user community a visual representation of the status of your key systems.
 
