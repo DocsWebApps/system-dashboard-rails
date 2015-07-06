@@ -53,4 +53,4 @@ production:
   pool: 5
   username: dashadmin
   password: dashadmin
-  host: 172.17.0.28
+  host: system-dashboard-pgdb

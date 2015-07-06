@@ -7,8 +7,9 @@ New Features to Add
 - A module to work out automatically the layout given any number of systems and display it
 
 
-Version 2.3.0 03/07/2015
+Version 2.3.0 06/07/2015
 ------------------------
+- Updated database.yml production host to system-dashboard-pgdb - 06/07/2015
 - V1 API Removed - 25/06/2015
 - Added the momentjs library to format dates on the client - 25/06/2015
 - Upgraded to rails 4.2.2 - 21/06/2015

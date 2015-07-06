@@ -1,6 +1,6 @@
 ## Welcome to the System Dashboard
 
-Version 2.3 3rd July 2015
+Version 2.3 6th July 2015
 
 The System Dashboard is a web application developed using Ruby on Rails that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
