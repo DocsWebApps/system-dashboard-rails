@@ -30,15 +30,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "font-awesome-rails",'~> 4.2.0'
 # Use momentjs for Javascript time formatting
 gem 'momentjs-rails', '~> 2.10.3'
+# Use ruby racer to run serverside javascript
+gem 'therubyracer', '~> 0.12.2'
 
 group :development do
   # Generate ERD diagrams
   gem 'rails-erd', '~> 1.4.0'
-  # Automated deployment to production or staging environments
-  gem 'capistrano', '~> 3.2.1'
-  gem 'capistrano-bundler', '~> 1.1.3'
-  gem 'capistrano-rails', '~> 1.1.2'
-  gem 'capistrano-rbenv', '~> 2.0.2'
 end
 
 group :development, :test do
@@ -58,12 +55,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  # Gem for mocking and stubbing
-  gem 'mocha', '~> 1.1.0'
-  # Gem for testing Javascript
-  gem 'jasmine', '~> 2.1.0'
-  # Provides extensions to Jasmine for using JQuery and fixtures
-  gem 'jasmine-jquery-rails', '~> 2.0.3'
   # Build records for testing
   gem 'factory_girl_rails', '~> 4.4.1'                         # Test your return html with Capybara
   gem 'database_cleaner', github: 'bmabey/database_cleaner'    # Clean up the Test DB after testing
