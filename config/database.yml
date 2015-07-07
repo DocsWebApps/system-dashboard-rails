@@ -51,6 +51,6 @@ production:
   encoding: unicode
   database: dashproddb
   pool: 5
-  username: dashadmin
-  password: dashadmin
+  username: <%= ENV['DASH_USER'] %>
+  password: <%= ENV['DASH_PASS'] %>
   host: proddb
