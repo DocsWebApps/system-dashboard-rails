@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml', '~> 4.0.6'                          
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.2'
-gem 'jquery-ui-rails', '~> 5.0.3'
 # Build JSON APIs with ease.
 gem 'active_model_serializers', '~> 0.9.2'
 # Bootstrap 3.0

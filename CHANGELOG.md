@@ -5,6 +5,7 @@ New Features to Add
   current request driven process.
 - API Version 2 - fully functional API for controlling the Dashboard
 - A module to work out automatically the layout given any number of systems and display it
+- try and make the images avaiable via helper methods
 
 
 Version 2.3.0 06/07/2015
