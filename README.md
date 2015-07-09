@@ -1,6 +1,6 @@
 ## Welcome to the System Dashboard
 
-Version 2.3 6th July 2015
+Version 2.3 9th July 2015
 
 The System Dashboard is a web application developed using Ruby on Rails that provides a visual dashboard to display the status's of your critical systems to your colleagues, senior managers and customers.
 
@@ -40,10 +40,22 @@ Set up the following environment variables. In a production environment these wi
 
 ```ruby
 export RAILS_ENV=production
-export DASH_USER='** YOUR DB USERNAME **'
-export DASH_PASS='** YOUR DB PASSWORD **'
-export SECRET_KEY_BASE='** YOUR SECRET KEY **'
-export ADMIN_KEY='** YOUR ADMIN KEY **'
+
+export DEV_DB=*** name of your DEV DB ***
+export DEV_USER=*** name of your DEV USER ***
+export DEV_PASS=*** name of your DEV PASSWORD ***
+
+export TEST_DB=*** name of your TEST DB ***
+export TEST_USER=*** name of your TEST USER ***
+export TEST_PASS=*** name of your TEST USER ***
+
+export PROD_DB=*** name of your PROD DB ***
+export PROD_HOST=*** name of your PROD HOST ***
+export PROD_USER=*** name of your PROD USER ***
+export PROD_PASS=*** name of your PROD PASSWORD ***
+
+export SECRET_KEY_BASE='*** your SECRET-KEY ***'
+export ADMIN_KEY='*** Chose your own ADMIN-KEY ***'
 ```
 
 Run bundle install to download the gems.

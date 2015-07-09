@@ -8,8 +8,13 @@ New Features to Add
 - try and make the images avaiable via helper methods
 
 
-Version 2.3.0 06/07/2015
+Version 2.3.0 09/07/2015
 ------------------------
+- Updated CHANGELOG and README - 09/07/2015
+- Re-designed database.yml - 09/07/2015
+- Cleanedup database.yml file - 08/07/2015
+- Modify database.yml - 07/07/2015
+- Cleaned up gem file - 07/07/2015
 - Added the ruby racer gem - 06/07/2015
 - Changed production db to proddb - 06/07/2015
 - Updated database.yml production host to system-dashboard-pgdb - 06/07/2015
