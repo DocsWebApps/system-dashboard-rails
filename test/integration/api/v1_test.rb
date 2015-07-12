@@ -7,6 +7,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
     @user=role.users.first
     @system=FactoryGirl.create :system_with_incidents
     FactoryGirl.create :company
+    @time=Time.now.to_formatted_s(:long).to_s
   end
   
   def teardown
@@ -33,7 +34,7 @@ class API::V1::Test < ActionDispatch::IntegrationTest
       color,message=decorator.set_message_and_message_color
       get api_v1_systems_path, {}, {'Accept'=>Mime::JSON, 'Authorization'=>"Token token=#{@user.auth_token}"}
       assert_equal 200, response.status
-      assert_equal "{\"systems\":[{\"id\":#{@system.id},\"name\":\"#{@system.name}\",\"status\":\"#{@system.status}\",\"color\":\"#{color}\",\"message\":\"#{message}\"}]}", response.body
+      assert_equal "{\"systems\":[{\"id\":#{@system.id},\"name\":\"#{@system.name}\",\"status\":\"#{@system.status}\",\"color\":\"#{color}\",\"message\":\"#{message}\",\"time\":\"#{@time}\"}]}", response.body
       response.body
     end
     

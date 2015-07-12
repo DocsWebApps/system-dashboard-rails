@@ -8,8 +8,9 @@ New Features to Add
 - try and make the images avaiable via helper methods
 
 
-Version 2.3.0 09/07/2015
+Version 2.3.0 12/07/2015
 ------------------------
+- Provide server side date/time for homepage and api - 11/07/2015
 - Updated CHANGELOG and README - 09/07/2015
 - Re-designed database.yml - 09/07/2015
 - Cleanedup database.yml file - 08/07/2015
